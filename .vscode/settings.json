@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "scrollbarSlider.background": "#FF9900AA",
+    "scrollbarSlider.hoverBackground": "#FF9900CC",
+    "scrollbarSlider.activeBackground": "#FF9900FF"
+  },
+
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.matchBrackets": "always"
+}

@@ -1,0 +1,56 @@
+.imageupload {
+    &.imageupload-disabled {
+        cursor: not-allowed;
+        opacity: 0.60;
+
+        > * {
+            pointer-events: none;
+        }
+    }
+
+    .panel-title {
+        margin-right: 15px;
+        padding-top: 8px;
+    }
+
+    .alert {
+        margin-bottom: 10px;
+    }
+
+    .btn-file {
+        overflow: hidden;
+        position: relative;
+
+        input[type="file"] {
+            cursor: inherit;
+            display: block;
+            font-size: 100px;
+            min-height: 100%;
+            min-width: 100%;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            text-align: right;
+            top: 0;
+        }
+    }
+
+    .file-tab {
+        // Remove file button.
+        button {
+            display: none;
+        }
+
+        .thumbnail {
+            margin-bottom: 10px;
+        }
+    }
+
+    .url-tab {
+        display: none;
+
+        .thumbnail {
+            margin: 10px 0;
+        }
+    }
+}

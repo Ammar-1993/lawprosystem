@@ -1,0 +1,9 @@
+.error {
+  border: 1px solid #f00;
+  text-align: left !important;
+  float: left !important;
+  /*color: red;*/
+  font-size: 15px !important;
+  margin-top: 0px !important;
+  width: 100%;
+}

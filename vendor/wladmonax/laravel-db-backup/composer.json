@@ -1,0 +1,30 @@
+{
+    "name": "wladmonax/laravel-db-backup",
+    "description": "Backup and restore databases. Encrypting dumps. Save dumps to db and uploading to Dropbox. Restore dump from Dropbox.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladyslav Ternal",
+            "email": "wlad.monax@gmail.com"
+        },
+        {
+            "name": "Larkin Whitaker",
+            "email": "larkinwhitaker@gmail.com"
+        },
+        {
+            "name": "Yevheniy Lypey",
+            "email": "ilevgenij@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.*",
+        "spatie/flysystem-dropbox": "^1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Witty\\LaravelDbBackup": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

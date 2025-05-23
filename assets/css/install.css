@@ -1,0 +1,15 @@
+.login_wrapper {
+    right: 0;
+    margin: 5% auto 0;
+    max-width: 700px;
+    position: relative;
+}
+
+.login_content {
+    margin: 0 auto;
+    padding: 25px 0 0;
+    position: relative;
+    text-align: left !important;
+    text-shadow: 0 1px 0 #fff;
+    min-width: 280px;
+}

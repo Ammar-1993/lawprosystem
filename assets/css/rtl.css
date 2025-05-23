@@ -1,0 +1,97 @@
+/* --- تعديلات الشريط الجانبي لـ RTL --- */
+
+/* استهداف عناصر القائمة الرئيسية */
+body.rtl .nav.side-menu > li > a {
+  padding: 10px 15px 10px 10px; /* تعديل الحشو: الحفاظ على اليمين، تقليل/إزالة اليسار */
+  text-align: right; /* محاذاة النص لليمين */
+}
+
+/* استهداف أيقونات Font Awesome داخل الروابط الرئيسية */
+body.rtl .nav.side-menu > li > a > .fa {
+  float: right; /* جعل الأيقونة تطفو لليمين */
+  margin-left: 10px; /* إضافة مسافة يسار الأيقونة (للفصل عن حافة الشاشة) */
+  margin-right: 0; /* إزالة المسافة الافتراضية يمين الأيقونة */
+  width: 26px; /* تحديد عرض ثابت (قد تحتاج لتعديله حسب القالب) */
+  text-align: center; /* توسيط الأيقونة داخل عرضها */
+  line-height: 30px; /* محاذاة عمودية (قد تحتاج لتعديلها) */
+}
+
+/* ضمان عدم تداخل النص مع الأيقونة */
+body.rtl .nav.side-menu > li > a > span {
+  display: block;
+  overflow: hidden; /* لمنع النص من الالتفاف حول الأيقونة */
+  margin-right: 30px; /* إضافة هامش يمين النص لإفساح المجال للأيقونة التي أصبحت على اليمين (قد تحتاج لتعديل القيمة) */
+  margin-left: 0;
+  text-align: right; /* تأكيد محاذاة النص لليمين */
+}
+
+/* استهداف عناصر القوائم الفرعية */
+body.rtl .nav.child_menu > li > a {
+  padding-left: 0;
+  padding-right: 43px; /* تطبيق الحشو على اليمين (قيمة أكبر للقائمة الفرعية) */
+  text-align: right;
+}
+body.rtl .nav.child_menu li::before {
+  left: auto; /* إزالة القاعدة الأصلية */
+  right: 23px; /* وضع الخط العمودي على اليمين */
+}
+/* تأكد من أن الخطوط الرأسية والأفقية للقائمة الفرعية تظهر بشكل صحيح */
+body.rtl .nav.child_menu li:last-child {
+  border-left: none;
+  padding-bottom: 10px;
+}
+/* قد تحتاج لتعديل ':after' أيضاً إذا كان يرسم خطاً */
+body.rtl .nav > li > a:focus,
+body.rtl .nav > li > a:hover {
+  text-decoration: none;
+  background: transparent; /* تأكد من عدم وجود خلفية غير مرغوبة عند الـ hover */
+}
+
+/* استهداف أسهم القوائم المنسدلة */
+body.rtl .nav.side-menu > li > a > .fa-chevron-down,
+body.rtl .nav.side-menu > li > a > .fa-chevron-up {
+  float: left !important; /* إبقاء السهم على اليسار باستخدام !important إذا لزم الأمر */
+  margin-left: 5px;
+  margin-right: auto;
+  text-align: left;
+  position: absolute; /* قد يحتاج لتحديد الموضع بشكل مطلق */
+  left: 10px; /* مثال لموضع السهم على اليسار */
+  top: 12px; /* مثال لموضع السهم العمودي */
+  right: auto; /* إلغاء الموضع الأيمن */
+}
+
+/* تعديل منطقة الشعار/عنوان الموقع إذا لزم الأمر */
+body.rtl .nav_title {
+  text-align: right;
+}
+body.rtl .nav_title .site_title i.fa {
+  /* إذا كنت تستخدم أيقونة للشعار */
+  float: right;
+  margin-left: 8px; /* مسافة بين الأيقونة والنص */
+  margin-right: 0;
+}
+body.rtl .nav_title .site_title span {
+  display: block;
+  overflow: hidden;
+  text-align: right;
+  margin-right: 30px; /* مثال: مسافة للنص بجانب الأيقونة */
+  margin-left: 0;
+}
+
+/* تعديل قسم معلومات المستخدم (Profile) */
+body.rtl .profile_info span,
+body.rtl .profile_info h2 {
+  text-align: right;
+}
+body.rtl .profile_pic {
+  float: right;
+  margin-left: 15px;
+  margin-right: 0;
+}
+body.rtl .profile_info {
+  padding-left: 0;
+  padding-right: 10px;
+  overflow: hidden;
+  float: right; /* جعل معلومات المستخدم تطفو لليمين */
+  width: calc(100% - 70px); /* مثال: تحديد عرض بناءً على عرض الصورة والهوامش */
+}

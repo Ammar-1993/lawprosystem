@@ -1,0 +1,28 @@
+{
+    "name": "hesto/multi-auth",
+    "description": "Multi Auth for Laravel 5.3",
+    "keywords": ["auth", "multi", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hesto",
+            "email": "losiakp@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "hesto/core": "2.0.*"
+    },    
+    "autoload": {
+        "psr-4": {
+            "Hesto\\MultiAuth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hesto\\MultiAuth\\MultiAuthServiceProvider"
+            ]
+        }
+    }
+}

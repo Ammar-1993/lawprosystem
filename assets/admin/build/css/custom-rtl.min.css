@@ -1,0 +1,372 @@
+/* custom-rtl.min.css */
+
+/* --- Base Direction --- */
+body {
+    direction: rtl;
+    /* Consider adding an Arabic-compatible font-family here or in base CSS */
+    /* font-family: "YourArabicFontName", "sans-serif", Roboto, Arial, "Droid Sans", sans-serif; */
+    font-family: "Cairo", "Noto Sans Arabic", "Tajawal", "sans-serif", Roboto, Arial, "Droid Sans", sans-serif;
+    text-align: right; /* Set default text alignment */
+}
+
+/* --- General Alignment/Float Swaps --- */
+.left, .alignleft { float: right !important; } /* Rename/rethink these classes semantically if possible */
+.right, .alignright { float: left !important; } /* Rename/rethink these classes semantically if possible */
+
+/* --- Layout Adjustments (Examples) --- */
+.nav-sm .container.body .right_col {
+    margin-left: auto; /* Reset LTR margin */
+    margin-right: 70px; /* Add RTL margin */
+}
+.nav-md .container.body .right_col {
+    margin-left: auto; /* Reset LTR margin */
+    margin-right: 230px; /* Add RTL margin */
+}
+.main_container .top_nav {
+    margin-left: auto; /* Reset LTR margin */
+    margin-right: 230px; /* Add RTL margin */
+}
+.nav-sm .main_container .top_nav {
+    margin-left: auto; /* Reset LTR margin */
+    margin-right: 70px; /* Add RTL margin */
+}
+
+/* --- Sidebar & Menu (Examples) --- */
+.nav.side-menu > li.active,
+.nav.side-menu > li.current-page {
+    border-right: none; /* Remove LTR border */
+    border-left: 5px solid #1abb9c; /* Add RTL border */
+}
+.nav-sm .nav.side-menu li.active-sm {
+    border-right: none; /* Remove LTR border */
+    border-left: 5px solid #1abb9c; /* Add RTL border */
+}
+.nav-sm ul.nav.child_menu {
+    left: auto; /* Reset LTR position */
+    right: 100%; /* Set RTL position */
+}
+.nav-sm ul.nav.child_menu li a {
+    text-align: right !important;
+}
+.nav.child_menu li {
+    padding-left: auto; /* Reset LTR padding */
+    padding-right: 36px; /* Add RTL padding */
+}
+.nav-md ul.nav.child_menu li:before {
+    left: auto; /* Reset LTR position */
+    right: 23px; /* Set RTL position */
+}
+.nav-md ul.nav.child_menu li:after {
+    border-left: none; /* Remove LTR border */
+    left: auto; /* Reset LTR position */
+    border-right: 1px solid #425668; /* Add RTL border */
+    right: 27px; /* Set RTL position */
+}
+.main_menu span.fa { /* Arrow icons */
+    float: left;
+}
+.menu_section h3 {
+    padding-left: auto;
+    padding-right: 15px;
+}
+.site_title {
+    padding-left: auto;
+    padding-right: 10px;
+}
+.sidebar-footer a {
+    float: right; /* Reverse float order */
+}
+/* Keep footer icons LTR if needed */
+.sidebar-footer {
+   direction: ltr;
+   text-align: center;
+}
+
+
+/* --- Top Navigation (Examples) --- */
+.nav_title {
+    float: right;
+}
+.toggle { /* Menu toggle button */
+    float: right;
+}
+.top_nav .navbar-right {
+    float: left;
+    width: auto; /* Adjust width as needed */
+    margin-right: 800px; /* Adjust as needed */
+    margin-left: auto; /* Reset LTR margin */
+}
+.top_nav .navbar-right li {
+    float: left; /* Display items left-to-right within the left-floated container */
+}
+.navbar-nav .open .dropdown-menu { /* User menu, message menu */
+    right: auto;
+    left: 0;
+}
+.user-profile img {
+    margin-right: auto;
+    margin-left: 10px;
+}
+.info-number .badge { /* Notification badge */
+    right: auto;
+    left: 2px;
+}
+ul.msg_list li a .image img {
+    float: right;
+    margin-right: auto;
+    margin-left: 10px;
+}
+ul.msg_list li a .time {
+    right: auto;
+    left: 35px;
+}
+
+/* --- Page Content / Titles / Panels (Examples) --- */
+.page-title .title_left {
+    float: right;
+    text-align: right;
+}
+.page-title .title_right {
+    float: left;
+    text-align: left; /* Align content within this section left */
+}
+.page-title .title_right .pull-right {
+     float: left !important; /* Override pull-right */
+}
+.x_title h2 {
+    float: right;
+}
+.x_title .filter {
+    float: left;
+}
+.x_title h2 small {
+    margin-left: auto;
+    margin-right: 10px;
+}
+.panel_toolbox { /* Icons like close/collapse on panels */
+    float: left;
+}
+.panel_toolbox > li {
+    float: right; /* Icons float right within the left-floated toolbox */
+}
+.x_content {
+    float: right; /* Or remove float and use clear: both */
+    text-align: right;
+}
+
+/* --- Tables / DataTables (Examples) --- */
+table.tile_info td i { /* Icons in info tiles */
+    float: right;
+    margin-right: auto;
+    margin-left: 8px;
+}
+/* Removed empty ruleset as it had no styles */
+table.tile_info td p {
+    text-align: right;
+}
+.dataTables_length { /* Show entries */
+    float: right;
+    text-align: right;
+}
+.dataTables_filter { /* Search box */
+    float: left;
+    text-align: left;
+}
+.dataTables_info { /* Showing x of y entries */
+    float: right;
+    text-align: right;
+}
+.dataTables_paginate { /* Pagination */
+    float: left;
+    text-align: left;
+}
+table.jambo_table thead {
+    text-align: right;
+}
+/* Assuming table cell content should be right-aligned by default */
+table.dataTable td, table.dataTable th {
+    text-align: right;
+}
+/* Override specific columns if they need left alignment */
+/* table.dataTable td.some-left-aligned-column { text-align: left; } */
+
+/* --- Forms (Examples) --- */
+.form-horizontal .control-label {
+    text-align: right;
+}
+.form-control-feedback.left {
+    border-right: none;
+    left: auto;
+    border-left: 1px solid #ccc;
+    right: 13px;
+}
+.form-control-feedback.right {
+    border-left: none;
+    right: auto;
+    border-right: 1px solid #ccc;
+    left: 13px;
+}
+.form-control.has-feedback-left {
+    padding-left: 12px; /* Reset default */
+    padding-right: 45px;
+}
+.form-control.has-feedback-right {
+    padding-right: 12px; /* Reset default */
+    padding-left: 45px;
+}
+ul.parsley-errors-list {
+    padding-left: auto;
+    padding-right: 0;
+    text-align: right;
+}
+.item .alert {
+    float: right;
+    margin: 0 20px 0 0;
+    left: auto;
+    right: -15px;
+    border-radius: 4px 3px 3px 4px; /* Flipped */
+}
+.item .alert::after {
+    border-color: transparent transparent transparent #ce5454; /* Flipped */
+    left: auto;
+    right: -13px;
+}
+.item.bad .alert {
+    left: auto;
+    right: 0;
+}
+.login_content form input[type="submit"] {
+     float: right;
+     margin-left: auto;
+     margin-right: 38px;
+}
+.login_content div .reset_pass {
+     float: left;
+     margin-right: auto;
+     margin-left: 39px;
+}
+
+
+/* --- Widgets / Tiles (Examples) --- */
+.profile_pic {
+    float: right;
+}
+.img-circle.profile_img {
+    margin-left: auto;
+    margin-right: 15%;
+}
+.profile_info {
+    float: right;
+    text-align: right;
+}
+.profile.img_2 .profile_info {
+    float: right;
+}
+.tile-stats .icon { /* Icon in corner of stats tiles */
+    right: auto;
+    left: 53px;
+}
+.tile-stats .count, .tile-stats h3, .tile-stats p {
+    margin: 0 10px 0 0; /* Right margin */
+    text-align: right;
+}
+table.tile_info span.right { /* Percentage value in tile */
+    float: left;
+    right: auto;
+    left: 4%;
+}
+.widget_summary .w_left {
+    float: right;
+    text-align: right;
+}
+.widget_summary .w_right {
+    float: left;
+    text-align: left;
+}
+.tile_count .tile_stats_count:before {
+    left: auto;
+    right: 0;
+    border-left: none;
+    border-right: 2px solid #adb2b5;
+}
+.tile_count .tile_stats_count:first-child:before {
+    border-left: none;
+    border-right: 0;
+}
+
+/* --- Other Components (Examples) --- */
+ul.bar_tabs {
+    padding-left: auto;
+    padding-right: 14px;
+}
+ul.bar_tabs > li {
+    float: right; /* Make tabs flow right-to-left */
+    margin-left: auto;
+    margin-right: 8px;
+}
+ul.bar_tabs > li.active {
+    border-right: none;
+    border-left: 6px solid #d3d6da;
+}
+.timeline .block {
+    margin: 0 105px 0 0; /* Right margin */
+    border-left: none;
+    border-right: 3px solid #e8e8e8; /* Right border */
+    text-align: right;
+}
+.timeline .tags {
+    left: auto;
+    right: 0;
+}
+.timeline .tag:after { /* Arrow on tag */
+    left: auto;
+    right: 100%;
+    border-left: none;
+    border-right: 11px solid #1abb9c; /* Pointing left */
+}
+.timeline h2.title:before { /* Dot on timeline */
+    left: auto;
+    right: -23px;
+}
+ul.messages li img.avatar {
+    float: right;
+}
+ul.messages li .message_date {
+    float: left;
+    text-align: left;
+}
+ul.messages li .message_wrapper {
+    margin-left: 40px; /* Swap margins */
+    margin-right: 50px;
+    text-align: right;
+}
+ul.messages li .message_wrapper blockquote {
+    border-left: none;
+    border-right: 5px solid #eee;
+}
+.progress_title .left {
+    float: right;
+    text-align: right;
+}
+.progress_title .right {
+    float: left;
+    text-align: left;
+}
+
+/* --- Wizard (Example) --- */
+.wizard_horizontal ul.wizard_steps li:first-child a:before {
+    left: auto;
+    right: 50%;
+}
+.wizard_horizontal ul.wizard_steps li:last-child a:before {
+    right: auto;
+    left: 50%;
+}
+
+/* --- Language Switcher Specific --- */
+.language-switcher-item .dropdown-menu {
+     right: auto !important; /* Ensure dropdown opens to the left if needed */
+     left: 0 !important;
+}
+
+/* Add other necessary overrides below */

@@ -1,0 +1,43 @@
+{
+  "name": "bootstrap-imageupload",
+  "version": "1.1.3",
+  "description": "A Bootstrap/jQuery plugin to preview image uploads.",
+  "main": "dist/js/bootstrap-imageupload.js",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-header": "^1.8.8",
+    "gulp-jshint": "^2.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.3"
+  },
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://egonolieux@github.com/egonolieux/bootstrap-imageupload.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "jquery",
+    "image",
+    "upload",
+    "thumbnail",
+    "preview",
+    "file",
+    "url"
+  ],
+  "author": "Egon Olieux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/egonolieux/bootstrap-imageupload/issues"
+  },
+  "homepage": "https://github.com/egonolieux/bootstrap-imageupload"
+}

@@ -1,0 +1,66 @@
+/*!
+ * RTL (Arabic) specific styles for Bootstrap Datepicker v1.6.4
+ */
+
+/*
+ * Dropdown arrow positioning for RTL.
+ * When the datepicker is oriented to the "start" of the input (datepicker-orient-left),
+ * in RTL this means the arrow should be on the right side of the dropdown.
+ * When oriented to the "end" (datepicker-orient-right),
+ * in RTL this means the arrow should be on the left side of the dropdown.
+ */
+ .datepicker-rtl.datepicker-dropdown.datepicker-orient-left:before {
+    left: auto;
+    right: 6px;
+  }
+  .datepicker-rtl.datepicker-dropdown.datepicker-orient-left:after {
+    left: auto;
+    right: 7px;
+  }
+  
+  .datepicker-rtl.datepicker-dropdown.datepicker-orient-right:before {
+    right: auto;
+    left: 6px;
+  }
+  .datepicker-rtl.datepicker-dropdown.datepicker-orient-right:after {
+    right: auto;
+    left: 7px;
+  }
+  
+  /*
+   * Calendar week (cw) cell padding for RTL.
+   * Original LTR: padding: top right bottom left;
+   * RTL: padding: top left bottom right;
+   */
+  .datepicker-rtl .datepicker-days table thead tr .cw {
+    padding: 0 5px 0 2px;
+  }
+  
+  /*
+   * Input Daterange border-radius for RTL.
+   * In RTL, the first input visually appears on the right, and the last on the left.
+   */
+  .datepicker-rtl .input-daterange input:first-child {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .datepicker-rtl .input-daterange input:last-child {
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /*
+   * Ensure spans for months/years/decades float right.
+   * This might be redundant if the original CSS's
+   * ".datepicker.datepicker-rtl table tr td span { float: right; }"
+   * has enough specificity, but added for robustness.
+   */
+  .datepicker-rtl .datepicker-months table tr td span,
+  .datepicker-rtl .datepicker-years table tr td span,
+  .datepicker-rtl .datepicker-decades table tr td span,
+  .datepicker-rtl .datepicker-centuries table tr td span {
+    float: right;
+  }
