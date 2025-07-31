@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $image_logo->company_name ?? '' }} | Password Reset </title>
+    <title>{{ $image_logo->company_name ?? 'Law Pro' }} | Password Reset </title>
     @if ($image_logo->favicon_img != '')
         <link rel="shortcut icon"
             href="{{ asset(config('constants.FAVICON_FOLDER_PATH') . '/' . $image_logo->favicon_img) }}">

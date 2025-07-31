@@ -7,5 +7,6 @@
 
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
-  "editor.matchBrackets": "always"
+  "editor.matchBrackets": "always",
+  "postman.settings.dotenv-detection-notification-visibility": false
 }
