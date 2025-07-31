@@ -78,30 +78,26 @@ This interface provides a clear and organized view of all scheduled client appoi
 The Role Management interface allows administrators to define and control user roles within the system. Each role—such as Admin, Lawyer, or Employee—can be managed from this centralized view. Through the actions dropdown, users can assign specific permissions, edit role details, or remove roles as needed. This interface supports fine-grained access control, ensuring users only interact with features relevant to their responsibilities, thus improving both security and operational clarity.*
 > <img width="1920" height="1348" alt="image" src="https://github.com/user-attachments/assets/9205aa9b-214a-498e-8296-cc7d09445aba" />
 
-> *🔐 Permissions Management Interface
+> *🔐 Permissions Management Interface:
 This interface enables administrators to assign fine-grained access control to different user roles. It presents a structured permissions matrix where menus and their submenus are listed alongside checkboxes for View, Add, Edit, and Delete actions. This modular permission system ensures that users only access the functionality relevant to their role, enhancing system security, data integrity, and operational focus. Changes can be saved or discarded with the provided action buttons.*
 > <img width="1920" height="1816" alt="image" src="https://github.com/user-attachments/assets/440d7a99-5824-4506-97b8-a3f7768d303a" />
 
-> *👤 Member Management Interface
+> *👤 Member Management Interface:
 This interface allows administrators to view, manage, and organize system users. Each member entry displays essential details such as name, email, phone number, assigned role, and status. Admins can activate or deactivate users with a simple toggle and access additional actions (e.g., edit or delete) through a dropdown menu. This streamlined layout makes it easy to manage team members and ensure the right access for Admins, Lawyers, and Employees.*
 > <img width="1920" height="1348" alt="image" src="https://github.com/user-attachments/assets/0e42fe17-c0b9-435a-8362-e81251cc291a" />
 
-> *➕ Add Member Interface
+> *➕ Add Member Interface:
 The Add Member interface is designed for creating new user accounts efficiently. It supports both English and Arabic languages and includes fields for all essential user information such as name, email, mobile number, address, password, and role assignment. The form features dropdowns for country, state, and city selection, and includes a profile picture uploader for personalization.
-
 Built-in form validation ensures required fields are completed correctly, providing instant feedback to the user. The design is clean and responsive, supporting both LTR and RTL layouts to deliver a consistent experience for Arabic and English users.*
 > <img width="1920" height="1312" alt="image" src="https://github.com/user-attachments/assets/25353b5e-8fdb-44e6-a9da-85448041b6d8" />
 > <img width="1920" height="1374" alt="image" src="https://github.com/user-attachments/assets/4eb9df86-e339-4620-9228-07364d3a0f67" />
 > <img width="1920" height="1312" alt="image" src="https://github.com/user-attachments/assets/7576a109-0a40-49b5-81db-53d26dd520ff" />
 > <img width="1920" height="1239" alt="image" src="https://github.com/user-attachments/assets/29eda36d-098b-49a3-9906-0cad3d3d2aa4" />
 
-> *⚙️ My Account Interface (Profile & Password Settings)
+> *⚙️ My Account Interface (Profile & Password Settings):
 The My Account module allows users to update their personal information and manage password security. It includes two primary tabs:
-
 Profile Tab: Enables users to update details like name, email, mobile number, registration number, address, and assigned role. The interface also allows users to upload or remove a profile picture, enhancing personalization within the system. Country, state, and city dropdowns ensure precise location settings.
-
 Password Tab: Facilitates secure password changes by requiring the current password, a new password, and confirmation. Validation feedback is displayed in both English and Arabic, with real-time error prompts guiding users to complete the form correctly.
-
 This interface is bilingual and designed with usability in mind, supporting accessibility, security, and a smooth user experience for all roles.*
 > <img width="1920" height="1330" alt="image" src="https://github.com/user-attachments/assets/3c561f3a-94c6-410e-82a4-951653d2b3f6" />
 > <img width="1920" height="1312" alt="image" src="https://github.com/user-attachments/assets/531d9c3b-f2ef-4c3e-a4ae-ea268b0a283a" />
