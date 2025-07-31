@@ -128,7 +128,7 @@ The system includes four predefined user types for testing:
 
 ### Installation Steps
 ```bash
-git clone https://github.com/yourusername/lawpro.git
+git clone https://github.com/yourusername/lawprosystem.git
 cd lawpro
 composer install
 cp .env.example .env
