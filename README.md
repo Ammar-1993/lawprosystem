@@ -128,7 +128,7 @@ The system includes four predefined user types for testing:
 
 ### Installation Steps
 ```bash
-git clone https://github.com/yourusername/lawprosystem.git
+git clone https://github.com/Ammar-1993/lawprosystem.git
 cd lawpro
 composer install
 cp .env.example .env
@@ -137,7 +137,7 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-Access the system at: **http://127.0.0.1:8000/**
+Access the system at: **http://127.0.0.1/lawprosystem**
 
 ---
 
