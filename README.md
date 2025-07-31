@@ -55,7 +55,7 @@ This system enhances productivity, reduces errors, improves client service, and 
 
 > *🔐 Login Interface:
 The login interface provides users with secure access to the system through a clean and intuitive Arabic user interface. It includes fields for entering an email address and password, a password visibility toggle, and a “Forgot Password?” option for easy recovery. The interface supports multilingual access (Arabic and English) and aligns with modern UI principles to ensure usability across devices.*
-> <img width="626" height="645" alt="image" src="https://github.com/user-attachments/assets/735ff32a-15f5-4a9d-a29a-14dab2a8f8ee" />
+> <img width="1920" height="1312" alt="image" src="https://github.com/user-attachments/assets/735ff32a-15f5-4a9d-a29a-14dab2a8f8ee" />
 
 > *📊 Dashboard Interface:
 The dashboard provides a comprehensive overview of the system’s key metrics and real-time activity. Users are welcomed with interactive status cards summarizing archived, urgent, and total case counts, as well as client statistics. Below, users can view upcoming hearings, case statuses, and appointment details. A fully integrated calendar allows for visual tracking of schedules, making it easier to manage legal deadlines and meetings. The sidebar offers quick access to core modules, including clients, cases, tasks, members, roles, and settings — all within a clean, responsive layout that supports Arabic and English.*
