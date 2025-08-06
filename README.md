@@ -212,6 +212,16 @@ Access the system at: **http://127.0.0.1/lawprosystem**
 
 ---
 
+## Contact Us
+
+For any questions, feedback, or support, please contact:
+
+**Ammar-1993**  
+- WhatsApp: [Click here](https://wa.me/967714294340)  
+- Gmail: [Click here](mailto:ammaralnggar@gmail.com) 
+
+---
+
 ## 📄 License
 This project is part of a graduation thesis and currently licensed for educational and academic use. For commercial licensing or collaboration, please contact the authors or Bisha University’s Department of Information Systems.
 
@@ -219,3 +229,5 @@ This project is part of a graduation thesis and currently licensed for education
 
 ## 🌐 Acknowledgements
 We extend our sincere thanks to our supervisor, faculty members, families, and peers who supported this project and inspired our success.
+
+---
