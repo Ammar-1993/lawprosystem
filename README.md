@@ -1,10 +1,10 @@
 
 # ⚖️ Law Pro – Law Firm Management System
 
-> A Web-Based Solution for Organizing and Managing Legal Practices  
-> **Developed by:** Rahaf Ayed Alharthi, Noura Ayed Al-Qahtani, Mona Saud Al-Shahrani, Rinas Khalofa Al Ameri  
-> **Supervised by:** Dr. Doaa M. Bamasoud  
-> **Faculty of Computing and Information Technology – University of Bisha**
+> A Web-Based Solution for Organizing and Managing Legal Practices
+> **Developed by:** Ammar Al-Najjar — Full-Stack Software Engineer
+>
+> This system was designed and built end-to-end (architecture, backend, database, and UI) as an early freelance software engineering project. All code and technical decisions in this repository are my own work.
 
 ---
 
@@ -166,10 +166,10 @@ The system includes four predefined user types for testing:
 
 | Role        | Email                     | Password        |
 |-------------|---------------------------|-----------------|
-| Super Admin | superadmin@gmail.com      | @Super12345     |
-| Admin       | admin@gmail.com           | @Admin12345     |
-| Lawyer      | lawyer@gmail.com          | @Lawyer12345    |
-| Employee    | employee@gmail.com        | @Employee12345  |
+| Super Admin | superadmin@gmail.com      | S#9mK2v$P       |
+| Admin       | admin@gmail.com           | A%4qL8x@Z       |
+| Lawyer      | lawyer@gmail.com          | L&7jR3w*C       |
+| Employee    | employee@gmail.com        | E!2nY6t^M       |
 
 
 ## 🚀 Getting Started
@@ -203,12 +203,12 @@ Access the system at: **http://127.0.0.1/lawprosystem**
 
 ---
 
-## 🤝 Authors & Contributors
-- **Rahaf Ayed Alharthi** – Backend & Database
-- **Noura Ayed Al-Qahtani** – UI/UX & Testing
-- **Mona Saud Al-Shahrani** – Documentation & Research
-- **Rinas Khalofa Al Ameri** – System Design & Deployment
-- **Supervisor:** Dr. Doaa M. Bamasoud
+## 🤝 Author
+
+**Ammar Al-Najjar** — Full-Stack Software Engineer
+Sole developer of this system's architecture, backend, and frontend.
+- GitHub: https://github.com/Ammar-1993
+- Portfolio: https://ammar1993.vercel.app/
 
 ---
 
@@ -223,11 +223,6 @@ For any questions, feedback, or support, please contact:
 ---
 
 ## 📄 License
-This project is part of a graduation thesis and currently licensed for educational and academic use. For commercial licensing or collaboration, please contact the authors or Bisha University’s Department of Information Systems.
-
----
-
-## 🌐 Acknowledgements
-We extend our sincere thanks to our supervisor, faculty members, families, and peers who supported this project and inspired our success.
+This project is shared publicly as a portfolio piece. All rights reserved by the author. Feel free to explore the code for learning purposes; for commercial use or collaboration inquiries, please contact me directly via the channels above.
 
 ---
