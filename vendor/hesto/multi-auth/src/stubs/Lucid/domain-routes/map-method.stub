@@ -1,9 +1,0 @@
-
-Route::group([
-    'middleware' => ['web', '{{singularSnake}}', 'auth:{{singularSnake}}'],
-    'domain' => '{{singularSlug}}.' . env('APP_DOMAIN'),
-    'as' => '{{singularSlug}}.',
-], function ($router) {
-    require __DIR__ . '/{{singularSlug}}-routes.php';
-});
-

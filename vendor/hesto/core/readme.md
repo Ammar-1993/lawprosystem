@@ -1,3 +1,0 @@
-# Hesto Core
-
-Core classes.
