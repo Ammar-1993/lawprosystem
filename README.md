@@ -203,6 +203,15 @@ Access the system at: **http://127.0.0.1/lawprosystem**
 
 ---
 
+## 🤝 Author
+
+**Ammar Al-Najjar** — Full-Stack Software Engineer
+Sole developer of this system's architecture, backend, and frontend.
+- GitHub: https://github.com/Ammar-1993
+- Portfolio: https://ammar1993.vercel.app/
+
+---
+
 ## Contact Us
 
 For any questions, feedback, or support, please contact:
@@ -215,15 +224,6 @@ For any questions, feedback, or support, please contact:
 
 ## 📄 License
 This project is shared publicly as a portfolio piece. All rights reserved by the author. Feel free to explore the code for learning purposes; for commercial use or collaboration inquiries, please contact me directly via the channels above.
-
----
-
-## 🤝 Author
-
-**Ammar Al-Najjar** — Full-Stack Software Engineer
-Sole developer of this system's architecture, backend, and frontend.
-- GitHub: https://github.com/Ammar-1993
-- Portfolio: https://ammar1993.vercel.app/
 
 ---
 
