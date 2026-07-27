@@ -1,4 +1,3 @@
-
 # ⚖️ Law Pro – Law Firm Management System
 
 > A Web-Based Solution for Organizing and Managing Legal Practices
@@ -109,20 +108,19 @@ This interface is bilingual and designed with usability in mind, supporting acce
 ## 🛠️ Technologies Used
 
 ### Backend
-- PHP 7.4+ (Laravel Framework)
-- MySQL Database
-- Apache (via XAMPP)
+- **PHP:** 7.1 – 7.3 (Laravel Framework 5.7)
+- **Database:** MySQL 5.7
+- **Caching & Queues:** Redis / File
+- **Servers:** Nginx (Alpine) & Apache
 
 ### Frontend
-- HTML5, CSS3 (Bootstrap)
+- HTML5, CSS3 (Bootstrap & Custom RTL Support)
 - JavaScript, jQuery, AJAX
 
-### Tools & Environment
-- Visual Studio Code
-- phpMyAdmin
-- StarUML (UML Diagrams)
-- Microsoft Office Suite
-- Laravel Debugbar, PHPUnit
+### DevOps & Infrastructure
+- **Containerization:** Docker & Docker Compose (Multi-container architecture: App, Web, DB, Redis, Queue Worker, phpMyAdmin)
+- **Environment:** Linux (WSL2 / Ubuntu 22.04) & Windows (XAMPP)
+- **Tools:** Visual Studio Code, Git, StarUML, Laravel Debugbar, PHPUnit
 
 ---
 
@@ -130,8 +128,9 @@ This interface is bilingual and designed with usability in mind, supporting acce
 - CSRF protection
 - Password hashing (bcrypt)
 - Session management
-- Role-based access and permission control
+- Role-based access and permission control (RBAC)
 - Sensitive data encryption
+- Strict file permission handling across Linux and Windows environments
 
 ---
 
