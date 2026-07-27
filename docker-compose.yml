@@ -1,0 +1,94 @@
+services:
+  # 1. خادم التطبيق الرئيسي PHP-FPM
+  lawpro_app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: lawpro_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - lawpro_network
+    depends_on:
+      - lawpro_db
+      - lawpro_redis
+
+  # 2. خادم الويب Nginx (المنفذ 8090)
+  lawpro_web:
+    image: nginx:alpine
+    container_name: lawpro_web
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - lawpro_app
+    networks:
+      - lawpro_network
+
+  # 3. عامل الطوابير (Queue Worker) لمعالجة المهام والإشعارات في الخلفية
+  lawpro_queue:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: lawpro_queue
+    restart: unless-stopped
+    working_dir: /var/www/html
+    command: php artisan queue:work redis --sleep=3 --tries=3 --timeout=90
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - lawpro_app
+      - lawpro_redis
+    networks:
+      - lawpro_network
+
+  # 4. قاعدة البيانات MySQL 5.7 (المنفذ 3309)
+  lawpro_db:
+    image: mysql:5.7
+    container_name: lawpro_db
+    restart: unless-stopped
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-lawpro_db}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-root}
+      MYSQL_USER: ${DB_USERNAME:-lawpro_user}
+    volumes:
+      - lawpro_db_data:/var/lib/mysql
+    networks:
+      - lawpro_network
+
+  # 5. خادم Redis المعزول (بدون منافذ خارجية لتجنب التضارب)
+  lawpro_redis:
+    image: redis:alpine
+    container_name: lawpro_redis
+    restart: unless-stopped
+    networks:
+      - lawpro_network
+
+  # 6. واجهة إدارة قواعد البيانات (المنفذ 8091)
+  lawpro_phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: lawpro_phpmyadmin
+    ports:
+      - "8091:80"
+    environment:
+      PMA_HOST: lawpro_db
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+    depends_on:
+      - lawpro_db
+    networks:
+      - lawpro_network
+
+networks:
+  lawpro_network:
+    driver: bridge
+
+volumes:
+  lawpro_db_data:
