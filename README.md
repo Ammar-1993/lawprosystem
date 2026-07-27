@@ -1,3 +1,4 @@
+
 # ⚖️ Law Pro – Law Firm Management System
 
 > A Web-Based Solution for Organizing and Managing Legal Practices
@@ -135,13 +136,17 @@ This interface is bilingual and designed with usability in mind, supporting acce
 ---
 
 ## 📁 Project Structure (Laravel)
+
 ```
-app/            → Application logic (controllers, models)
-resources/views/→ Blade templates (UI)
+
+app/            → Application logic (Controllers, Models, Helpers, Traits)
+resources/views/→ Blade templates (UI & Bilingual Layouts)
 routes/web.php  → Application routing
-public/         → Public assets (CSS, JS)
+public/         → Public assets (CSS, JS, Uploads symlink)
 database/       → Migrations, seeders
+docker/         → Custom Docker configurations (PHP-FPM & Nginx)
 config/         → Configuration files
+
 ```
 
 ---
@@ -156,9 +161,6 @@ config/         → Configuration files
 
 ---
 
-
----
-
 ## 👥 Demo User Credentials
 
 The system includes four predefined user types for testing:
@@ -170,44 +172,86 @@ The system includes four predefined user types for testing:
 | Lawyer      | lawyer@gmail.com          | @Lawyer12345    |
 | Employee    | employee@gmail.com        | @Employee12345  |
 
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- PHP 7.4+
-- Composer
-- MySQL
-- Node.js & npm (for asset compilation)
-- XAMPP (or any Apache server)
+- **For Docker (Recommended):** Docker & Docker Compose installed on Linux / WSL2.
+- **For Traditional Setup:** PHP (7.1 - 7.3), Composer v1, MySQL 5.7, and XAMPP (or any Apache server).
 
-### Installation Steps
+### Option A: Modern Deployment via Docker (Recommended)
+This repository is fully dockerized with an isolated environment to prevent port conflicts.
+
 ```bash
-git clone https://github.com/Ammar-1993/lawprosystem.git
-cd lawpro
+# 1. Clone the repository
+git clone [https://github.com/Ammar-1993/lawprosystem.git](https://github.com/Ammar-1993/lawprosystem.git)
+cd lawprosystem
+
+# 2. Build and start containers in detached mode
+docker compose up -d --build
+
+# 3. Install dependencies using Composer v1 inside the container
+docker exec -it lawpro_app composer self-update --1
+docker exec -it lawpro_app composer install
+
+# 4. Setup environment and generate application key
+cp .env.example .env
+docker exec -it lawpro_app php artisan key:generate
+
+# 5. Link storage and assets for Nginx rendering
+docker exec -it lawpro_app php artisan storage:link
+docker exec -it lawpro_app ln -sf /var/www/html/assets /var/www/html/public/assets
+
+# 6. Set correct permissions for Linux environment
+docker exec -it lawpro_app chown -R www-data:www-data storage bootstrap/cache public
+docker exec -it lawpro_app chmod -R 775 storage bootstrap/cache
+
+# 7. Import database (Assuming your SQL file is named backup.sql in the project root)
+docker exec -i lawpro_db mysql -u root -proot lawpro_db < backup.sql
+
+```
+
+Access the application at: **http://localhost:8090**
+
+Access database management (phpMyAdmin) at: **http://localhost:8091**
+
+---
+
+### Option B: Traditional Setup (XAMPP / Windows)
+
+```bash
+git clone [https://github.com/Ammar-1993/lawprosystem.git](https://github.com/Ammar-1993/lawprosystem.git)
+cd lawprosystem
 composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 php artisan serve
+
 ```
 
-Access the system at: **http://127.0.0.1/lawprosystem**
+Access the system at: **http://127.0.0.1/lawprosystem** or **http://localhost:8000**
 
 ---
 
 ## 🧪 Testing
-- Feature testing using Laravel's built-in `PHPUnit`
-- Browser testing via Chrome DevTools
-- Backend and database testing through XAMPP and phpMyAdmin
+
+* Feature testing using Laravel's built-in `PHPUnit`
+* Real-time background queue testing via Docker isolated Redis workers
+* Browser testing via Chrome DevTools
+* Database validation through phpMyAdmin (both local and containerized)
 
 ---
 
 ## 🤝 Author
 
 **Ammar Al-Najjar** — Full-Stack Software Engineer
-Sole developer of this system's architecture, backend, and frontend.
-- GitHub: https://github.com/Ammar-1993
-- Portfolio: https://ammar1993.vercel.app/
+
+Sole developer of this system's architecture, backend, database, and frontend.
+
+* GitHub: https://github.com/Ammar-1993
+* Portfolio: https://ammar1993.vercel.app/
 
 ---
 
@@ -215,18 +259,15 @@ Sole developer of this system's architecture, backend, and frontend.
 
 For any questions, feedback, or support, please contact:
 
-**Ammar-1993**  
-- WhatsApp: [Click here](https://wa.me/967714294340)  
-- Gmail: [Click here](mailto:ammaralnggar@gmail.com) 
+**Ammar-1993**
+
+* WhatsApp: [Click here](https://wa.me/967714294340)
+* Gmail: [Click here](https://www.google.com/search?q=mailto%3Aammaralnggar%40gmail.com)
 
 ---
 
 ## 📄 License
+
 This project is shared publicly as a portfolio piece. All rights reserved by the author. Feel free to explore the code for learning purposes; for commercial use or collaboration inquiries, please contact me directly via the channels above.
 
 ---
-
-<div align="center">
-  <br />
-  <p>Developed By ❤️ <b>Engineer Ammar Al-Najjar</b></p>
-</div>
