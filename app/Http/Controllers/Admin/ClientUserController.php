@@ -30,7 +30,7 @@ use App\Model\State;
 use App\Model\City;
 use App\Model\Role;
 
-class clientUserController extends Controller
+class ClientUserController extends Controller
 {
     use DatatablTrait;
 
