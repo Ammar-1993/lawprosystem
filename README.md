@@ -166,10 +166,10 @@ The system includes four predefined user types for testing:
 
 | Role        | Email                     | Password        |
 |-------------|---------------------------|-----------------|
-| Super Admin | superadmin@gmail.com      | S#9mK2v$P       |
-| Admin       | admin@gmail.com           | A%4qL8x@Z       |
-| Lawyer      | lawyer@gmail.com          | L&7jR3w*C       |
-| Employee    | employee@gmail.com        | E!2nY6t^M       |
+| Super Admin | superadmin@gmail.com      | @Super12345     |
+| Admin       | admin@gmail.com           | @Admin12345     |
+| Lawyer      | lawyer@gmail.com          | @Lawyer12345    |
+| Employee    | employee@gmail.com        | @Employee12345  |
 
 
 ## 🚀 Getting Started
