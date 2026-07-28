@@ -667,8 +667,19 @@ class CaseRunningController extends Controller
 
             $row['case'] = '<p class="currenttittle">' . $first . ' <br/><b>' . __('frontend.vs') . '</b> <br/>' . $second . '<p>';
             $row['next_date'] = '<p class="currenttittle">' . date(LogActivity::commonDateFromatType(), strtotime($case->next_date)) . '</p><small class="currenttittle">' . $this->getLoginUserNameById($case->updated_by) . '</small>';
-            //$nestedData['next_date'] = '<p class="currenttittle">'.date('d-m-Y',strtotime($case->next_date)).'<p>'.'<a class="btn btn-link" href="'.$nextDate.'">Add Next Date</a>';
-            $row['status'] = $case->case_status_name;
+            
+            // Generate a proper status badge
+            $statusType = 'info';
+            $statusLower = strtolower($case->case_status_name ?? '');
+            if (str_contains($statusLower, 'run') || str_contains($statusLower, 'جاري') || str_contains($statusLower, 'مفتوح')) {
+                $statusType = 'active';
+            } elseif (str_contains($statusLower, 'clos') || str_contains($statusLower, 'archiv') || str_contains($statusLower, 'مغلق') || str_contains($statusLower, 'منتهي')) {
+                $statusType = 'inactive';
+            } elseif ($case->priority == 'High') {
+                $statusType = 'urgent';
+            }
+            $row['status'] = $this->badge($case->case_status_name ?? '-', $statusType);
+
 
 
             if ($isEdit == "1" || $isDelete == "1") {

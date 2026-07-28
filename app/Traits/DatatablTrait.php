@@ -72,4 +72,19 @@ trait DatatablTrait
     {
         return  '<p class="' . $class . '">' . $item . '</p>';
     }
+
+    /**
+     * Generate a unified status badge using the design system classes.
+     *
+     * @param string $text The text to display inside the badge
+     * @param string $type The badge type (active, inactive, pending, info, urgent)
+     * @return string
+     */
+    public function badge($text, $type = 'info')
+    {
+        $validTypes = ['active', 'inactive', 'pending', 'info', 'urgent'];
+        $type = in_array($type, $validTypes) ? $type : 'info';
+        
+        return '<span class="badge-lp badge-' . $type . '">' . $text . '</span>';
+    }
 }
