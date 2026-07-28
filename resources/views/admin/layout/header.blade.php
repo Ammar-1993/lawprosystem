@@ -5,6 +5,27 @@
             <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
+            {{-- Breadcrumb Navigation --}}
+            <div class="lp-breadcrumb-bar">
+                <ol class="lp-breadcrumb">
+                    <li>
+                        <a href="{{ url('admin/dashboard') }}" title="{{ __('frontend.sidebar.dashboard') }}">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </li>
+                    @if(isset($breadcrumbs) && count($breadcrumbs) > 0)
+                        @foreach($breadcrumbs as $label => $url)
+                            <li @if($loop->last) class="active" @endif>
+                                @if(!$loop->last && $url)
+                                    <a href="{{ $url }}">{{ $label }}</a>
+                                @else
+                                    {{ $label }}
+                                @endif
+                            </li>
+                        @endforeach
+                    @endif
+                </ol>
+            </div>
 
             <ul class="nav navbar-nav navbar-right">
 

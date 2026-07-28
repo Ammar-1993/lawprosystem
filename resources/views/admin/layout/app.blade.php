@@ -27,9 +27,14 @@
         rel="stylesheet"> --}}
     <!-- Font Awesome -->
     <link href="{{ asset('assets/admin/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    {{-- Google Fonts: Cairo for Arabic (RTL), Inter for English (LTR) --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> --}}
+    @if($dir == 'rtl')
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    @else
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    @endif
     <!-- NProgress -->
     <link href="{{ asset('assets/admin/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
@@ -47,6 +52,8 @@
     <link href="{{ asset('assets/admin/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css') }}"
         rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    {{-- Law Pro Design System — يُحمَّل أخيراً لأخذ الأولوية على كل CSS سابق --}}
+    <link href="{{ asset('css/lawpro-theme.css') }}" rel="stylesheet">
 
     {{-- <link rel="stylesheet" href="{{ app()->getLocale() == 'ar' ? asset('css/app.rtl.css') : asset('css/app.css') }}"> --}}
     {{-- @if ($current_locale == 'ar')
