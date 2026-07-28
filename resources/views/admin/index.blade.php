@@ -24,45 +24,41 @@
             <div class="row">
                 <a href="{{ route('clients.index') }}">
                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
-                        <div class="tile-stats" style="background-color: #E3F2FD">
-                            <div class="icon"><i class="fa fa-users"></i>
-                            </div>
-                            <div class="count">{{ $client ?? '' }}</div>
+                        <div class="tile-stats lp-card lp-card--clients">
+                            <div class="icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+                            <div class="count lp-counter">{{ $client ?? 0 }}</div>
                             <h3>{{ __('frontend.dashboard.clients') }}</h3>
-                            <p>{{ __('frontend.dashboard.total_clients') }} &nbsp;<i class="fa fa-rocket"></i></p>
+                            <p>{{ __('frontend.dashboard.total_clients') }} &nbsp;<i class="fa fa-rocket" aria-hidden="true"></i></p>
                         </div>
                     </div>
                 </a>
                 <a href="{{ route('case-running.index') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
-                        <div class="tile-stats" style="background-color: #D6EAF8">
-                            <div class="icon"><i class="fa fa-gavel"></i>
-                            </div>
-                            <div class="count">{{ $case_total ?? '' }}</div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                        <div class="tile-stats lp-card lp-card--cases">
+                            <div class="icon"><i class="fa fa-gavel" aria-hidden="true"></i></div>
+                            <div class="count lp-counter">{{ $case_total ?? 0 }}</div>
                             <h3>{{ __('frontend.dashboard.cases') }}</h3>
-                            <p>{{ __('frontend.dashboard.total_cases') }} &nbsp;<i class="fa fa-rocket"></i></p>
+                            <p>{{ __('frontend.dashboard.total_cases') }} &nbsp;<i class="fa fa-rocket" aria-hidden="true"></i></p>
                         </div>
                     </div>
                 </a>
                 <a href="{{ url('admin/case-important') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
-                        <div class="tile-stats" style="background-color: #FFF3CD">
-                            <div class="icon"><i class="fa fa-star"></i>
-                            </div>
-                            <div class="count">{{ $important_case ?? '' }}</div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                        <div class="tile-stats lp-card lp-card--urgent">
+                            <div class="icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+                            <div class="count lp-counter">{{ $important_case ?? 0 }}</div>
                             <h3>{{ __('frontend.dashboard.important_cases') }}</h3>
-                            <p>{{ __('frontend.dashboard.total_important_cases') }} &nbsp;<i class="fa fa-rocket"></i></p>
+                            <p>{{ __('frontend.dashboard.total_important_cases') }} &nbsp;<i class="fa fa-rocket" aria-hidden="true"></i></p>
                         </div>
                     </div>
                 </a>
                 <a href="{{ url('admin/case-archived') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
-                        <div class="tile-stats" style="background-color: #D4EDDA">
-                            <div class="icon"><i class="fa fa-file-archive-o"></i>
-                            </div>
-                            <div class="count">{{ $archived_total }}</div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                        <div class="tile-stats lp-card lp-card--archived">
+                            <div class="icon"><i class="fa fa-file-archive-o" aria-hidden="true"></i></div>
+                            <div class="count lp-counter">{{ $archived_total }}</div>
                             <h3>{{ __('frontend.dashboard.archived_cases') }}</h3>
-                            <p>{{ __('frontend.dashboard.total_completed_cases') }} &nbsp;<i class="fa fa-rocket"></i></p>
+                            <p>{{ __('frontend.dashboard.total_completed_cases') }} &nbsp;<i class="fa fa-rocket" aria-hidden="true"></i></p>
                         </div>
                     </div>
                 </a>

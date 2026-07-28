@@ -261,3 +261,48 @@ function ajaxindicatorstop() {
   jQuery("#resultLoading").fadeOut(300);
   jQuery("body").css("cursor", "default");
 }
+
+// --- Law Pro Counter Animation ---
+$(document).ready(function() {
+  const counters = document.querySelectorAll('.lp-counter');
+  if (counters.length === 0) return;
+
+  const animateCounter = (counter) => {
+    const target = +counter.innerText;
+    // Set initial value to 0 if not already animating
+    if (!counter.hasAttribute('data-animating')) {
+        counter.innerText = '0';
+        counter.setAttribute('data-animating', 'true');
+    }
+    const updateCount = () => {
+      const count = +counter.innerText;
+      const speed = 200; // lower is faster
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  };
+
+  const observerOptions = {
+    threshold: 0.5
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target); // Animate only once
+      }
+    });
+  }, observerOptions);
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+});
