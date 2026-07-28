@@ -73,3 +73,21 @@ label{font-size:13px;font-weight:600;color:var(--lp-gray-dark);margin-bottom:6px
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--lp-accent);outline-offset:2px;border-radius:var(--radius-xs)}
 @media(max-width:992px){.lp-card{margin-bottom:var(--space-md)}.lp-card .count{font-size:36px}}
 @media(max-width:768px){.lp-card .count{font-size:30px}.dataTables_wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}.page-title h3{font-size:16px}body.rtl .main_container .left_col{margin-right:0;margin-left:auto}}
+/* Header & Navbar Fixes */
+.top_nav .nav_menu { min-height: 50px; margin-bottom: 0; padding-bottom: 5px; }
+.nav.navbar-nav.navbar-right { padding-right: 15px; display: flex; align-items: center; justify-content: flex-end; float: right; height: 50px; margin: 0; flex-direction: row; }
+html[dir='rtl'] .nav.navbar-nav.navbar-right, body.rtl .nav.navbar-nav.navbar-right { padding-right: 0; padding-left: 15px; float: left; }
+.nav.navbar-nav.navbar-right > li { display: inline-flex; align-items: center; height: 100%; float: none; margin: 0; }
+.nav.navbar-nav.navbar-right > li > a { padding: 10px 12px; display: inline-flex; align-items: center; gap: 6px; }
+.nav.navbar-nav.navbar-right .user-profile img { width: 29px; height: 29px; border-radius: 50%; margin: 0; }
+.nav.navbar-nav.navbar-right .fa-angle-down { margin-left: 4px; }
+html[dir='rtl'] .nav.navbar-nav.navbar-right .fa-angle-down, body.rtl .nav.navbar-nav.navbar-right .fa-angle-down { margin-left: 0; margin-right: 4px; }
+.language-switcher-item-simple a { font-weight: 500; font-size: 13px; display: flex; align-items: center; gap: 5px; }
+.language-switcher-item-simple i { font-size: 16px; margin-top: -2px; }
+.notification-bell .label { position: absolute; top: 8px; right: 4px; font-size: 10px; padding: 2px 5px; border-radius: 50%; }
+html[dir='rtl'] .notification-bell .label, body.rtl .notification-bell .label { right: auto; left: 4px; }
+.nav.toggle { float: left; margin: 0; padding-top: 14px; width: auto; padding-left: 15px; padding-right: 15px; }
+html[dir='rtl'] .nav.toggle, body.rtl .nav.toggle { float: right; }
+.lp-breadcrumb-bar { display: inline-flex; align-items: center; height: 50px; padding: 0 15px; float: left; margin: 0; }
+html[dir='rtl'] .lp-breadcrumb-bar, body.rtl .lp-breadcrumb-bar { float: right; }
+.right_col { padding-top: 10px; }
