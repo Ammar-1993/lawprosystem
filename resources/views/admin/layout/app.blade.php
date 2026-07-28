@@ -188,7 +188,7 @@
     {{-- Modified Script Block for Session Messages --}}
     <script>
         @if (Session::has('error'))
-            message.fire({
+            toast.fire({
                 type: 'error',
                 title: commonJsLang.error_title || 'Error', // Use translation, fallback to English
                 text: "{!! session('error') !!}"
@@ -199,7 +199,7 @@
         @endif
 
         @if (Session::has('success'))
-            message.fire({
+            toast.fire({
                 type: 'success',
                 title: commonJsLang.success_title || 'Success', // Use translation, fallback to English
                 text: "{!! session('success') !!}"

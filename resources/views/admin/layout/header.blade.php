@@ -6,7 +6,7 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
             {{-- Breadcrumb Navigation --}}
-            <div class="lp-breadcrumb-bar">
+            <nav class="lp-breadcrumb-bar" aria-label="Breadcrumb">
                 <ol class="lp-breadcrumb">
                     <li>
                         <a href="{{ url('admin/dashboard') }}" title="{{ __('frontend.sidebar.dashboard') }}">
@@ -25,7 +25,7 @@
                         @endforeach
                     @endif
                 </ol>
-            </div>
+            </nav>
 
             <ul class="nav navbar-nav navbar-right">
 
