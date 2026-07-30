@@ -1,163 +1,87 @@
 @extends('admin.layout.app')
 @section('title','Case')
 
-
 @section('content')
 
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>{{__('frontend.cases_management')}}</h3>
+    <x-table-shell title="{{ __('frontend.cases_management') }}">
+        <x-slot name="action">
+            @if($adminHasPermition->can(['case_add']))
+                <x-action-button variant="primary" href="{{ route('case-running.create') }}">
+                    <i class="fa fa-plus me-1"></i>
+                    {{ __('frontend.add_case') }}
+                </x-action-button>
+            @endif
+        </x-slot>
+
+        <x-slot name="filters">
+            <!-- Tabs (Running, Important, No Board, Archived) -->
+            <div class="mb-md border-b border-gray-light pb-2">
+                <nav class="flex gap-4">
+                    <a href="{{ url('admin/case-running') }}" class="font-semibold pb-2 border-b-2 {{ Request::is('admin/case-running') ? 'border-primary text-primary' : 'border-transparent text-gray-dark hover:text-primary' }} transition-colors">
+                        {{ __('frontend.running_cases') }}
+                    </a>
+                    <a href="{{ url('admin/case-important') }}" class="font-semibold pb-2 border-b-2 {{ Request::is('admin/case-important') ? 'border-primary text-primary' : 'border-transparent text-gray-dark hover:text-primary' }} transition-colors">
+                        {{ __('frontend.important_cases') }}
+                    </a>
+                    <a href="{{ url('admin/case-nb') }}" class="font-semibold pb-2 border-b-2 {{ Request::is('admin/case-nb') ? 'border-primary text-primary' : 'border-transparent text-gray-dark hover:text-primary' }} transition-colors">
+                        {{ __('frontend.no_board_cases') }}
+                    </a>
+                    <a href="{{ url('admin/case-archived') }}" class="font-semibold pb-2 border-b-2 {{ Request::is('admin/case-archived') ? 'border-primary text-primary' : 'border-transparent text-gray-dark hover:text-primary' }} transition-colors">
+                        {{ __('frontend.archived_cases') }}
+                    </a>
+                </nav>
             </div>
 
-            <div class="title_right">
-                <div class="form-group pull-right top_search">
-                    @if($adminHasPermition->can(['case_add']))
-                        <a href="{{ route('case-running.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
-                            {{__('frontend.add_case')}}</a>
-                    @endif
-
+            <!-- Date Filters -->
+            <div class="flex flex-wrap items-end gap-md mt-md">
+                <div class="w-full sm:w-auto flex-1">
+                    <label for="date_from" class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.from_next_date') }}</label>
+                    <input type="text" class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent dateFrom" id="date_from" readonly="">
+                </div>
+                
+                <div class="w-full sm:w-auto flex-1">
+                    <label for="date_to" class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.to_next_date') }}</label>
+                    <input type="text" class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent dateTo" id="date_to" readonly="">
+                </div>
+                
+                <div class="w-full sm:w-auto flex gap-2">
+                    <x-action-button variant="danger" id="clear">
+                        {{ __('frontend.clear') }}
+                    </x-action-button>
+                    <x-action-button variant="success" id="search" disabled="disabled">
+                        <i class="fa fa-search me-1"></i> {{ __('frontend.search') }}
+                    </x-action-button>
                 </div>
             </div>
-        </div>
+        </x-slot>
 
+        <table id="case_list" class="w-full text-start text-sm text-dark">
+            <thead class="bg-gray-50 border-b border-gray-light text-gray-dark uppercase text-xs">
+                <tr>
+                    <th width="3%" class="px-4 py-3">{{ __('frontend.no') }}</th>
+                    <th width="20%" class="px-4 py-3">{{ __('frontend.client_case_detail') }}</th>
+                    <th width="35%" class="px-4 py-3">{{ __('frontend.court_detail') }}</th>
+                    <th width="20%" class="px-4 py-3">{{ __('frontend.petitioner_respondent') }}</th>
+                    <th width="10%" class="px-4 py-3">{{ __('frontend.next_date') }}</th>
+                    <th width="9%" class="px-4 py-3">{{ __('frontend.status') }}</th>
+                    <th width="3%" class="px-4 py-3">{{ __('frontend.action') }}</th>
+                </tr>
+            </thead>
+        </table>
+    </x-table-shell>
 
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+    <!-- Modals using the bridging <x-modal> component -->
+    <x-modal id="modal-case-priority" targetId="show_modal" />
+    <x-modal id="modal-change-court" targetId="show_modal_transfer" />
+    <x-modal id="modal-next-date" targetId="show_modal_next_date" />
 
-                    <div class="x_content">
-
-                        <div class="row">
-
-
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                <label for="fullname">{{__('frontend.from_next_date')}} <span class="text-danger"></span></label>
-                                <input type="text" class="form-control dateFrom" id="date_from" readonly="">
-                            </div>
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-                                <label for="fullname">{{__('frontend.to_next_date')}}<span class="text-danger"></span></label>
-                                <input type="text" class="form-control dateTo" id="date_to" readonly="">
-                            </div>
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-
-
-                                <div class="case-margin-top-23"></div>
-                                <a href="#" class="btn btn-danger" id="clear">{{__('frontend.clear')}}</a>
-                                <button type="submit" id="search" disabled="disabled" class="btn btn-success"><i
-                                        class="fa fa-search"></i> {{__('frontend.search')}}
-                                </button>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-
-                    <div class="x_content">
-
-                        <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-
-                                <li role="presentation" class="{{(Request::is('admin/case-running'))?'active':''}} ">
-                                    <a href="{{url('admin/case-running')}}">{{__('frontend.running_cases')}}</a>
-                                </li>
-
-                                <li role="presentation" class="{{(Request::is('admin/case-important'))?'active':''}} ">
-                                    <a href="{{url('admin/case-important')}}">{{__('frontend.important_cases')}}</a>
-                                </li>
-
-                                <li role="presentation" class="{{(Request::is('admin/case-nb'))?'active':''}} ">
-                                    <a href="{{url('admin/case-nb')}}">{{__('frontend.no_board_cases')}}</a>
-                                </li>
-                                <li role="presentation" class="{{(Request::is('admin/case-archived'))?'active':''}} ">
-                                    <a href="{{url('admin/case-archived')}}">{{__('frontend.archived_cases')}}</a>
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                        <table id="case_list" class="table">
-                            <thead>
-                            <tr>
-                                <th width=" 3%">{{__('frontend.no')}}</th>
-                                <th width="20%">{{__('frontend.client_case_detail')}}</th>
-                                <th width="35%">{{__('frontend.court_detail')}}</th>
-                                <th width="20%">{{__('frontend.petitioner_respondent')}}</th>
-                                <th width="10%">{{__('frontend.next_date')}}</th>
-                                <th width="9%">{{__('frontend.status')}}</th>
-                                <th width="3%">{{__('frontend.action')}}</th>
-                            </tr>
-                            </thead>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal-case-priority" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" id="show_modal">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal-change-court" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" id="show_modal_transfer">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal-next-date" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" id="show_modal_next_date">
-
-            </div>
-        </div>
-    </div>
-
-    <input type="hidden" name="get_case_important_modal"
-           id="get_case_important_modal"
-           value="{{url('admin/getCaseImportantModal')}}">
-
-    <input type="hidden" name="get_case_next_modal"
-           id="get_case_next_modal"
-           value="{{url('admin/getNextDateModal')}}">
-
-    <input type="hidden" name="get_case_cort_modal"
-           id="get_case_cort_modal"
-           value="{{url('admin/getChangeCourtModal')}}">
-
-    <input type="hidden" name="case_url"
-           id="case_url"
-           value="{{ url('admin/allCaseList') }}">
-
-    <input type="hidden" name="token-value"
-           id="token-value"
-           value="{{csrf_token()}}">
-
-    <input type="hidden" name="date_format_datepiker"
-           id="date_format_datepiker"
-           value="{{$date_format_datepiker}}">
-
-
+    <!-- Hidden inputs for datatable (DO NOT TOUCH) -->
+    <input type="hidden" name="get_case_important_modal" id="get_case_important_modal" value="{{url('admin/getCaseImportantModal')}}">
+    <input type="hidden" name="get_case_next_modal" id="get_case_next_modal" value="{{url('admin/getNextDateModal')}}">
+    <input type="hidden" name="get_case_cort_modal" id="get_case_cort_modal" value="{{url('admin/getChangeCourtModal')}}">
+    <input type="hidden" name="case_url" id="case_url" value="{{ url('admin/allCaseList') }}">
+    <input type="hidden" name="token-value" id="token-value" value="{{csrf_token()}}">
+    <input type="hidden" name="date_format_datepiker" id="date_format_datepiker" value="{{$date_format_datepiker}}">
 
 @endsection
 
