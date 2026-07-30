@@ -91,3 +91,8 @@ html[dir='rtl'] .nav.toggle, body.rtl .nav.toggle { float: right; }
 .lp-breadcrumb-bar { display: inline-flex; align-items: center; height: 50px; padding: 0 15px; float: left; margin: 0; }
 html[dir='rtl'] .lp-breadcrumb-bar, body.rtl .lp-breadcrumb-bar { float: right; }
 .right_col { padding-top: 10px; }
+
+/* Tailwind Preflight Reverts for Bootstrap Compatibility */
+img, svg {
+    display: inline-block;
+}

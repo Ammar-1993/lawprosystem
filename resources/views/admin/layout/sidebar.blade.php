@@ -1,4 +1,4 @@
-<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+<div id="lp-sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
         <ul class="nav side-menu" role="menubar">
 
@@ -75,13 +75,14 @@
             @endif
 
             @if (Auth::guard('admin')->user()->user_type == 'Admin')
-                <li role="none">
-                    <a role="menuitem" title="{{ __('frontend.sidebar.manage_members') }}">
+                @php $isMembersActive = Request::is('admin/role*') || Request::is('admin/client_user*'); @endphp
+                <li role="none" x-data="{ open: {{ $isMembersActive ? 'true' : 'false' }} }" :class="{ 'active': open }" class="{{ $isMembersActive ? 'active' : '' }}">
+                    <a role="menuitem" title="{{ __('frontend.sidebar.manage_members') }}" @click.prevent="open = !open" style="cursor: pointer;">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         {{ __('frontend.sidebar.manage_members') }}
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
-                    <ul class="nav child_menu" role="menu">
+                    <ul class="nav child_menu" role="menu" x-show="open" x-transition.opacity.duration.300ms {!! $isMembersActive ? 'style="display: block;"' : 'style="display: none;"' !!}>
                         <li role="none"><a href="{{ route('role.index') }}" role="menuitem">{{ __('frontend.sidebar.role') }}</a></li>
                         <li role="none"><a href="{{ url('admin/client_user') }}" role="menuitem">{{ __('frontend.sidebar.member') }}</a></li>
                     </ul>
@@ -89,13 +90,14 @@
             @endif
 
             @if ($adminHasPermition->can(['service_list']) == '1' || $adminHasPermition->can(['invoice_list']) == '1')
-                <li class="{{ Request::is('admin/service*') || Request::is('admin/invoice*') ? 'active' : '' }}" role="none">
-                    <a role="menuitem" title="{{ __('frontend.sidebar.manage_income') }}">
+                @php $isIncomeActive = Request::is('admin/service*') || Request::is('admin/invoice*'); @endphp
+                <li role="none" x-data="{ open: {{ $isIncomeActive ? 'true' : 'false' }} }" :class="{ 'active': open }" class="{{ $isIncomeActive ? 'active' : '' }}">
+                    <a role="menuitem" title="{{ __('frontend.sidebar.manage_income') }}" @click.prevent="open = !open" style="cursor: pointer;">
                         <i class="fa fa-money" aria-hidden="true"></i>
                         {{ __('frontend.sidebar.manage_income') }}
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
-                    <ul class="nav child_menu" role="menu">
+                    <ul class="nav child_menu" role="menu" x-show="open" x-transition.opacity.duration.300ms {!! $isIncomeActive ? 'style="display: block;"' : 'style="display: none;"' !!}>
                         @if ($adminHasPermition->can(['service_list']) == '1')
                             <li role="none"><a href="{{ url('admin/service') }}" role="menuitem">{{ __('frontend.sidebar.service') }}</a></li>
                         @endif
@@ -107,13 +109,14 @@
             @endif
 
             @if ($adminHasPermition->can(['expense_type_list']) == '1' || $adminHasPermition->can(['expense_list']) == '1')
-                <li class="{{ Request::is('admin/expense*') ? 'active' : '' }}" role="none">
-                    <a role="menuitem" title="{{ __('frontend.sidebar.manage_expense') }}">
+                @php $isExpenseActive = Request::is('admin/expense-type*') || Request::is('admin/expense*'); @endphp
+                <li role="none" x-data="{ open: {{ $isExpenseActive ? 'true' : 'false' }} }" :class="{ 'active': open }" class="{{ $isExpenseActive ? 'active' : '' }}">
+                    <a role="menuitem" title="{{ __('frontend.sidebar.manage_expense') }}" @click.prevent="open = !open" style="cursor: pointer;">
                         <i class="fa fa-credit-card" aria-hidden="true"></i>
                         {{ __('frontend.sidebar.manage_expense') }}
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
-                    <ul class="nav child_menu" role="menu">
+                    <ul class="nav child_menu" role="menu" x-show="open" x-transition.opacity.duration.300ms {!! $isExpenseActive ? 'style="display: block;"' : 'style="display: none;"' !!}>
                         @if ($adminHasPermition->can(['expense_type_list']) == '1')
                             <li role="none"><a href="{{ url('admin/expense-type') }}" role="menuitem">{{ __('frontend.sidebar.expense_type') }}</a></li>
                         @endif
@@ -132,13 +135,18 @@
                 $adminHasPermition->can(['judge_list'])          == '1' ||
                 $adminHasPermition->can(['tax_list'])            == '1' ||
                 $adminHasPermition->can(['general_setting_edit']) == '1')
-                <li class="{{ Request::is('admin/court*') || Request::is('admin/case-type*') || Request::is('admin/case-status*') || Request::is('admin/judge*') || Request::is('admin/tax*') || Request::is('admin/general-setting*') ? 'active' : '' }}" role="none">
-                    <a role="menuitem" title="{{ __('frontend.sidebar.basic_settings') }}">
+                
+                @php 
+                $isSettingsActive = Request::is('admin/court*') || Request::is('admin/case-type*') || Request::is('admin/case-status*') || Request::is('admin/judge*') || Request::is('admin/tax*') || Request::is('admin/general-setting*'); 
+                @endphp
+                
+                <li role="none" x-data="{ open: {{ $isSettingsActive ? 'true' : 'false' }} }" :class="{ 'active': open }" class="{{ $isSettingsActive ? 'active' : '' }}">
+                    <a role="menuitem" title="{{ __('frontend.sidebar.basic_settings') }}" @click.prevent="open = !open" style="cursor: pointer;">
                         <i class="fa fa-cog" aria-hidden="true"></i>
                         {{ __('frontend.sidebar.basic_settings') }}
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
-                    <ul class="nav child_menu" role="menu">
+                    <ul class="nav child_menu" role="menu" x-show="open" x-transition.opacity.duration.300ms {!! $isSettingsActive ? 'style="display: block;"' : 'style="display: none;"' !!}>
                         @if ($adminHasPermition->can(['court_type_list']) == '1')
                             <li role="none"><a href="{{ url('admin/court-type') }}" role="menuitem">{{ __('frontend.sidebar.manage_court_types') }}</a></li>
                         @endif
@@ -167,4 +175,3 @@
         </ul>
     </div>
 </div>
-
