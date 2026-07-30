@@ -1,310 +1,186 @@
 @extends('admin.layout.app')
-@section('title','Add Expense')
+@section('title', 'Add Expense')
 @section('content')
-    <link href="{{asset('assets/css/invoice_css.css') }}" rel="stylesheet">
-
-    <form class="repeater" id="add_expense" name="add_expense" role="form" method="POST"
-          action="{{route('expense.store')}}" autocomplete="off">
-
+    <form class="repeater" id="add_expense" name="add_expense" role="form" method="POST" action="{{ route('expense.store') }}" autocomplete="off">
         @csrf
-        <div class="page-title">
-            <div class="title_left">
-                <h3>{{__('frontend.add_expense')}}</h3>
+
+        <div class="flex items-center justify-between mb-lg">
+            <h3 class="text-2xl font-bold text-dark m-0">{{ __('frontend.add_expense') }}</h3>
+            <x-action-button variant="primary" href="{{ url('admin/expense') }}">
+                {{ __('frontend.back') }}
+            </x-action-button>
+        </div>
+
+        @if (count($errors) > 0)
+            <div class="bg-danger text-white p-md rounded-md mb-lg">
+                <strong>{{ __('frontend.whoops') }}</strong>{{ __('frontend.there_were_some_problems') }}<br><br>
+                <ul class="ms-md mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+        @endif
 
-            <div class="title_right">
-                <div class="form-group pull-right top_search">
+        <x-form-card title="{{ __('frontend.expense') }}">
 
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl mb-xl pb-lg border-b border-gray-light">
+                <!-- Left: Vendor Info -->
+                <div>
+                    <label for="vendor_id" class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.vendor1') }} <span class="text-danger">*</span></label>
+                    <select class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent select2 mb-md" name="vendor_id" id="vendor_id" onchange="getVendorBillingAddress(this.value);" data-rule-required="true">
+                        <option value="">Select Vendor</option>
+                        @foreach($vendors as $vendor)
+                            <option value="{{$vendor->id}}">
+                                @if($vendor->company_name!=''){{$vendor->company_name}}@elseif($vendor->first_name!=''){{$vendor->first_name.' '.$vendor->last_name}}@else 'N/A' @endif
+                            </option>
+                        @endforeach
+                    </select>
 
-                    <a href="{{ url('admin/expense') }}" class="btn btn-primary">{{__('frontend.back')}}</a>
+                    <label class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.billed_from') }}</label>
+                    <div class="show_vendor_detail p-md bg-gray-50 rounded-md border border-gray-light min-h-[100px]">
+                        <!-- Injected via AJAX -->
+                    </div>
+                </div>
 
-
+                <!-- Right: Bill Info -->
+                <div class="space-y-md">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.bill_no') }}: <span class="text-danger">*</span></label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent" id="inv_no" name="inv_no">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.bill_date') }}: <span class="text-danger">*</span></label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent inc_Date" id="inv_date" name="inv_date">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.bill_due_date') }}: <span class="text-danger">*</span></label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent due_Date" id="due_Date" name="due_Date">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="x_panel">
 
-            <div class="x_content">
-
-                <section class="content invoice">
-
-                    <div class="row"><br>
-                        <div class="col-xs-12 invoice-header" align="center">
-                            <h1>{{__('frontend.expense')}}</h1>
-                        </div>
-
-
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <strong>{{__('frontend.whoops')}}</strong>{{__('frontend.there_were_some_problems')}}<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+            <!-- Dynamic Items Table -->
+            <div class="overflow-x-auto mb-lg">
+                <table class="w-full text-start text-sm text-dark tableInv" id="purchaseInvoice" data-repeater-list="group">
+                    <thead class="bg-gray-50 border-b border-gray-light text-gray-dark uppercase text-xs dynamicRows">
+                        <tr>
+                            <th width="30%" class="px-4 py-3">{{ __('frontend.items') }} <span class="text-danger">*</span></th>
+                            <th class="px-4 py-3">{{ __('frontend.description') }}</th>
+                            <th width="10%" class="px-4 py-3 text-center">{{ __('frontend.qty') }} <span class="text-danger">*</span></th>
+                            <th width="10%" class="px-4 py-3 text-center">{{ __('frontend.rate') }} <span class="text-danger">*</span></th>
+                            <th width="15%" class="px-4 py-3 text-center hide with_tax">{{ __('frontend.tax') }} (%)</th>
+                            <th width="10%" class="px-4 py-3 text-center hide with_tax">{{ __('frontend.tax') }} (SAR)</th>
+                            <th width="10%" class="px-4 py-3 text-end">{{ __('frontend.amount') }}</th>
+                            <th width="5%" class="px-4 py-3 text-center">{{ __('frontend.action') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-repeater-item class="border-b border-gray-light">
+                            <td class="p-2">
+                                <select class="w-full px-3 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent sel categories_ids" name="categories_ids" id="categories_ids" data-rule-required="true">
+                                    <option value="">Select Category</option>
+                                    @foreach($category as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                     @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div>
-
-                    <div class="row invoice-info">
-                        <div class="col-sm-4">
-
-
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <label for="vendor">{{__('frontend.vendor1')}} <span class="text-danger">*</span></label>
-                                    <select class="form-control select2" name="vendor_id" id="vendor_id"
-                                            onchange="getVendorBillingAddress(this.value);" data-rule-required="true">
-                                        <option value="">Select Vendor</option>
-                                        @foreach($vendors as $vendor)
-                                            <option
-                                                value="{{$vendor->id}}">@if($vendor->company_name!=''){{$vendor->company_name}}@elseif($vendor->first_name!=''){{$vendor->first_name.' '.$vendor->last_name}}@else
-                                                    'N/A' @endif</option>
-                                        @endforeach
-                                    </select><br><br>
-                                    <label for="billed_from">{{__('frontend.billed_from')}} </label><br>
-
-                                    <div class="show_vendor_detail">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                        </div>
-
-                        <div class="col-sm-4 form-horizontal form-label-left">
-
-
-                            <div class="form-group">
-                                <label class="control-label col-md-5 col-sm-3 col-xs-12">{{__('frontend.bill_no')}}: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-md-7 col-sm-9 col-xs-12">
-                                    <input type="text" placeholder="" class="form-control " id="inv_no" name="inv_no">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-5 col-sm-3 col-xs-12">{{__('frontend.bill_date')}}: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-md-7 col-sm-9 col-xs-12">
-                                    <input type="text" placeholder="" class="form-control inc_Date" id="inv_date"
-                                           name="inv_date">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-5 col-sm-3 col-xs-12">{{__('frontend.bill_due_date')}}: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-md-7 col-sm-9 col-xs-12">
-                                    <input type="text" placeholder="" class="form-control due_Date" id="due_Date"
-                                           name="due_Date">
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                    <br><br>
-
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="table-responsive">
-                                <table class="table tableInv" id="purchaseInvoice" data-repeater-list="group">
-                                    <thead class="thead-inverse">
-                                    <tr class="tbl_header_color dynamicRows">
-                                        <th width="30%" class="text-center">
-                                            {{__('frontend.items')}}
-                                            <span class="text-danger">*</span>
-                                        </th>
-                                        <th width="" class="text-center">{{__('frontend.description')}}
-
-                                        </th>
-                                        <th width="10%" class="text-center">
-                                            {{__('frontend.qty')}}
-                                            <span class="text-danger">*</span>
-                                        </th>
-                                        <th width="10%" class="text-center">
-                                            {{__('frontend.rate')}}
-                                            <span class="text-danger">*</span>
-                                        </th>
-                                        <th class="hide with_tax" width="15%" class="text-center">{{__('frontend.tax')}} (%)</th>
-                                        <th class="hide with_tax" width="10%" class="text-center">{{__('frontend.tax')}} (SAR)</th>
-                                        <th width="10%" class="text-center">{{__('frontend.amount')}}</th>
-                                        <th width="5%" class="text-center">{{__('frontend.action')}}</th>
-                                    </tr>
-                                    </thead>
-
-
-                                    <tbody>
-
-                                    <tr data-repeater-item>
-                                        <th width="30%" class="text-center">
-                                            <select class="form-control sel categories_ids" name="categories_ids"
-                                                    id="categories_ids" data-rule-required="true">
-                                                <option value="">Select Category</option>
-                                                @foreach($category as $cat)
-                                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        <th width="" class="text-center">
-                                            <input type="text" class="form-control" id="description" name="description"
-
-                                            ></th>
-                                        <th width="10%" class="text-center">
-                                            <input type="text" class="form-control qty" id="qty" name="qty"
-                                                   data-rule-required="true" maxlength="10"
-                                                   onkeypress='return isNumber(event)'
-                                            >
-                                        </th>
-                                        <th width="10%" class="text-center">
-                                            <input type="text" class="form-control rate"
-                                                   onkeypress='return isFloatsNumberKey(event)' id="rate" name="rate"
-                                                   data-rule-required="true" maxlength="10"
-                                            >
-                                        </th>
-
-                                        <th width="10%" class="text-center">
-                                            <input type="text" class="form-control amount" id="amount" name="amount"
-                                                   data-rule-required="true" readonly=""
-                                            ></th>
-                                        <th width="5%" class="text-center">
-
-                                            <button type="button" data-repeater-delete type="button"
-                                                    class="btn btn-danger waves-effect waves-light"><i
-                                                    class="fa fa-trash-o" aria-hidden="true"></i></button>
-
-                                        </th>
-                                    </tr>
-
-                                    </tbody>
-
-                                    <br>
-
-
-                                </table>
-
-
-                            </div>
-                            <br>
-                            <button data-repeater-create type="button" value="Add New"
-                                    class="btn btn-success waves-effect waves-light btn btn-success-edit" type="button">
-                                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{__('frontend.add_more')}}
-                            </button>
-
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <div>
-                                        <p class="text-danger">* {{__('frontend.mandatory_fields')}}</p>
-                                        <ul/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-7 col-md-7">
-                                    <div class="contct-info">
-                                        <div class="form-group">
-                                            <label class="discount_text">{{__('frontend.note')}}
-                                            </label>
-                                            <textarea class="form-control" id="note" name="note" rows="4"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pull-right col-md-5">
-                                    <table class="table row-border dataTable no-footer" id="tab_logic_total">
-                                        <tr>
-                                            <th class="text-left expence-p-top-18">{{__('frontend.subtotal')}}</th>
-                                            <td class="text-center">
-                                                <input type="text" name="subTotal" class="form-control subTotalinv"
-                                                       id="subTotal"
-                                                       readonly=""
-                                                >
-                                            </td>
-                                        </tr>
-                                    </table>
-
-                                    <table class="table row-border dataTable no-footer" id="tab_logic_total">
-                                        <tr>
-                                            <th class="text-center">
-                                                <select id="tax" class="tax" name="tax" class="form-control">
-                                                    <option MyTax="" value="">Select Tax</option>
-                                                    @foreach($tax as $t)
-                                                        <option MyTax="{{ $t->per }}"
-                                                                value="{{ $t->id }}">{{ $t->name.' '.$t->per.'%'  }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </th>
-                                            <td class="text-center">
-                                                <input type="text" value="" name="taxVal"
-                                                       class="form-control subTotalinv"
-                                                       id="taxVal" readonly=""
-                                                >
-                                            </td>
-                                        </tr>
-                                    </table>
-
-                                    <table class="table row-border dataTable no-footer" id="tab_logic_total">
-
-                                        <tr>
-                                            <th class="text-left expence-p-top-18">{{__('frontend.total')}}</th>
-                                            <td class="text-center total-width-expence ">
-                                                <input type="text" name="total"
-
-                                                       class="form-control total-width-expence-border" id="grandTotal"
-                                                       readonly="">
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-9"></div>
-                                <div class="col-md-3 text-center">
-                                    <a href="{{ url('admin/invoice') }}" class="btn btn-danger"> {{__('frontend.cancel')}}</a>
-
-                                    <button type="submit" name="btn_add_offer" class="btn_add_offer btn btn-success"><i
-                                            class="fa fa-save" id="show_loader"></i>&nbsp;{{__('frontend.save')}}
-                                    </button>
-
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-12 pull-right">
-                                    <div id="msgemail" class="msgemail-expence"></div>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-
-                        </div>
-                    </div>
-
-                </section>
+                                </select>
+                            </td>
+                            <td class="p-2">
+                                <input type="text" class="w-full px-3 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent" id="description" name="description">
+                            </td>
+                            <td class="p-2">
+                                <input type="text" class="w-full px-3 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-center qty" id="qty" name="qty" data-rule-required="true" maxlength="10" onkeypress='return isNumber(event)'>
+                            </td>
+                            <td class="p-2">
+                                <input type="text" class="w-full px-3 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-center rate" onkeypress='return isFloatsNumberKey(event)' id="rate" name="rate" data-rule-required="true" maxlength="10">
+                            </td>
+                            <td class="p-2">
+                                <input type="text" class="w-full px-3 py-2 border-transparent bg-transparent text-end font-bold amount" id="amount" name="amount" data-rule-required="true" readonly="">
+                            </td>
+                            <td class="p-2 text-center">
+                                <button type="button" data-repeater-delete class="text-danger hover:text-red-700 bg-transparent border-none cursor-pointer p-2">
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
 
+            <div class="mb-xl">
+                <button data-repeater-create type="button" value="Add New" class="bg-gray-100 hover:bg-gray-200 text-dark font-semibold py-2 px-4 rounded-md transition-colors btn btn-success-edit">
+                    <i class="fa fa-plus me-1" aria-hidden="true"></i> {{ __('frontend.add_more') }}
+                </button>
+            </div>
 
+            <p class="text-sm text-danger mb-lg">* {{ __('frontend.mandatory_fields') }}</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+                <!-- Notes -->
+                <div>
+                    <label class="block text-sm font-semibold text-gray-dark mb-xs">{{ __('frontend.note') }}</label>
+                    <textarea class="w-full px-4 py-2 border border-gray-light rounded-md focus:outline-none focus:ring-2 focus:ring-accent" id="note" name="note" rows="4"></textarea>
+                </div>
+                
+                <!-- Totals -->
+                <div class="bg-gray-50 p-lg rounded-md border border-gray-light">
+                    <!-- Note: Multiple table tags with same id "tab_logic_total" is preserved for legacy JS constraints -->
+                    <table class="w-full mb-xs" id="tab_logic_total">
+                        <tr>
+                            <th class="text-start py-2 text-dark">{{ __('frontend.subtotal') }}</th>
+                            <td class="w-1/2">
+                                <input type="text" name="subTotal" class="w-full bg-transparent border-none text-end font-bold text-lg subTotalinv" id="subTotal" readonly="">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="w-full mb-xs" id="tab_logic_total">
+                        <tr>
+                            <th class="text-start py-2">
+                                <select id="tax" class="w-full px-3 py-1.5 border border-gray-light rounded-md text-sm tax" name="tax">
+                                    <option MyTax="" value="">Select Tax</option>
+                                    @foreach($tax as $t)
+                                        <option MyTax="{{ $t->per }}" value="{{ $t->id }}">{{ $t->name.' '.$t->per.'%' }}</option>
+                                    @endforeach
+                                </select>
+                            </th>
+                            <td class="w-1/2">
+                                <input type="text" name="taxVal" class="w-full bg-transparent border-none text-end font-bold text-lg subTotalinv" id="taxVal" readonly="">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="w-full border-t border-gray-300 mt-sm pt-sm" id="tab_logic_total">
+                        <tr>
+                            <th class="text-start py-2 text-xl text-dark">{{ __('frontend.total') }}</th>
+                            <td class="w-1/2">
+                                <input type="text" name="total" class="w-full bg-transparent border-none text-end font-bold text-2xl text-primary" id="grandTotal" readonly="">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="msgemail" class="msgemail-expence mt-4"></div>
+
+            <x-slot name="footer">
+                <x-action-button variant="danger" href="{{ url('admin/expense') }}">
+                    {{ __('frontend.cancel') }}
+                </x-action-button>
+                <x-action-button variant="success" type="submit" name="btn_add_offer" class="btn_add_offer">
+                    <i class="fa fa-save me-1" id="show_loader"></i> {{ __('frontend.save') }}
+                </x-action-button>
+            </x-slot>
+        </x-form-card>
     </form>
 
-    <input type="hidden" name="expense_create"
-           id="expense_create"
-           value="{{ url('admin/expense-create') }}">
-
-    <input type="hidden" name="getVendorDetailById"
-           id="getVendorDetailById"
-           value="{{ url('admin/getVendorDetailById')}}">
-
-    <input type="hidden" name="date_format_datepiker"
-           id="date_format_datepiker"
-           value="{{$date_format_datepiker}}">
+    <input type="hidden" name="expense_create" id="expense_create" value="{{ url('admin/expense-create') }}">
+    <input type="hidden" name="getVendorDetailById" id="getVendorDetailById" value="{{ url('admin/getVendorDetailById')}}">
+    <input type="hidden" name="date_format_datepiker" id="date_format_datepiker" value="{{$date_format_datepiker}}">
 
 @endsection
+
 @push('js')
-    <script src="{{asset('assets/js/expense/expense-validation.js')}}"></script>
-    <script src="{{asset('assets/admin/js/repeter/repeatercustome.js') }}"></script>
+    <script src="{{ asset('assets/js/expense/expense-validation.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/repeter/repeatercustome.js') }}"></script>
 @endpush
