@@ -53,7 +53,6 @@
         rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @if ($dir == 'rtl')
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
         <link href="{{ asset('assets/admin/vendors/bootstrap/dist/css/bootstrap-rtl.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/admin/build/css/custom-rtl.min.css') }}" rel="stylesheet">
     @endif
