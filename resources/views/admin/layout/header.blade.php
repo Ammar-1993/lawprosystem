@@ -77,7 +77,6 @@
                 </li>
                 {{-- ===== END: Improved Language Switcher ===== --}}
 
-
                 @if ($adminHasPermition->can(['case_list']) == '1')
                     {{-- It's better practice to wrap these in <li> elements too if they are siblings --}}
                     {!! App\Helpers\LogActivity::generateTasks() !!}
