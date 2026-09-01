@@ -258,3 +258,85 @@ body.rtl        .flt-mesege { left: 0; right: auto; }
     .nav_menu .user-profile span:not(.fa) { display: none; }
 }
 
+/* ============================================================
+   LAW PRO - FOOTER  (RTL + LTR)
+   ============================================================ */
+
+.lp-footer {
+    background: #fff;
+    border-top: 1px solid var(--lp-gray-light);
+    color: var(--lp-gray-dark);
+    font-size: 13px;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.lp-footer__inner {
+    display: flex;
+    align-items: center;
+    /* space-between works correctly in BOTH ltr and rtl:
+       ltr: brand-left  meta-right
+       rtl: brand-RIGHT meta-LEFT  (browser handles it automatically) */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 24px;
+    max-width: 100%;
+    /* No flex-direction override needed — html[dir] handles it */
+}
+
+/* ── Branding block ── */
+.lp-footer__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--lp-primary);
+    white-space: nowrap;
+}
+.lp-footer__brand .fa-balance-scale {
+    color: var(--lp-accent);
+    font-size: 16px;
+    /* LTR: icon before text (order 0 = default) */
+    order: 0;
+}
+/* RTL: icon should visually come AFTER the Arabic text
+   (i.e., on the left side since Arabic reads right-to-left) */
+html[dir='rtl'] .lp-footer__brand .fa-balance-scale,
+body.rtl        .lp-footer__brand .fa-balance-scale {
+    order: 1;
+}
+
+/* ── Meta block (version · year) ── */
+.lp-footer__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--lp-gray-dark);
+    white-space: nowrap;
+    /* In RTL, numbers and latin text like 'v1.0' stay ltr inside */
+    direction: ltr;
+}
+.lp-footer__version {
+    background: var(--lp-gray-light);
+    color: var(--lp-gray-dark);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    letter-spacing: .4px;
+}
+.lp-footer__dot { opacity: .4; }
+
+/* ── Responsive: single centred column on small screens ── */
+@media (max-width: 640px) {
+    .lp-footer__inner {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+        padding: 12px 16px;
+        gap: 6px;
+    }
+    /* Reset direction so text centres cleanly */
+    .lp-footer__meta { direction: inherit; }
+}
