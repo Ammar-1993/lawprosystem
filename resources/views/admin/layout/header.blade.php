@@ -37,10 +37,10 @@
                         @if (Auth::guard('admin')->user())
                             @if (Auth::guard('admin')->user()->profile_img != '')
                                 <img
-                                    src='{{ asset('public/' . config('constants.CLIENT_FOLDER_PATH') . '/' . Auth::guard('admin')->user()->profile_img) }}'
+                                    src='{{ asset(config('constants.CLIENT_FOLDER_PATH') . '/' . Auth::guard('admin')->user()->profile_img) }}'
                                     alt="{{ __('frontend.my_account') }}">
                             @else
-                                <img src="{{ asset('public/upload/user-icon-placeholder.png') }}"
+                                <img src="{{ asset('upload/user-icon-placeholder.png') }}"
                                     alt="{{ __('frontend.my_account') }}">
                             @endif
                         @endif

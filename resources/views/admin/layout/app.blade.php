@@ -106,9 +106,9 @@
                             @if (Auth::guard('admin')->user())
                                 @if (Auth::guard('admin')->user()->profile_img != '')
                                     <img alt="" class="img-circle profile_img"
-                                        src='{{ asset('public/' . config('constants.CLIENT_FOLDER_PATH') . '/' . Auth::guard('admin')->user()->profile_img) }}'>
+                                        src='{{ asset(config('constants.CLIENT_FOLDER_PATH') . '/' . Auth::guard('admin')->user()->profile_img) }}'>
                                 @else
-                                    <img src="{{ asset('public/upload/user-icon-placeholder.png') }}"
+                                    <img src="{{ asset('upload/user-icon-placeholder.png') }}"
                                         class="img-circle profile_img" alt="">
                                 @endif
                             @endif
