@@ -1,9 +1,10 @@
 {{-- header.blade.php --}}
 <div class="top_nav">
     <div class="nav_menu">
-        <nav>
+        <nav style="display:flex;align-items:stretch;width:100%;">
+            {{-- Hamburger toggle --}}
             <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                <a id="menu_toggle" aria-label="Toggle sidebar"><i class="fa fa-bars" aria-hidden="true"></i></a>
             </div>
             {{-- Breadcrumb Navigation --}}
             <nav class="lp-breadcrumb-bar" aria-label="Breadcrumb">
@@ -32,16 +33,15 @@
                 <li class=""> {{-- User Profile Dropdown --}}
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
-                        {{-- User image logic --}}
+                        {{-- User image --}}
                         @if (Auth::guard('admin')->user())
                             @if (Auth::guard('admin')->user()->profile_img != '')
                                 <img
-                                    src='{{ asset('public/' . config('constants.CLIENT_FOLDER_PATH') . '/' . Auth::guard('admin')->user()->profile_img) }}'>
+                                    src='{{ asset('public/' . config('constants.CLIENT_FOLDER_PATH') . '/' . Auth::guard('admin')->user()->profile_img) }}'
+                                    alt="{{ __('frontend.my_account') }}">
                             @else
-                                {{-- Consider setting width/height via CSS instead of attributes --}}
                                 <img src="{{ asset('public/upload/user-icon-placeholder.png') }}"
-                                    alt="User Profile Image"
-                                    style="width: 29px; height: 29px; border-radius: 50%; margin-right: 5px;">
+                                    alt="{{ __('frontend.my_account') }}">
                             @endif
                         @endif
                         {{-- User name --}}
