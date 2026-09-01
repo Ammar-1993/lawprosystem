@@ -20,7 +20,7 @@
                        role="menuitem"
                        aria-current="{{ Request::is('admin/clients*') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.manage_client') }}">
-                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
                         {{ __('frontend.sidebar.manage_client') }}
                     </a>
                 </li>
