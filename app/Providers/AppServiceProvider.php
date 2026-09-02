@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
                 if ($mail) //checking if table is not empty
                 {
                     $config = array(
-                        'driver'     => 'SMTP',
+                        'driver'     => env('MAIL_DRIVER', 'smtp'),
                         'host'       => $mail->mail_host,
                         'port'       => $mail->mail_port,
                         'from'       => array(

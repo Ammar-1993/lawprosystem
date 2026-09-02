@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $image_logo->company_name ?? 'Law Pro' }} | Password Reset</title>
+    <title>{{ $image_logo->company_name ?? 'Law Pro' }} | Reset Password</title>
     @if ($image_logo->favicon_img != '')
         <link rel="shortcut icon"
             href="{{ URL::asset(config('constants.FAVICON_FOLDER_PATH') . '/' . $image_logo->favicon_img) }}">
@@ -68,20 +68,16 @@
                     <h1>{{ __('frontend.email.reset_your_account') }}</h1>
                 </div>
 
-                @if (session('status'))
-                    <div class="alert alert-success" style="font-size: 14px; margin-bottom: 20px;">
-                        {{ session('status') }}
-                    </div>
-                @endif
-
-                <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/password/email') }}">
+                <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                     {{ csrf_field() }}
+
+                    <input type="hidden" name="token" value="{{ $token }}">
 
                     {{-- Email --}}
                     <div class="lp-form-group">
                         <label for="email">{{ __('frontend.login.email') ?? 'Email' }}</label>
                         <input id="email" type="email" class="lp-input form-control" name="email"
-                            value="{{ old('email') }}" autofocus placeholder="{{ __('frontend.email.enter_email') }}">
+                            value="{{ $email ?? old('email') }}" autofocus placeholder="{{ __('frontend.email.enter_email') }}">
                         @if ($errors->has('email'))
                             <div class="lp-error-feedback">
                                 <i class="fa fa-exclamation-circle"></i>
@@ -90,15 +86,43 @@
                         @endif
                     </div>
 
-                    {{-- Submit Button & Back to Login --}}
+                    {{-- Password --}}
+                    <div class="lp-form-group">
+                        <label for="password">{{ __('frontend.login.password') ?? 'Password' }}</label>
+                        <div class="lp-password-wrapper">
+                            <input id="password" type="password" class="lp-input form-control" name="password"
+                                autocomplete="off" placeholder="{{ __('frontend.login.password') ?? 'Password' }}">
+                            <span class="fa fa-eye toggle-icon" aria-hidden="true" id="togglePassword"></span>
+                        </div>
+                        @if ($errors->has('password'))
+                            <div class="lp-error-feedback">
+                                <i class="fa fa-exclamation-circle"></i>
+                                <span>{{ $errors->first('password') }}</span>
+                            </div>
+                        @endif
+                    </div>
+
+                    {{-- Confirm Password --}}
+                    <div class="lp-form-group">
+                        <label for="password-confirm">{{ __('frontend.login.confirm_password') ?? 'Confirm Password' }}</label>
+                        <div class="lp-password-wrapper">
+                            <input id="password-confirm" type="password" class="lp-input form-control" name="password_confirmation"
+                                autocomplete="off" placeholder="{{ __('frontend.login.confirm_password') ?? 'Confirm Password' }}">
+                            <span class="fa fa-eye toggle-icon" aria-hidden="true" id="togglePasswordConfirm"></span>
+                        </div>
+                        @if ($errors->has('password_confirmation'))
+                            <div class="lp-error-feedback">
+                                <i class="fa fa-exclamation-circle"></i>
+                                <span>{{ $errors->first('password_confirmation') }}</span>
+                            </div>
+                        @endif
+                    </div>
+
+                    {{-- Submit Button --}}
                     <div style="margin-top: 24px; text-align: center;">
                         <button type="submit" class="lp-btn lp-btn-primary" style="width: 100%; justify-content: center; margin-bottom: 16px; padding: 10px 16px; font-size: 14px;">
-                            {{ __('frontend.email.send_reset_link') }}
+                            {{ __('frontend.email.reset_your_account') }}
                         </button>
-                        
-                        <a href="{{ url('/admin/login') }}" style="font-size: 13.5px; color: var(--lp-secondary); text-decoration: none; font-weight: 500;">
-                            {{ __('frontend.login.login') ?? 'Back to login' }}
-                        </a>
                     </div>
 
                     {{-- Footer --}}
@@ -112,5 +136,32 @@
 
     <!-- jQuery -->
     <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            "use strict";
+
+            function togglePasswordVisibility(inputId, iconId) {
+                var passwordInput = $("#" + inputId);
+                var icon = $("#" + iconId);
+
+                if (passwordInput.attr("type") === "password") {
+                    passwordInput.attr("type", "text");
+                    icon.removeClass("fa-eye").addClass("fa-eye-slash");
+                } else {
+                    passwordInput.attr("type", "password");
+                    icon.removeClass("fa-eye-slash").addClass("fa-eye");
+                }
+            }
+
+            $("#togglePassword").click(function() {
+                togglePasswordVisibility("password", "togglePassword");
+            });
+
+            $("#togglePasswordConfirm").click(function() {
+                togglePasswordVisibility("password-confirm", "togglePasswordConfirm");
+            });
+        });
+    </script>
 </body>
 </html>
