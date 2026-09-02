@@ -1,137 +1,132 @@
 <!DOCTYPE html>
 <html lang="{{ $current_locale }}" dir="{{ $dir }}">
 
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $image_logo->company_name ?? 'Law Pro' }} | Login </title>
+    <title>{{ $image_logo->company_name ?? 'Law Pro' }} | Login</title>
     @if ($image_logo->favicon_img != '')
         <link rel="shortcut icon"
             href="{{ URL::asset(config('constants.FAVICON_FOLDER_PATH') . '/' . $image_logo->favicon_img) }}">
     @endif
-    <!-- Bootstrap -->
+    
+    <!-- Old Theme Assets (Kept for now per prompt constraints, to report what can be removed) -->
     <link href="{{ URL::asset('assets/admin/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="{{ URL::asset('assets/admin/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <!-- NProgress -->
     <link href="{{ URL::asset('assets/admin/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
-    <!-- Animate.css -->
     <link href="{{ URL::asset('assets/admin/vendors/animate.css/animate.min.css') }}" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
     <link href="{{ URL::asset('assets/admin/build/css/custom.min.css') }}" rel="stylesheet">
+
+    {{-- Google Fonts: Cairo for Arabic (RTL), Inter for English (LTR) --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @if($dir == 'rtl')
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    @else
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    @endif
+
+    <!-- Law Pro Design System -->
+    <link href="{{ mix('css/lawpro-theme.css') }}" rel="stylesheet">
+
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.Laravel = @json([
             'csrfToken' => csrf_token(),
-        ]); ?>
+        ])
     </script>
-    <style type="text/css">
-        .login_content_btn a:hover {
-            text-decoration: none;
-        }
-    </style>
 </head>
 
-<body class="login">
-    <div>
-        <a class="hiddenanchor" id="signup"></a>
-        <a class="hiddenanchor" id="signin"></a>
-
-        <div class="login_wrapper">
-            <div class="animate form login_form">
-                <section class="login_content">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/login') }}">
-                        {{ csrf_field() }}
-
-
-                        {{-- Language switcher as a simple list item --}}
-                        <li class="language-switcher-item-simple">
-                            @if ($current_locale == 'ar')
-                                <a href="{{ route('language.switch', 'en') }}">
-                                    <i class="fa fa-globe"></i> English
-                                </a>
-                            @else
-                                <a href="{{ route('language.switch', 'ar') }}">
-                                    <i class="fa fa-globe"></i> العربية
-                                </a>
-                            @endif
-                        </li>
-
-                        <h1>{{ __('frontend.login.login') }}</h1>
-
-                        @if ($image_logo->logo_img != '')
-                            <i class="fa fa-balance-scale" aria-hidden="true"
-                                style="margin-left: 5px; margin-right: 5px; font-size: 60px;"></i>
+<body>
+    <div class="lp-auth-wrapper">
+        <div class="lp-auth-container">
+            <div class="lp-card">
+                
+                {{-- Language Switcher --}}
+                <div style="text-align: {{ $dir == 'rtl' ? 'left' : 'right' }}; margin-bottom: 15px;">
+                    <div class="language-switcher-item-simple" style="display: inline-block;">
+                        @if ($current_locale == 'ar')
+                            <a href="{{ route('language.switch', 'en') }}">
+                                <i class="fa fa-globe"></i> English
+                            </a>
+                        @else
+                            <a href="{{ route('language.switch', 'ar') }}">
+                                <i class="fa fa-globe"></i> العربية
+                            </a>
                         @endif
-                        <h2> {{ __('frontend.login.login_your_account') }} </h2>
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <input id="email" type="email" class="form-control" name="email"
-                                value="{{ old('email') }}" autofocus placeholder="{{ __('frontend.login.email') }}">
+                    </div>
+                </div>
 
-                            @if ($errors->has('email'))
-                                <span class="help-block text-left">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <div class="input-group">
-                                <input id="password" type="password" class="form-control" name="password"
-                                    autocomplete="off" placeholder="{{ __('frontend.login.password') }}">
+                {{-- Header / Logo --}}
+                <div class="lp-auth-header">
+                    @if ($image_logo->logo_img != '')
+                        <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                    @endif
+                    <h1>{{ __('frontend.login.login') }}</h1>
+                    <p>{{ __('frontend.login.login_your_account') }}</p>
+                </div>
 
-                                <span class="input-group-addon" style="cursor: pointer;">
-                                    <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
-                                </span>
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/login') }}">
+                    {{ csrf_field() }}
+
+                    {{-- Email --}}
+                    <div class="lp-form-group">
+                        <label for="email">{{ __('frontend.login.email') }}</label>
+                        <input id="email" type="email" class="lp-input form-control" name="email"
+                            value="{{ old('email') }}" autofocus placeholder="{{ __('frontend.login.email') }}">
+                        @if ($errors->has('email'))
+                            <div class="lp-error-feedback">
+                                <i class="fa fa-exclamation-circle"></i>
+                                <span>{{ $errors->first('email') }}</span>
                             </div>
-                            @if ($errors->has('password'))
-                                <span class="help-block text-left" style="display: block;">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
+                        @endif
+                    </div>
+
+                    {{-- Password --}}
+                    <div class="lp-form-group">
+                        <label for="password">{{ __('frontend.login.password') }}</label>
+                        <div class="lp-password-wrapper">
+                            <input id="password" type="password" class="lp-input form-control" name="password"
+                                autocomplete="off" placeholder="{{ __('frontend.login.password') }}">
+                            <span class="fa fa-eye toggle-icon" aria-hidden="true" id="togglePassword"></span>
                         </div>
-                        <div>
-                            <button style="background-color: #daa520; color:aliceblue" type="submit"
-                                class="btn btn-default">
-                                {{ __('frontend.login.login_button') }}
-                            </button>
-                            <a style="font-size: 16px" class="reset_pass"
-                                href="{{ url('/admin/password/reset') }}">{{ __('frontend.login.forgot_password') }}</a>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="separator">
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                            <div>
-
-                                <p style="font-size: 18px">{{ __('frontend.login.project_name') }}</p>
+                        @if ($errors->has('password'))
+                            <div class="lp-error-feedback">
+                                <i class="fa fa-exclamation-circle"></i>
+                                <span>{{ $errors->first('password') }}</span>
                             </div>
-                        </div>
-                    </form>
-                </section>
+                        @endif
+                    </div>
+
+                    {{-- Submit Button & Forgot Password --}}
+                    <div style="margin-top: 24px; text-align: center;">
+                        <button type="submit" class="lp-btn lp-btn-primary" style="width: 100%; justify-content: center; margin-bottom: 16px; padding: 10px 16px; font-size: 14px;">
+                            {{ __('frontend.login.login_button') }}
+                        </button>
+                        
+                        <a href="{{ url('/admin/password/reset') }}" style="font-size: 13.5px; color: var(--lp-secondary); text-decoration: none; font-weight: 500;">
+                            {{ __('frontend.login.forgot_password') }}
+                        </a>
+                    </div>
+
+                    {{-- Footer --}}
+                    <div class="lp-auth-footer">
+                        <p>{{ __('frontend.login.project_name') }}</p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
     <!-- jQuery -->
     <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
             "use strict";
-
-            $(".fill-login").click(function() {
-                $("#email").val($(this).data("email"));
-                $("#password").val($(this).data("password"));
-            });
 
             $("#togglePassword").click(function() {
                 var passwordInput = $("#password");
@@ -144,7 +139,6 @@
                     icon.removeClass("fa-eye-slash").addClass("fa-eye");
                 }
             });
-
 
         });
     </script>

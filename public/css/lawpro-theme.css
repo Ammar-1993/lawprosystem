@@ -921,3 +921,123 @@ body.rtl .lp-footer__brand .fa-balance-scale {
     direction: inherit;
   }
 }
+/* ============================================================
+   LAW PRO - AUTH / LOGIN (RTL + LTR)
+   ============================================================ */
+.lp-auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.lp-auth-container {
+  width: 100%;
+  max-width: 440px;
+  padding: var(--space-lg);
+}
+
+.lp-auth-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.lp-auth-header .fa-balance-scale {
+  font-size: 52px;
+  color: var(--lp-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.lp-auth-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--lp-primary);
+  margin: 0;
+}
+
+.lp-auth-header p {
+  color: var(--lp-gray-dark);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.lp-form-group {
+  margin-bottom: var(--space-md);
+}
+
+.lp-input {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--lp-gray);
+  padding: 10px 14px;
+  width: 100%;
+  transition: var(--transition-fast);
+  color: var(--lp-dark);
+  font-size: 14px;
+  background: var(--lp-white);
+}
+
+.lp-input:focus {
+  border-color: var(--lp-secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 134, 171, 0.15);
+}
+
+.lp-password-wrapper {
+  position: relative;
+}
+
+.lp-password-wrapper .lp-input {
+  padding-inline-end: 42px; /* Logical padding handles RTL/LTR automatically */
+}
+
+.lp-password-wrapper .toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--lp-gray-dark);
+  padding: 6px;
+  font-size: 16px;
+  transition: var(--transition-fast);
+}
+
+.lp-password-wrapper .toggle-icon:hover {
+  color: var(--lp-secondary);
+}
+
+html[dir=ltr] .lp-password-wrapper .toggle-icon {
+  right: 12px;
+  left: auto;
+}
+
+html[dir=rtl] .lp-password-wrapper .toggle-icon,
+body.rtl .lp-password-wrapper .toggle-icon {
+  left: 12px;
+  right: auto;
+}
+
+.lp-error-feedback {
+  color: var(--lp-danger);
+  font-size: 12.5px;
+  margin-top: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.lp-error-feedback i {
+  margin-top: 2px;
+}
+
+.lp-auth-footer {
+  margin-top: var(--space-xl);
+  text-align: center;
+  border-top: 1px solid var(--lp-gray-light);
+  padding-top: var(--space-md);
+}
+
+.lp-auth-footer p {
+  font-size: 12.5px;
+  color: var(--lp-gray);
+  margin: 0;
+}
