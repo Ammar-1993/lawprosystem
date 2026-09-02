@@ -53,7 +53,7 @@
         rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     {{-- Law Pro Design System — يُحمَّل أخيراً لأخذ الأولوية على كل CSS سابق --}}
-    <link href="{{ asset('css/lawpro-theme.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/lawpro-theme.css') }}" rel="stylesheet">
 
     {{-- <link rel="stylesheet" href="{{ app()->getLocale() == 'ar' ? asset('css/app.rtl.css') : asset('css/app.css') }}"> --}}
     {{-- @if ($current_locale == 'ar')
