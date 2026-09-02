@@ -23,8 +23,6 @@
             'csrfToken' => csrf_token(),
         ])
     </script>
-    {{-- <link href="{{ asset('assets/admin/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') }}"
-        rel="stylesheet"> --}}
     <!-- Font Awesome -->
     <link href="{{ asset('assets/admin/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     {{-- Google Fonts: Cairo for Arabic (RTL), Inter for English (LTR) --}}
@@ -55,26 +53,11 @@
     {{-- Law Pro Design System — يُحمَّل أخيراً لأخذ الأولوية على كل CSS سابق --}}
     <link href="{{ mix('css/lawpro-theme.css') }}" rel="stylesheet">
 
-    {{-- <link rel="stylesheet" href="{{ app()->getLocale() == 'ar' ? asset('css/app.rtl.css') : asset('css/app.css') }}"> --}}
-    {{-- @if ($current_locale == 'ar')
-        <link rel="stylesheet" href="{{ asset('assets/css/rtl.css') }}">
-        <link href="{{ asset('assets/admin/vendors/bootstrap-rtl/dist/css/bootstrap-rtl.min.css') }}" rel="stylesheet">
-    @endif --}}
-
-
     @if ($dir == 'rtl')
-        {{-- <link href="{{ asset('assets/css/style-rtl.css') }}" rel="stylesheet"> --}}
-
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-        {{-- <link href="{{ asset('assets/admin/vendors/bootstrap-rtl/dist/css/bootstrap-rtl.min.css') }}" rel="stylesheet"> --}}
-
         <link href="{{ asset('assets/admin/vendors/bootstrap/dist/css/bootstrap-rtl.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/admin/build/css/custom-rtl.min.css') }}" rel="stylesheet">
-        {{-- <link href="{{ asset('css/app.rtl.css') }}" rel="stylesheet"> --}}
-        {{-- <link href="{{ asset('assets/admin/vendors/bootstrap-datepicker/css/bootstrap-datepicker.ar.css') }}"
-        rel="stylesheet"> --}}
     @endif
-
 
 </head>
 
