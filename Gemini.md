@@ -627,3 +627,19 @@ This session focused on safely modernizing the build process and redesigning the
 
 ## Commits
 All changes for Phase 0 and Phase 1 have been actively verified and pushed to the `main` branch.
+
+## Phase 2: Auth Pages Completion & Password Reset Fixes (Law Pro UI/UX)
+* **Email Request Page Restyle**: 
+  * Redesigned `resources/views/admin/auth/passwords/email.blade.php` to completely match the `.lp-auth-*` design language established in `login.blade.php`.
+  * Preserved the original `<form action="{{ url('/admin/password/email') }}">`, `csrf_field()`, and `.lp-error-feedback` logic.
+  * Preserved the `session('status')` alert block but restyled it to fit neatly inside the new `.lp-card`.
+* **Missing Password Reset View Creation**:
+  * Identified that `resources/views/admin/auth/passwords/reset.blade.php` was missing from the repository.
+  * Created the missing view using the exact `.lp-auth-*` visual hierarchy, including the dynamic language switcher and dual-font injection.
+  * Ensured the form met the strict `ResetsPasswords` contract expectations: `route('password.email')` action, hidden `token` input, and `email`/`password`/`password_confirmation` inputs.
+* **Email Configuration Fix (SMTP to Log)**:
+  * Discovered that `AppServiceProvider::register()` was aggressively hardcoding the `'driver' => 'SMTP'` by pulling values from the `mailsetups` database table, bypassing the local `.env` completely.
+  * Modified `AppServiceProvider.php` to fallback using `env('MAIL_DRIVER', 'smtp')` so local developers can test emails without real SMTP credentials.
+  * Changed `MAIL_DRIVER=log` in `.env`.
+  * Hard-restarted the Docker containers (`lawpro_app` and `lawpro_queue`) to flush OPcache and ensure the web process picked up the new `log` driver, fixing a blocking `Swift_TransportException` when sending the reset email.
+* **Verification**: Successfully generated a password reset token locally and verified its output in `storage/logs/laravel-2026-09-03.log` (due to the `daily` stack logging channel).
