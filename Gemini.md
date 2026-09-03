@@ -706,3 +706,17 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
 * **Modern System Badge**: Replaced static text with an animated pulsing green status dot ("System Online") and a clean version pill (`v1.0.0`).
 * **Complete System Sync**: Synced across `footer.blade.php`, `public/css/lawpro-theme.css`, and `resources/sass/lawpro-theme.scss`. Permissions restored and Laravel view/application caches cleared.
 
+### 6. Basic Settings & Card Fill Post-Mortem (UI Freeze Fix & Resolution)
+* **Incident**: After applying a layout rule to expand short cards, the website froze completely upon logging in and redirecting to `/admin/dashboard`. No buttons, dropdowns, or sidebar links were clickable, giving the appearance of a total freeze.
+* **Deep Root Cause**:
+  * In `resources/views/admin/index.blade.php`, three Bootstrap modals (`#modal-case-priority`, `#modal-change-court`, `#modal-next-date`) reside directly inside `.right_col` as `<div class="modal fade" ...>`.
+  * The generic selector `.right_col > div:not(.clearfix) { display: flex !important; }` inadvertently targeted these modal wrappers, overriding Bootstrap's default `display: none` to `display: flex !important;`.
+  * Because `.modal.fade` has `position: fixed; inset: 0; z-index: 1050; opacity: 0;`, three invisible full-screen modals were rendered directly over the entire viewport.
+  * This invisible glass overlay intercepted 100% of pointer, mouse-click, and scroll events across the entire page (including sidebar and top navigation), while the login page (lacking `.right_col` and modals) remained functional.
+* **Fix Applied**:
+  * Immediately purged the generic `.right_col > div:not(.clearfix)` flex rules from `public/css/lawpro-theme.css` and `resources/sass/lawpro-theme.scss`.
+  * Restored Bootstrap's default modal lifecycle (`display: none`), instantly unfreezing all clicks, animations, and navigation events across the system.
+  * Cleared Laravel compiled views (`php artisan view:clear`) and cache (`php artisan cache:clear`).
+
+
+
