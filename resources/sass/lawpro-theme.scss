@@ -200,8 +200,8 @@ label{font-size:13px;font-weight:600;color:var(--lp-gray-dark);margin-bottom:6px
 @keyframes skeleton-shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
 .lp-skeleton{background:linear-gradient(90deg,var(--lp-gray-light) 25%,#e4e8eb 50%,var(--lp-gray-light) 75%);background-size:200% 100%;animation:skeleton-shimmer 1.5s infinite;border-radius:var(--radius-sm)}
 .page-title{border-bottom:2px solid var(--lp-gray-light);margin-bottom:var(--space-lg);padding-bottom:var(--space-sm)}
-.page-title h3{font-size:20px;font-weight:700;color:var(--lp-primary);display:flex;align-items:center;gap:10px}
-.page-title h3 i{color:var(--lp-accent)}
+.page-title h3, .page-title h4{font-size:20px;font-weight:700;color:var(--lp-primary);display:flex;align-items:center;gap:10px;margin:0}
+.page-title h3 i, .page-title h4 i{color:var(--lp-accent, #e8a838);font-size:20px;display:inline-flex;align-items:center;justify-content:center}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--lp-accent);outline-offset:2px;border-radius:var(--radius-xs)}
 @media(max-width:992px){.lp-card{margin-bottom:var(--space-md)}.lp-card .count{font-size:36px}}
 @media(max-width:768px){.lp-card .count{font-size:30px}.dataTables_wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}.page-title h3{font-size:16px}body.rtl .main_container .left_col{margin-right:0;margin-left:auto}}

@@ -8,9 +8,8 @@
 
     <div class="page-title">
         <div class="title_left">
-            <h3>{{ __('frontend.add_member') }}</h3>
+            <h3><i class="fa fa-user-plus"></i>&nbsp;&nbsp;{{ __('frontend.add_member') }}</h3>
         </div>
-z
         <div class="title_right">
             <div class="form-group pull-right top_search">
                 <a href="{{ url('admin/client_user') }}" class="btn btn-primary">{{ __('frontend.back') }}</a>

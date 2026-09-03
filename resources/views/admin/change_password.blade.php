@@ -6,7 +6,7 @@
 
         <div class="page-title">
             <div class="title_left">
-                <h3>{{ __('frontend.my_account') }}</h3>
+                <h3><i class="fa fa-key"></i>&nbsp;&nbsp;{{ __('frontend.change_password') ?? __('frontend.my_account') }}</h3>
             </div>
         </div>
 

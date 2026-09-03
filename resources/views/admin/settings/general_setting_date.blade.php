@@ -7,7 +7,7 @@
 
     <div class="page-title"> 
         <div class="title_left">
-            <h3>{{__('frontend.date_and_time_zone_setting')}}</h3>
+            <h3><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{__('frontend.date_and_time_zone_setting')}}</h3>
         </div>
 
 

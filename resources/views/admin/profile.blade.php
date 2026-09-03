@@ -8,7 +8,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>{{ __('frontend.my_account') }}</h3>
+                <h3><i class="fa fa-user"></i>&nbsp;&nbsp;{{ __('frontend.my_account') }}</h3>
             </div>
         </div>
 

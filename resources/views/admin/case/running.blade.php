@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>{{__('frontend.cases_management')}}</h3>
+                <h3><i class="fa fa-gavel"></i>&nbsp;&nbsp;{{__('frontend.cases_management')}}</h3>
             </div>
 
             <div class="title_right">

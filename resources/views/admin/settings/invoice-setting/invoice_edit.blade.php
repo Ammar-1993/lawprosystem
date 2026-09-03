@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3>{{__('frontend.invoice_setting')}}</h3>
+            <h3><i class="fa fa-file-text-o"></i>&nbsp;&nbsp;{{__('frontend.invoice_setting')}}</h3>
         </div>
 
         <div class="title_right">

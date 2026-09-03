@@ -5,7 +5,7 @@
 
         <div class="page-title">
             <div class="title_left">
-                <h3>{{__('frontend.member_management')}}</h3>
+                <h3><i class="fa fa-users"></i>&nbsp;&nbsp;{{__('frontend.member_management')}}</h3>
             </div>
 
             <div class="title_right">

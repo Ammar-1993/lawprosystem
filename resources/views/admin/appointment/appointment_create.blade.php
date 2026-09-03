@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3>{{ __('frontend.appointment.add_appointment') }}</h3>
+            <h3><i class="fa fa-calendar-plus-o"></i>&nbsp;&nbsp;{{ __('frontend.appointment.add_appointment') }}</h3>
         </div>
 
         <div class="title_right">

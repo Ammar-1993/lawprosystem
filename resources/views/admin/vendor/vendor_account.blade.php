@@ -5,7 +5,7 @@
 
         <div class="page-title">
             <div class="title_left">
-                <h3>{{ __('frontend.vendor_name') }} : <span>{{ $name }}</span></h3>
+                <h3><i class="fa fa-truck"></i>&nbsp;&nbsp;{{ __('frontend.vendor_name') }} : <span>{{ $name }}</span></h3>
             </div>
 
 

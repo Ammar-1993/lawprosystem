@@ -5,7 +5,7 @@
 
     <div class="page-title">
       <div class="title_left">
-        <h3>Activity Logs</h3>
+        <h3><i class="fa fa-history"></i>&nbsp;&nbsp;Activity Logs</h3>
       </div>
     </div>
 

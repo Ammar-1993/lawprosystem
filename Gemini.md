@@ -718,5 +718,36 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   * Restored Bootstrap's default modal lifecycle (`display: none`), instantly unfreezing all clicks, animations, and navigation events across the system.
   * Cleared Laravel compiled views (`php artisan view:clear`) and cache (`php artisan cache:clear`).
 
+### 7. System-wide Page Title Icons Modernization
+* **Problem**: Only the Dashboard header displayed an icon (`<i class="fa fa-tachometer"></i> Dashboard`), while all other module page titles (`Client Management`, `Case Management`, `Invoice Management`, etc.) appeared as plain text without icons, creating visual inconsistency across the system.
+* **Architecture & Solution**:
+  * **Core Heading Components (`component.heading` & `component.modal_heading`)**:
+    * Added support for an optional `$icon` parameter.
+    * Implemented an intelligent route-based fallback mapping that automatically detects the module via `Request::segment(2)` and assigns the matching brand icon:
+      * `clients` -> `fa fa-user-plus`
+      * `case` / `case-running` -> `fa fa-gavel`
+      * `tasks` -> `fa fa-check-square-o`
+      * `appointment` -> `fa fa-calendar-check-o`
+      * `vendor` -> `fa fa-truck`
+      * `role` -> `fa fa-shield`
+      * `service` -> `fa fa-wrench`
+      * `expense-type` -> `fa fa-tags`
+      * `court-type` -> `fa fa-building-o`
+      * `court` -> `fa fa-university`
+      * `judge` -> `fa fa-balance-scale`
+      * `case-type` -> `fa fa-folder-open-o`
+      * `case-status` -> `fa fa-info-circle`
+      * `tax` -> `fa fa-percent`
+      * `general-setting` -> `fa fa-sliders`
+      * `invoice-setting` -> `fa fa-file-text-o`
+      * `database-backup` -> `fa fa-database`
+      * `team-members` / `client_user` -> `fa fa-users`
+  * **Standalone Views**: Updated all 32 non-component views across the system (Cases running/archived/important, Invoices, Expenses, Client detail/account, Appointments, Settings, Team members, Activity logs, Profile, Change password) with precise FontAwesome icons.
+  * **Design System & Typography**:
+    * Enhanced `.page-title h3, .page-title h4` in `public/css/lawpro-theme.css` and `resources/sass/lawpro-theme.scss`.
+    * All heading icons render in Law Pro's signature golden accent (`#E8A838`), 20px size, vertically centered via flexbox with 10px spacing, ensuring seamless appearance in both RTL (Arabic) and LTR (English).
+  * **Cache & Permissions**: Cleared compiled views and application caches; verified permissions with `www-data:www-data`.
+
+
 
 

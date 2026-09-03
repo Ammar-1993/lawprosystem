@@ -5,7 +5,7 @@
 
         <div class="page-title">
             <div class="title_left">
-                <h3>Database Backup</h3>
+                <h3><i class="fa fa-database"></i>&nbsp;&nbsp;Database Backup</h3>
             </div>
             <div class="title_right">
                 <div class="form-group pull-right top_search">

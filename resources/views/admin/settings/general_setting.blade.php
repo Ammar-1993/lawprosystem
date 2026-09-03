@@ -7,7 +7,7 @@
 
     <div class="page-title">
         <div class="title_left">
-            <h3>{{__('frontend.general_setting')}}</h3>
+            <h3><i class="fa fa-sliders"></i>&nbsp;&nbsp;{{__('frontend.general_setting')}}</h3>
         </div>
 
 

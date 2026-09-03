@@ -5,7 +5,7 @@
 
     <div class="page-title">
         <div class="title_left">
-            <h3>{{ __('frontend.edit_appointment') }}</h3>
+            <h3><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{ __('frontend.edit_appointment') }}</h3>
         </div>
 
         <div class="title_right">

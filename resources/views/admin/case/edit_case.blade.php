@@ -6,7 +6,7 @@
 
     <div class="page-title">
         <div class="title_left">
-            <h3>{{__('frontend.edit_case')}}</h3>
+            <h3><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;{{__('frontend.edit_case')}}</h3>
         </div>
 
         <div class="title_right">

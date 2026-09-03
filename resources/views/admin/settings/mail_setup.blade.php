@@ -6,7 +6,7 @@
 
     <div class="page-title">
         <div class="title_left">
-            <h3>{{__('frontend.mail_setup')}}</h3>
+            <h3><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;{{__('frontend.mail_setup')}}</h3>
         </div>
 
         <div class="title_right">
