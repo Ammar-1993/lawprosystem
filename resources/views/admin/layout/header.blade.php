@@ -30,6 +30,26 @@
 
             <ul class="nav navbar-nav navbar-right">
 
+                @if ($adminHasPermition->can(['case_list']) == '1')
+                    {{-- It's better practice to wrap these in <li> elements too if they are siblings --}}
+                    {!! App\Helpers\LogActivity::generateTasks() !!}
+                    {!! App\Helpers\LogActivity::getNotifications() !!}
+                @endif
+
+                {{-- ===== START: Improved Language Switcher ===== --}}
+                <li class="language-switcher-item-simple">
+                    @if ($current_locale == 'ar')
+                        <a href="{{ route('language.switch', 'en') }}">
+                            <i class="fa fa-globe"></i>&nbsp; English
+                        </a>
+                    @else
+                        <a href="{{ route('language.switch', 'ar') }}">
+                            <i class="fa fa-globe"></i>&nbsp; العربية
+                        </a>
+                    @endif
+                </li>
+                {{-- ===== END: Improved Language Switcher ===== --}}
+
                 <li class=""> {{-- User Profile Dropdown --}}
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
@@ -62,26 +82,6 @@
                         </li>
                     </ul>
                 </li>
-
-                {{-- ===== START: Improved Language Switcher ===== --}}
-                <li class="language-switcher-item-simple">
-                    @if ($current_locale == 'ar')
-                        <a href="{{ route('language.switch', 'en') }}">
-                            <i class="fa fa-globe"></i>&nbsp; English
-                        </a>
-                    @else
-                        <a href="{{ route('language.switch', 'ar') }}">
-                            <i class="fa fa-globe"></i>&nbsp; العربية
-                        </a>
-                    @endif
-                </li>
-                {{-- ===== END: Improved Language Switcher ===== --}}
-
-                @if ($adminHasPermition->can(['case_list']) == '1')
-                    {{-- It's better practice to wrap these in <li> elements too if they are siblings --}}
-                    {!! App\Helpers\LogActivity::generateTasks() !!}
-                    {!! App\Helpers\LogActivity::getNotifications() !!}
-                @endif
 
             </ul>
         </nav>

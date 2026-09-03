@@ -149,19 +149,35 @@ html[dir='rtl'] .lp-breadcrumb li + li::before,
 body.rtl       .lp-breadcrumb li + li::before { content: '‹'; }
 
 /* ── Right-side nav items ── */
+.top_nav .navbar-right,
 .nav_menu .navbar-nav.navbar-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0 8px;
-    flex-shrink: 0;
-    height: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    flex-shrink: 0 !important;
+    height: 100% !important;
     float: none !important;
+    width: auto !important;
+    max-width: none !important;
 }
+html[dir='ltr'] .top_nav .navbar-right,
+html[dir='ltr'] .nav_menu .navbar-nav.navbar-right {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    justify-content: flex-end !important;
+}
+html[dir='rtl'] .top_nav .navbar-right,
+body.rtl        .top_nav .navbar-right,
 html[dir='rtl'] .nav_menu .navbar-nav.navbar-right,
-body.rtl        .nav_menu .navbar-nav.navbar-right { padding: 0 8px; }
+body.rtl        .nav_menu .navbar-nav.navbar-right {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+    padding: 0 8px !important;
+}
 
 .nav_menu .navbar-nav.navbar-right > li {
     display: inline-flex;
