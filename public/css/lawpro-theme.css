@@ -1077,3 +1077,143 @@ body.rtl .lp-password-wrapper .toggle-icon {
   color: var(--lp-gray);
   margin: 0;
 }
+
+/* ============================================================
+   LAW PRO - DATEPICKER & CALENDAR POPUPS (RTL + LTR)
+   ============================================================ */
+/* ── 1. Bootstrap Datepicker (.datepicker.dropdown-menu) ── */
+.datepicker.datepicker-dropdown,
+.datepicker.dropdown-menu {
+  width: auto !important;
+  min-width: 250px !important;
+  max-width: 280px !important;
+  padding: 10px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: var(--radius-sm, 8px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+  z-index: 9999 !important;
+}
+
+/* Fix RTL stretching caused by bootstrap-rtl .dropdown-menu { right: 0; } */
+html[dir='rtl'] .datepicker.datepicker-dropdown,
+html[dir='rtl'] .datepicker.dropdown-menu,
+body.rtl .datepicker.datepicker-dropdown,
+body.rtl .datepicker.dropdown-menu {
+  right: auto !important;
+}
+
+/* Datepicker Inner Table Structure */
+.datepicker table {
+  width: 100% !important;
+  margin: 0 auto !important;
+  border-collapse: separate !important;
+  border-spacing: 2px !important;
+}
+
+.datepicker table thead tr:first-child th {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lp-primary, #1a3c5e);
+  padding: 6px 0;
+  text-align: center;
+}
+
+.datepicker table thead tr:first-child th.prev,
+.datepicker table thead tr:first-child th.next {
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--lp-secondary, #2e86ab);
+  border-radius: var(--radius-xs, 4px);
+  transition: var(--transition-fast, all 0.15s ease);
+}
+
+.datepicker table thead tr:first-child th.prev:hover,
+.datepicker table thead tr:first-child th.next:hover {
+  background: rgba(46, 134, 171, 0.1) !important;
+  color: var(--lp-primary, #1a3c5e) !important;
+}
+
+.datepicker table thead tr:nth-child(2) th.dow {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--lp-gray-dark, #5d6d7e);
+  text-transform: uppercase;
+  padding: 4px 0 8px;
+  border-bottom: 1px solid var(--lp-gray-light, #ecf0f1);
+  text-align: center;
+}
+
+.datepicker table tbody tr td.day {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--lp-dark, #2c3e50) !important;
+  border-radius: var(--radius-xs, 6px) !important;
+  padding: 0 !important;
+  transition: var(--transition-fast, all 0.15s ease);
+  cursor: pointer;
+}
+
+.datepicker table tbody tr td.day:hover,
+.datepicker table tbody tr td.day.focused {
+  background: rgba(46, 134, 171, 0.1) !important;
+  color: var(--lp-secondary, #2e86ab) !important;
+}
+
+.datepicker table tbody tr td.day.old,
+.datepicker table tbody tr td.day.new {
+  color: var(--lp-gray, #bdc3c7) !important;
+  opacity: 0.6;
+}
+
+.datepicker table tbody tr td.day.active,
+.datepicker table tbody tr td.day.active:hover,
+.datepicker table tbody tr td.day.active:focus {
+  background: var(--lp-primary, #1a3c5e) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 6px rgba(26, 60, 94, 0.3) !important;
+}
+
+.datepicker table tbody tr td.day.today {
+  border: 1px solid var(--lp-accent, #e8a838) !important;
+  color: var(--lp-accent, #e8a838) !important;
+}
+
+.datepicker table tbody tr td.day.today.active {
+  border-color: var(--lp-primary, #1a3c5e) !important;
+  color: #ffffff !important;
+}
+
+/* ── 2. Bootstrap Datetimepicker Widget (.bootstrap-datetimepicker-widget) ── */
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  width: auto !important;
+  min-width: 260px !important;
+  max-width: 300px !important;
+  padding: 10px !important;
+  border-radius: var(--radius-sm, 8px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+  z-index: 9999 !important;
+}
+
+html[dir='rtl'] .bootstrap-datetimepicker-widget.dropdown-menu,
+body.rtl .bootstrap-datetimepicker-widget.dropdown-menu {
+  right: auto !important;
+}
+
+/* ── 3. Bootstrap Daterangepicker (.daterangepicker) ── */
+.daterangepicker {
+  border-radius: var(--radius-sm, 8px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+  z-index: 9999 !important;
+}
+
+html[dir='rtl'] .daterangepicker,
+body.rtl .daterangepicker {
+  right: auto !important;
+}
+
