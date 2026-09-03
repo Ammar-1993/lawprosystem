@@ -7,14 +7,9 @@
                 <a id="menu_toggle" aria-label="Toggle sidebar"><i class="fa fa-bars" aria-hidden="true"></i></a>
             </div>
             {{-- Breadcrumb Navigation --}}
-            <nav class="lp-breadcrumb-bar" aria-label="Breadcrumb">
-                <ol class="lp-breadcrumb">
-                    <li>
-                        <a href="{{ url('admin/dashboard') }}" title="{{ __('frontend.sidebar.dashboard') }}">
-                            <i class="fa fa-home"></i>
-                        </a>
-                    </li>
-                    @if(isset($breadcrumbs) && count($breadcrumbs) > 0)
+            @if(isset($breadcrumbs) && count($breadcrumbs) > 0)
+                <nav class="lp-breadcrumb-bar" aria-label="Breadcrumb">
+                    <ol class="lp-breadcrumb">
                         @foreach($breadcrumbs as $label => $url)
                             <li @if($loop->last) class="active" @endif>
                                 @if(!$loop->last && $url)
@@ -24,9 +19,9 @@
                                 @endif
                             </li>
                         @endforeach
-                    @endif
-                </ol>
-            </nav>
+                    </ol>
+                </nav>
+            @endif
 
             <ul class="nav navbar-nav navbar-right">
 
