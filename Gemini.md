@@ -644,4 +644,65 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   * Hard-restarted the Docker containers (`lawpro_app` and `lawpro_queue`) to flush OPcache and ensure the web process picked up the new `log` driver, fixing a blocking `Swift_TransportException` when sending the reset email.
 * **Verification**: Successfully generated a password reset token locally and verified its output in `storage/logs/laravel-2026-09-03.log` (due to the `daily` stack logging channel).
 
-tail -n 50 storage/logs/laravel-*.log
+---
+
+## Phase 3: Navigation, Datepicker, Sidebar & Footer System-wide Polish (Law Pro UI/UX)
+
+### 1. Top Navigation & Header Alignment (RTL + LTR)
+* **Root Cause**: `assets/admin/build/css/custom.min.css` hardcoded `.top_nav .navbar-right { width: 70%; float: right; }`, which forced header elements (Profile, Language Switcher, Notifications, Tasks) into the center of the screen when in English (LTR).
+* **Fix Applied**:
+  * Overrode `.top_nav .navbar-right` with `width: auto !important; float: none !important; display: flex !important;` and `margin-left: auto !important; margin-right: 0 !important; justify-content: flex-end !important;` for LTR, and symmetric rules for RTL.
+  * Reordered elements so that User Profile is flush on the outermost edge, followed inwards by Language Switcher, Notifications, and Tasks in both locales.
+  * Constrained `.nav-md .top_nav` width to `calc(100% - 230px)`.
+* **Home Icon Cleanup**: Removed the hardcoded Home icon (`<i class="fa fa-home"></i>`) from `resources/views/admin/layout/header.blade.php`; breadcrumbs now only render dynamically when `$breadcrumbs` is provided.
+* **404 Asset Fix**: Removed erroneous `public/` prefix from `asset()` calls across layout headers.
+
+### 2. Datepicker Modernization & Precision Positioning
+* **Horizontal Stretching Fix**: Added `.datepicker.dropdown-menu { width: auto !important; min-width: 250px !important; max-width: 280px !important; }` along with Law Pro brand colors (`#1a3c5e`, rounded corners, subtle shadows).
+* **RTL Positioning Conflict**:
+  * *Discovery*: In `task-validation.js`, `rtl: (currentLang === 'ar')` is passed, causing `bootstrap-datepicker` to add class `.datepicker-rtl` and set `right: <X>px` inline. However, in other files (e.g. Dashboard), `rtl` is not passed, so JS sets `left: <X>px` inline.
+  * *Conflict*: A previous global rule `right: auto !important;` wiped out the calculated `right` offset on `task-validation.js`, displacing the popup to the far right margin under "Subject".
+  * *Surgical Fix*:
+    * `.datepicker.dropdown-menu:not(.datepicker-rtl)` sets `right: auto !important;` to prevent `bootstrap-rtl.min.css` from stretching LTR-oriented pickers.
+    * `.datepicker.dropdown-menu.datepicker-rtl` sets `left: auto !important;` and preserves the calculated `right` coordinate, ensuring the popup opens directly below the clicked date input.
+* **Global Today Highlighting & Golden Accent Theme**:
+  * *Discovery*: `todayHighlight` defaults to `false` in `bootstrap-datepicker`. Pages like Cases Management did not pass `todayHighlight: true`, so the `.today` class was never appended to the cell.
+  * *Global Fix*: In `resources/views/admin/layout/app.blade.php`:
+    ```javascript
+    if (typeof $.fn.datepicker !== 'undefined') {
+        $.fn.datepicker.defaults.todayHighlight = true;
+    }
+    ```
+    This activated today highlighting across 100% of date fields in the entire system without editing dozens of individual JS files.
+  * *Golden Accent*: Styled `.day.today` with a soft golden gradient (`#fdd49a` to `#fde19a`), golden border (`1.5px solid #e8a838`), and bold font. When today is also the selected date (`.day.today.active`, as on the Dashboard), styled it with a rich golden gradient (`#e8a838` to `#f39c12`), white text, and golden glow, eliminating the previous dark navy/black override.
+
+### 3. Architectural Advisory: Bootstrap 5 vs Bootstrap 3.3.7
+* Evaluated proposal to replace local Bootstrap files with Bootstrap 5.3.8 CDN links.
+* **Advisory**: Strongly advised against replacing local Bootstrap 3.3.7 with Bootstrap 5 CDN:
+  * Bootstrap 5 removed jQuery and changed all data attributes (`data-toggle` -> `data-bs-toggle`), which would break all Modals, Dropdowns, and DataTables.
+  * Bootstrap 5 dropped legacy classes (`panel`, `well`, `pull-right`, `col-xs-*`) heavily used across hundreds of Blade views.
+  * The standard CDN bundle lacks RTL support, which would break the Arabic interface.
+  * Recommended maintaining local Bootstrap 3.3.7 files with Law Pro design tokens.
+
+### 4. Sidebar Modernization (Icon-Only Minimalist in `nav-sm`)
+* **Problem**: In collapsed mode (`nav-sm`), menu text was squashed beside icons in a 50px box, causing text to wrap over icons in English and get chopped in Arabic. In addition, submenu chevrons (`fa-chevron-down`) collided with icons, and active styling (`.active-sm`) reverted to turquoise.
+* **Fix Applied**:
+  * Wrapped menu labels in `<span class="menu-text">` in `resources/views/admin/layout/sidebar.blade.php`.
+  * Configured `.nav-sm` in `lawpro-theme.css` and `lawpro-theme.scss`:
+    * Menu items become clean 48px x 46px centered boxes with rounded corners (`border-radius: 8px`).
+    * Menu text and dropdown chevrons are hidden (`display: none !important`).
+    * Icons centered at 20px with smooth hover scaling and golden color.
+    * Active item (`.active-sm`, `.active`, `.current-page`) retains `#172d44` navy background, golden icon, and a 3px golden vertical indicator line (left in LTR, right in RTL).
+    * Centered the balance scale logo in the 70px header.
+    * Styled floating flyout submenus (`.nav-sm ul.nav.child_menu`) with navy background, golden hover states, flying right in LTR and left in RTL.
+    * Defined complete, symmetrical layout offsets for `.nav-md` (230px) and `.nav-sm` (70px) for `.top_nav`, `.right_col`, and `.lp-footer` in both LTR and RTL.
+
+### 5. Footer (التذييل السفلي) Unification & Modernization
+* **Contradictory Years Fixed**: Removed hardcoded "2025" from `resources/lang/ar/frontend.php` and `resources/lang/en/frontend.php`. The copyright year is now dynamically generated via `{{ date('Y') }}` (2026+).
+* **Institutional Phrasing**: Added `all_rights_reserved` key:
+  * Arabic: `⚖️ نظام المحامي الإحترافي © 2026 · جميع الحقوق محفوظة`
+  * English: `⚖️ Law Pro System © 2026 · All Rights Reserved`
+* **Arabic Icon Reversal Fixed**: Removed `order: 1` in RTL CSS so the golden balance scale icon naturally leads the brand name from the right in Arabic, mirroring the LTR layout.
+* **Modern System Badge**: Replaced static text with an animated pulsing green status dot ("System Online") and a clean version pill (`v1.0.0`).
+* **Complete System Sync**: Synced across `footer.blade.php`, `public/css/lawpro-theme.css`, and `resources/sass/lawpro-theme.scss`. Permissions restored and Laravel view/application caches cleared.
+
