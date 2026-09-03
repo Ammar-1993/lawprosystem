@@ -523,12 +523,20 @@ body.rtl        .lp-password-wrapper .toggle-icon { left: 12px; right: auto; }
     z-index: 9999 !important;
 }
 
-/* Fix RTL stretching caused by bootstrap-rtl .dropdown-menu { right: 0; } */
-html[dir='rtl'] .datepicker.datepicker-dropdown,
-html[dir='rtl'] .datepicker.dropdown-menu,
-body.rtl        .datepicker.datepicker-dropdown,
-body.rtl        .datepicker.dropdown-menu {
+/* Fix RTL for datepickers:
+   - When datepicker is NOT rtl-oriented (default), JS calculates inline `left`.
+     We set `right: auto !important` to prevent bootstrap-rtl `.dropdown-menu { right: 0; }` from stretching it across the screen.
+   - When datepicker IS rtl-oriented (.datepicker-rtl), JS calculates inline `right`.
+     We set `left: auto !important` and let the calculated inline `right` position the popup directly below the input.
+*/
+html[dir='rtl'] .datepicker.dropdown-menu:not(.datepicker-rtl),
+body.rtl        .datepicker.dropdown-menu:not(.datepicker-rtl) {
     right: auto !important;
+}
+
+html[dir='rtl'] .datepicker.dropdown-menu.datepicker-rtl,
+body.rtl        .datepicker.dropdown-menu.datepicker-rtl {
+    left: auto !important;
 }
 
 /* Datepicker Inner Table Structure */
