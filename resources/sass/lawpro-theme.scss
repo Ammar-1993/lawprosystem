@@ -617,18 +617,23 @@ body.rtl        .datepicker.dropdown-menu.datepicker-rtl {
 
 .datepicker table tbody tr td.day.today,
 .datepicker table tbody tr td.day.today:hover {
-    background-color: rgba(232, 168, 56, 0.22) !important;
-    color: var(--lp-dark, #2c3e50) !important;
+    background-color: #fde19a !important;
+    background: linear-gradient(135deg, #fdd49a 0%, #fde19a 100%) !important;
+    color: #5a3c00 !important;
     font-weight: 700 !important;
     border: 1.5px solid var(--lp-accent, #e8a838) !important;
     border-radius: var(--radius-xs, 6px) !important;
 }
 
 .datepicker table tbody tr td.day.today.active,
-.datepicker table tbody tr td.day.today.active:hover {
-    background-color: var(--lp-primary, #1a3c5e) !important;
+.datepicker table tbody tr td.day.today.active:hover,
+.datepicker table tbody tr td.day.today.active:focus {
+    background-color: var(--lp-accent, #e8a838) !important;
+    background: linear-gradient(135deg, #e8a838 0%, #f39c12 100%) !important;
     color: #ffffff !important;
-    border-color: var(--lp-primary, #1a3c5e) !important;
+    font-weight: 700 !important;
+    border: 1.5px solid #d48b14 !important;
+    box-shadow: 0 2px 8px rgba(232, 168, 56, 0.45) !important;
 }
 
 /* ── 2. Bootstrap Datetimepicker Widget (.bootstrap-datetimepicker-widget) ── */
