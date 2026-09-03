@@ -9,7 +9,7 @@
                        aria-current="{{ Request::is('admin/dashboard') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.dashboard') }}">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.dashboard') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.dashboard') }}</span>
                     </a>
                 </li>
             @endif
@@ -21,7 +21,7 @@
                        aria-current="{{ Request::is('admin/clients*') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.manage_client') }}">
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_client') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_client') }}</span>
                     </a>
                 </li>
             @endif
@@ -33,7 +33,7 @@
                        aria-current="{{ Request::is('admin/case*') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.manage_cases') }}">
                         <i class="fa fa-gavel" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_cases') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_cases') }}</span>
                     </a>
                 </li>
             @endif
@@ -45,7 +45,7 @@
                        aria-current="{{ Request::is('admin/tasks*') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.manage_tasks') }}">
                         <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_tasks') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_tasks') }}</span>
                     </a>
                 </li>
             @endif
@@ -57,7 +57,7 @@
                        aria-current="{{ Request::is('admin/appointment*') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.manage_appoint') }}">
                         <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_appoint') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_appoint') }}</span>
                     </a>
                 </li>
             @endif
@@ -69,7 +69,7 @@
                        aria-current="{{ Request::is('admin/vendor*') ? 'page' : 'false' }}"
                        title="{{ __('frontend.sidebar.manage_vendors') }}">
                         <i class="fa fa-truck" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_vendors') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_vendors') }}</span>
                     </a>
                 </li>
             @endif
@@ -78,7 +78,7 @@
                 <li role="none">
                     <a role="menuitem" title="{{ __('frontend.sidebar.manage_members') }}">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_members') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_members') }}</span>
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
                     <ul class="nav child_menu" role="menu">
@@ -92,7 +92,7 @@
                 <li class="{{ Request::is('admin/service*') || Request::is('admin/invoice*') ? 'active' : '' }}" role="none">
                     <a role="menuitem" title="{{ __('frontend.sidebar.manage_income') }}">
                         <i class="fa fa-money" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_income') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_income') }}</span>
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
                     <ul class="nav child_menu" role="menu">
@@ -110,7 +110,7 @@
                 <li class="{{ Request::is('admin/expense*') ? 'active' : '' }}" role="none">
                     <a role="menuitem" title="{{ __('frontend.sidebar.manage_expense') }}">
                         <i class="fa fa-credit-card" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.manage_expense') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.manage_expense') }}</span>
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
                     <ul class="nav child_menu" role="menu">
@@ -135,7 +135,7 @@
                 <li class="{{ Request::is('admin/court*') || Request::is('admin/case-type*') || Request::is('admin/case-status*') || Request::is('admin/judge*') || Request::is('admin/tax*') || Request::is('admin/general-setting*') ? 'active' : '' }}" role="none">
                     <a role="menuitem" title="{{ __('frontend.sidebar.basic_settings') }}">
                         <i class="fa fa-cog" aria-hidden="true"></i>
-                        {{ __('frontend.sidebar.basic_settings') }}
+                        <span class="menu-text">{{ __('frontend.sidebar.basic_settings') }}</span>
                         <span class="fa fa-chevron-down" aria-hidden="true"></span>
                     </a>
                     <ul class="nav child_menu" role="menu">
