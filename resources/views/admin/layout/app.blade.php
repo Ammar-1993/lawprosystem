@@ -153,9 +153,11 @@
     <script src="{{ asset('assets/admin/js/jquery.validate.min.js') }}"></script>
 
     <script src="{{ asset('assets/admin/vendors/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-
-
-    {{-- <script src="{{ asset('assets/admin/vendors/bootstrap-datepicker/js/bootstrap-datepicker.ar.min.js') }}"></script> --}}
+    <script>
+        if (typeof $.fn.datepicker !== 'undefined') {
+            $.fn.datepicker.defaults.todayHighlight = true;
+        }
+    </script>
 
 
 
