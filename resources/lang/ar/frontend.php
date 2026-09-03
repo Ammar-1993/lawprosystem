@@ -411,7 +411,8 @@ return [
     ],
 
     'footer' => [
-        'footer_text' => 'نظام المحامي الإحترافي © 2025',
+        'footer_text' => 'نظام المحامي الإحترافي',
+        'all_rights_reserved' => 'جميع الحقوق محفوظة',
     ],
 
     'dashboard' => [

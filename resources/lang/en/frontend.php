@@ -424,7 +424,8 @@ return [
     ],
 
     'footer' => [
-        'footer_text' => 'Law Pro System © 2025',
+        'footer_text' => 'Law Pro System',
+        'all_rights_reserved' => 'All Rights Reserved',
     ],
 
     'dashboard' => [

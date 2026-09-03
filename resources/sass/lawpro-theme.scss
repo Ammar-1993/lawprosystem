@@ -521,43 +521,65 @@ body.rtl        .nav-sm .lp-footer {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
-    color: var(--lp-primary);
+    font-size: 13px;
+    color: var(--lp-dark, #2c3e50);
     white-space: nowrap;
 }
-.lp-footer__brand .fa-balance-scale {
-    color: var(--lp-accent);
+.lp-footer__brand .lp-footer__icon {
+    color: var(--lp-accent, #e8a838);
     font-size: 16px;
-    /* LTR: icon before text (order 0 = default) */
-    order: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
-/* RTL: icon should visually come AFTER the Arabic text
-   (i.e., on the left side since Arabic reads right-to-left) */
-html[dir='rtl'] .lp-footer__brand .fa-balance-scale,
-body.rtl        .lp-footer__brand .fa-balance-scale {
-    order: 1;
+.lp-footer__name {
+    font-weight: 700;
+    color: var(--lp-primary, #1a3c5e);
+}
+.lp-footer__copy {
+    color: var(--lp-gray-dark, #5d6d7e);
+    font-weight: 500;
+}
+.lp-footer__dot {
+    opacity: 0.5;
+    color: var(--lp-gray, #bdc3c7);
+    font-weight: 700;
+}
+.lp-footer__rights {
+    color: var(--lp-gray-dark, #5d6d7e);
+    font-size: 12.5px;
 }
 
-/* ── Meta block (version · year) ── */
+/* ── Meta block (Status indicator & Version badge) ── */
 .lp-footer__meta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    color: var(--lp-gray-dark);
+    gap: 8px;
     white-space: nowrap;
-    /* In RTL, numbers and latin text like 'v1.0' stay ltr inside */
-    direction: ltr;
+    direction: ltr; /* Keeps version 'v1.0.0' and status dot oriented cleanly */
+}
+.lp-footer__status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--lp-success, #27ae60);
+    box-shadow: 0 0 6px rgba(39, 174, 96, 0.7);
+    display: inline-block;
+    animation: lp-status-pulse 2.5s ease-in-out infinite;
+}
+@keyframes lp-status-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
 }
 .lp-footer__version {
-    background: var(--lp-gray-light);
-    color: var(--lp-gray-dark);
+    background: rgba(26, 60, 94, 0.06);
+    color: var(--lp-primary, #1a3c5e);
     font-size: 11px;
     font-weight: 600;
-    padding: 2px 8px;
-    border-radius: var(--radius-full);
-    letter-spacing: .4px;
+    padding: 2px 9px;
+    border-radius: var(--radius-full, 9999px);
+    letter-spacing: 0.4px;
+    border: 1px solid rgba(26, 60, 94, 0.08);
 }
-.lp-footer__dot { opacity: .4; }
 
 /* ── Responsive: single centred column on small screens ── */
 @media (max-width: 640px) {
