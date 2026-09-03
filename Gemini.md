@@ -643,3 +643,5 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   * Changed `MAIL_DRIVER=log` in `.env`.
   * Hard-restarted the Docker containers (`lawpro_app` and `lawpro_queue`) to flush OPcache and ensure the web process picked up the new `log` driver, fixing a blocking `Swift_TransportException` when sending the reset email.
 * **Verification**: Successfully generated a password reset token locally and verified its output in `storage/logs/laravel-2026-09-03.log` (due to the `daily` stack logging channel).
+
+tail -n 50 storage/logs/laravel-*.log
