@@ -850,3 +850,106 @@ body.rtl        .daterangepicker {
     right: auto !important;
 }
 
+/* ============================================================
+   LAW PRO - SHARED TABLE STYLING (.lp-table) & CARD WRAPPERS
+   ============================================================ */
+
+/* Content card wrapper styling for tables/panels */
+.x_panel.lp-card,
+div.lp-card:not(.tile-stats):not(a) {
+    cursor: default;
+    height: auto;
+    background: var(--lp-white, #ffffff);
+    border-radius: var(--radius-md, 12px);
+    box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: var(--space-lg, 24px);
+    margin-bottom: var(--space-lg, 24px);
+    transition: box-shadow var(--transition-base, all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1));
+
+    &:hover {
+        transform: none; /* Keep content panels stationary */
+        box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
+    }
+}
+
+.table.lp-table,
+.lp-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: var(--space-md, 16px);
+    border-radius: var(--radius-md, 12px);
+    border: 1px solid var(--lp-gray-light, #ecf0f1);
+    background: var(--lp-white, #ffffff);
+
+    thead th {
+        background: #f8fafc;
+        color: var(--lp-primary, #1a3c5e);
+        font-weight: 700;
+        font-size: 13px;
+        padding: 12px 16px;
+        border-top: none !important;
+        border-bottom: 2px solid var(--lp-primary, #1a3c5e) !important;
+        border-left: none;
+        border-right: none;
+        white-space: nowrap;
+        vertical-align: middle;
+        letter-spacing: 0.3px;
+    }
+
+    thead tr:first-child th:first-child {
+        border-top-left-radius: var(--radius-md, 12px);
+    }
+    thead tr:first-child th:last-child {
+        border-top-right-radius: var(--radius-md, 12px);
+    }
+
+    tbody td {
+        padding: 12px 16px;
+        font-size: 13.5px;
+        color: var(--lp-dark, #2c3e50);
+        vertical-align: middle;
+        border-top: 1px solid var(--lp-gray-light, #ecf0f1);
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        transition: background var(--transition-fast, all 0.15s ease);
+    }
+
+    tbody tr:hover td {
+        background-color: rgba(26, 60, 94, 0.03);
+    }
+
+    tbody tr:last-child td:first-child {
+        border-bottom-left-radius: var(--radius-md, 12px);
+    }
+    tbody tr:last-child td:last-child {
+        border-bottom-right-radius: var(--radius-md, 12px);
+    }
+}
+
+/* RTL support for table corners */
+html[dir='rtl'] .table.lp-table,
+html[dir='rtl'] .lp-table,
+body.rtl .table.lp-table,
+body.rtl .lp-table {
+    thead tr:first-child th:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: var(--radius-md, 12px);
+    }
+    thead tr:first-child th:last-child {
+        border-top-right-radius: 0;
+        border-top-left-radius: var(--radius-md, 12px);
+    }
+    tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: var(--radius-md, 12px);
+    }
+    tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: var(--radius-md, 12px);
+    }
+}
+
+

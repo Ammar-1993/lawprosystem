@@ -20,12 +20,11 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-card">
 
                     <div class="x_content">
 
-                        <table id="serviceDataTable" class="table" data-url="{{ route('service.list') }}"
-                        >
+                        <table id="serviceDataTable" class="table lp-table" data-url="{{ route('service.list') }}">
                             <thead>
                             <tr>
                                 <th width="5%">{{__('frontend.no')}}</th>

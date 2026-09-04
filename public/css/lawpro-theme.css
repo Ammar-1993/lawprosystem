@@ -53,10 +53,6 @@ body {
 /* ============================================================
    LAW PRO - SIDEBAR (RTL + LTR)
    ============================================================ */
-.nav.side-menu > li.active, .nav.side-menu > li.current-page {
-  border: none !important;
-}
-
 /* ── Expanded Sidebar (nav-md) ── */
 .nav-md .nav.side-menu > li > a {
   transition: var(--transition-base);
@@ -74,15 +70,13 @@ body {
   color: var(--lp-secondary) !important;
 }
 
-.nav-md .nav.side-menu > li.active > a, 
-.nav-md .nav.side-menu > li.current-page > a {
+.nav-md .nav.side-menu > li.active > a, .nav-md .nav.side-menu > li.current-page > a {
   box-shadow: 0 4px 12px rgba(26, 60, 94, 0.25) !important;
   background: #172d44 !important;
   color: var(--lp-white) !important;
 }
 
-.nav-md .nav.side-menu > li.active > a i, 
-.nav-md .nav.side-menu > li > a:hover i {
+.nav-md .nav.side-menu > li.active > a i, .nav-md .nav.side-menu > li > a:hover i {
   color: var(--lp-accent) !important;
 }
 
@@ -90,8 +84,7 @@ html[dir=ltr] .nav-md .nav.side-menu > li.active > a {
   border-left: 4px solid var(--lp-accent) !important;
 }
 
-html[dir=rtl] .nav-md .nav.side-menu > li.active > a, 
-body.rtl .nav-md .nav.side-menu > li.active > a {
+html[dir=rtl] .nav-md .nav.side-menu > li.active > a, body.rtl .nav-md .nav.side-menu > li.active > a {
   border-right: 4px solid var(--lp-accent) !important;
 }
 
@@ -112,8 +105,7 @@ html[dir=ltr] .nav-md .nav.side-menu > li > a > span.fa-chevron-down {
   right: 15px;
 }
 
-html[dir=rtl] .nav-md .nav.side-menu > li > a > span.fa-chevron-down, 
-body.rtl .nav-md .nav.side-menu > li > a > span.fa-chevron-down {
+html[dir=rtl] .nav-md .nav.side-menu > li > a > span.fa-chevron-down, body.rtl .nav-md .nav.side-menu > li > a > span.fa-chevron-down {
   left: 15px;
   right: auto;
 }
@@ -183,14 +175,12 @@ body.rtl .nav-md .nav.side-menu > li > a > span.fa-chevron-down {
   color: var(--lp-accent, #e8a838) !important;
 }
 
-/* LTR golden indicator in nav-sm */
 html[dir=ltr] .nav-sm .nav.side-menu > li.active-sm > a,
 html[dir=ltr] .nav-sm .nav.side-menu > li.active > a {
   border-left: 3px solid var(--lp-accent, #e8a838) !important;
   border-right: none !important;
 }
 
-/* RTL golden indicator in nav-sm */
 html[dir=rtl] .nav-sm .nav.side-menu > li.active-sm > a,
 html[dir=rtl] .nav-sm .nav.side-menu > li.active > a,
 body.rtl .nav-sm .nav.side-menu > li.active-sm > a,
@@ -617,8 +607,7 @@ label {
   padding-bottom: var(--space-sm);
 }
 
-.page-title h3,
-.page-title h4 {
+.page-title h3, .page-title h4 {
   font-size: 20px;
   font-weight: 700;
   color: var(--lp-primary);
@@ -628,8 +617,7 @@ label {
   margin: 0;
 }
 
-.page-title h3 i,
-.page-title h4 i {
+.page-title h3 i, .page-title h4 i {
   color: var(--lp-accent, #e8a838);
   font-size: 20px;
   display: inline-flex;
@@ -770,32 +758,34 @@ body.rtl .lp-breadcrumb li + li::before {
 /* ── Right-side nav items ── */
 .top_nav .navbar-right,
 .nav_menu .navbar-nav.navbar-right {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 8px !important;
-    flex-shrink: 0 !important;
-    height: 100% !important;
-    float: none !important;
-    width: auto !important;
-    max-width: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+  flex-shrink: 0 !important;
+  height: 100% !important;
+  float: none !important;
+  width: auto !important;
+  max-width: none !important;
 }
-html[dir='ltr'] .top_nav .navbar-right,
-html[dir='ltr'] .nav_menu .navbar-nav.navbar-right {
-    margin-left: auto !important;
-    margin-right: 0 !important;
-    justify-content: flex-end !important;
+
+html[dir=ltr] .top_nav .navbar-right,
+html[dir=ltr] .nav_menu .navbar-nav.navbar-right {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  justify-content: flex-end !important;
 }
-html[dir='rtl'] .top_nav .navbar-right,
+
+html[dir=rtl] .top_nav .navbar-right,
 body.rtl .top_nav .navbar-right,
-html[dir='rtl'] .nav_menu .navbar-nav.navbar-right,
+html[dir=rtl] .nav_menu .navbar-nav.navbar-right,
 body.rtl .nav_menu .navbar-nav.navbar-right {
-    margin-left: 0 !important;
-    margin-right: auto !important;
-    justify-content: flex-start !important;
-    padding: 0 8px !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  justify-content: flex-start !important;
+  padding: 0 8px !important;
 }
 
 .nav_menu .navbar-nav.navbar-right > li {
@@ -989,7 +979,6 @@ body.rtl .flt-mesege {
 }
 
 /* ── Sidebar Layout & Offset System (nav-md vs nav-sm / LTR + RTL) ── */
-
 /* 1. LTR Layout (English) */
 .nav-md .top_nav {
   margin-left: 230px !important;
@@ -1074,26 +1063,11 @@ body.rtl .nav-sm .lp-footer {
   html[dir=rtl] .nav-md .lp-footer,
   body.rtl .nav-md .lp-footer,
   html[dir=rtl] .nav-sm .lp-footer,
-  body.rtl .nav-sm .lp-footer,
-  .nav-md .top_nav,
-  .nav-sm .top_nav,
-  html[dir=rtl] .nav-md .top_nav,
-  body.rtl .nav-md .top_nav,
-  html[dir=rtl] .nav-sm .top_nav,
-  body.rtl .nav-sm .top_nav {
+  body.rtl .nav-sm .lp-footer {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  .nav-md .top_nav,
-  .nav-sm .top_nav,
-  html[dir=rtl] .nav-md .top_nav,
-  body.rtl .nav-md .top_nav,
-  html[dir=rtl] .nav-sm .top_nav,
-  body.rtl .nav-sm .top_nav {
-    width: 100%;
-  }
 }
-
 .lp-footer__inner {
   display: flex;
   align-items: center;
@@ -1175,7 +1149,6 @@ body.rtl .nav-sm .lp-footer {
     transform: scale(0.85);
   }
 }
-
 .lp-footer__version {
   background: rgba(26, 60, 94, 0.06);
   color: var(--lp-primary, #1a3c5e);
@@ -1345,12 +1318,12 @@ body.rtl .lp-password-wrapper .toggle-icon {
    - When datepicker IS rtl-oriented (.datepicker-rtl), JS calculates inline `right`.
      We set `left: auto !important` and let the calculated inline `right` position the popup directly below the input.
 */
-html[dir='rtl'] .datepicker.dropdown-menu:not(.datepicker-rtl),
+html[dir=rtl] .datepicker.dropdown-menu:not(.datepicker-rtl),
 body.rtl .datepicker.dropdown-menu:not(.datepicker-rtl) {
   right: auto !important;
 }
 
-html[dir='rtl'] .datepicker.dropdown-menu.datepicker-rtl,
+html[dir=rtl] .datepicker.dropdown-menu.datepicker-rtl,
 body.rtl .datepicker.dropdown-menu.datepicker-rtl {
   left: auto !important;
 }
@@ -1463,7 +1436,7 @@ body.rtl .datepicker.dropdown-menu.datepicker-rtl {
   z-index: 9999 !important;
 }
 
-html[dir='rtl'] .bootstrap-datetimepicker-widget.dropdown-menu,
+html[dir=rtl] .bootstrap-datetimepicker-widget.dropdown-menu,
 body.rtl .bootstrap-datetimepicker-widget.dropdown-menu {
   right: auto !important;
 }
@@ -1475,8 +1448,117 @@ body.rtl .bootstrap-datetimepicker-widget.dropdown-menu {
   z-index: 9999 !important;
 }
 
-html[dir='rtl'] .daterangepicker,
+html[dir=rtl] .daterangepicker,
 body.rtl .daterangepicker {
   right: auto !important;
 }
 
+/* ============================================================
+   LAW PRO - SHARED TABLE STYLING (.lp-table) & CARD WRAPPERS
+   ============================================================ */
+/* Content card wrapper styling for tables/panels */
+.x_panel.lp-card,
+div.lp-card:not(.tile-stats):not(a) {
+  cursor: default;
+  height: auto;
+  background: var(--lp-white, #ffffff);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: var(--space-lg, 24px);
+  margin-bottom: var(--space-lg, 24px);
+  transition: box-shadow var(--transition-base, all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1));
+}
+.x_panel.lp-card:hover,
+div.lp-card:not(.tile-stats):not(a):hover {
+  transform: none; /* Keep content panels stationary */
+  box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
+}
+
+.table.lp-table,
+.lp-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: var(--space-md, 16px);
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid var(--lp-gray-light, #ecf0f1);
+  background: var(--lp-white, #ffffff);
+}
+.table.lp-table thead th,
+.lp-table thead th {
+  background: #f8fafc;
+  color: var(--lp-primary, #1a3c5e);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12px 16px;
+  border-top: none !important;
+  border-bottom: 2px solid var(--lp-primary, #1a3c5e) !important;
+  border-left: none;
+  border-right: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  letter-spacing: 0.3px;
+}
+.table.lp-table thead tr:first-child th:first-child,
+.lp-table thead tr:first-child th:first-child {
+  border-top-left-radius: var(--radius-md, 12px);
+}
+.table.lp-table thead tr:first-child th:last-child,
+.lp-table thead tr:first-child th:last-child {
+  border-top-right-radius: var(--radius-md, 12px);
+}
+.table.lp-table tbody td,
+.lp-table tbody td {
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: var(--lp-dark, #2c3e50);
+  vertical-align: middle;
+  border-top: 1px solid var(--lp-gray-light, #ecf0f1);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  transition: background var(--transition-fast, all 0.15s ease);
+}
+.table.lp-table tbody tr:hover td,
+.lp-table tbody tr:hover td {
+  background-color: rgba(26, 60, 94, 0.03);
+}
+.table.lp-table tbody tr:last-child td:first-child,
+.lp-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: var(--radius-md, 12px);
+}
+.table.lp-table tbody tr:last-child td:last-child,
+.lp-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: var(--radius-md, 12px);
+}
+
+/* RTL support for table corners */
+html[dir=rtl] .table.lp-table thead tr:first-child th:first-child,
+html[dir=rtl] .lp-table thead tr:first-child th:first-child,
+body.rtl .table.lp-table thead tr:first-child th:first-child,
+body.rtl .lp-table thead tr:first-child th:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: var(--radius-md, 12px);
+}
+html[dir=rtl] .table.lp-table thead tr:first-child th:last-child,
+html[dir=rtl] .lp-table thead tr:first-child th:last-child,
+body.rtl .table.lp-table thead tr:first-child th:last-child,
+body.rtl .lp-table thead tr:first-child th:last-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: var(--radius-md, 12px);
+}
+html[dir=rtl] .table.lp-table tbody tr:last-child td:first-child,
+html[dir=rtl] .lp-table tbody tr:last-child td:first-child,
+body.rtl .table.lp-table tbody tr:last-child td:first-child,
+body.rtl .lp-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: var(--radius-md, 12px);
+}
+html[dir=rtl] .table.lp-table tbody tr:last-child td:last-child,
+html[dir=rtl] .lp-table tbody tr:last-child td:last-child,
+body.rtl .table.lp-table tbody tr:last-child td:last-child,
+body.rtl .lp-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: var(--radius-md, 12px);
+}

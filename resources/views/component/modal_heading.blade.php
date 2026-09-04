@@ -58,7 +58,7 @@
                 <a  href="javascript:;" 
                    data-url='{{$action}}'
                    data-target-modal="{{$modal_id}}"
-                   class="btn btn-primary call-model {{ isset($permission) &&  $permission=="1" ? '':'hidden' }}"><i
+                   class="btn btn-primary lp-btn lp-btn-primary call-model {{ isset($permission) &&  $permission=="1" ? '':'hidden' }}"><i
                         class="fa fa-plus" ></i> 
                     {{ " ".$model_title }}
                 </a>
