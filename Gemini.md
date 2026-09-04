@@ -4,7 +4,7 @@
 > **المطور:** عمار النجار — Full-Stack Software Engineer
 > **الهدف من هذا الملف:** وثيقة مرجعية موحدة وشاملة تُوجِّه كل عملية تطوير أو صيانة أو تحسين للمشروع.
 > **المصدر:** مُعتمَد على قراءة وتحليل الكود المصدري الفعلي بالكامل.
-> **آخر كوميت موثَّق:** `0b1c3bb` — `refactor: update alert instance to toast and improve breadcrumb semantic accessibility`
+> **آخر كوميت موثَّق:** `1e728af` — `style: redesign recent-activity table and card with lp-table and badge components`
 
 ---
 
@@ -747,6 +747,85 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
     * Enhanced `.page-title h3, .page-title h4` in `public/css/lawpro-theme.css` and `resources/sass/lawpro-theme.scss`.
     * All heading icons render in Law Pro's signature golden accent (`#E8A838`), 20px size, vertically centered via flexbox with 10px spacing, ensuring seamless appearance in both RTL (Arabic) and LTR (English).
   * **Cache & Permissions**: Cleared compiled views and application caches; verified permissions with `www-data:www-data`.
+
+---
+
+# Phase 2 — Batch 1: UI/UX Modernization (Service, Role, Vendor, Recent-Activity)
+
+### 1. Overview & Architectural Directives
+- **Scope**: Modernizing list pages, modal forms, and tables for `service`, `role`, `vendor`, and `recent-activity`.
+- **Safe Direction Constraints**:
+  - Strictly no Tailwind CSS, no Alpine.js, no new NPM packages.
+  - Rely purely on plain Bootstrap 3.3.7 + custom classes from `resources/sass/lawpro-theme.scss` (`.lp-table`, `.lp-card`, `.lp-btn`, `.lp-input`, `.lp-form-group`, `.page-title`).
+  - Table styling must be purely additive/cosmetic: sets **no position or display properties** to prevent interfering with DataTables DOM re-rendering on AJAX redraws.
+
+---
+
+### 2. Prompt 1 — Shared Table Styling (`.lp-table`) & Service Module
+- **Shared Table Design (`resources/sass/lawpro-theme.scss`)**:
+  - Created `.table.lp-table` / `.lp-table`:
+    - `border-collapse: separate; border-spacing: 0; width: 100%;`
+    - Top header: Background `#f8fafc`, text `--lp-primary` (`#1A3C5E`), 700 bold weight, 2px solid `--lp-primary` bottom border, uppercase tracking.
+    - Corners: Rounded top headers with `--radius-md` (12px) and bottom rows, with automated LTR/RTL symmetry.
+    - Body rows: Subtle hover highlight (`rgba(26, 60, 94, 0.03)`), transition on background, consistent `12px 16px` padding.
+  - Content Panel Wrapper (`.x_panel.lp-card`):
+    - Added `cursor: default`, `transform: none` on hover (so entire table containers do not translate up when hovered), `--radius-md`, `--shadow-card`, and `overflow: visible`.
+- **Service Module Audit & Refactor (`resources/views/admin/service/service.blade.php`)**:
+  - Confirmed `serviceDataTable` has `data-url="{{ route('service.list') }}"` directly on the `<table>` tag.
+  - Confirmed exactly 5 columns in `assets/js/service/service-datatable.js` (`id`, `name`, `amount`, `is_active`, `action`). Preserved exact column count and order.
+  - Confirmed **no static modals** in `service.blade.php` (uses `<div id="load-modal"></div>` for dynamic AJAX loading).
+  - Applied `class="table lp-table"` and `.x_panel.lp-card`.
+  - Updated `component.modal_heading` and `component.heading` to apply `.lp-btn.lp-btn-primary` to the create button.
+  - **Commit**: `3a5dea5` — `refactor: introduce lp-card and lp-table classes to standardize UI components and table styling`.
+
+---
+
+### 3. Prompt 2 — Role & Vendor Modules + Permission Audit
+- **Role Module**:
+  - `resources/views/admin/role/index.blade.php`:
+    - Confirmed `roleDataTable` with `data-url` on `<table>`, exactly 3 columns (`id`, `slug`, `action`) matching `assets/js/role/role-datatable.js`.
+    - Applied `.x_panel.lp-card` and `class="table lp-table"`.
+    - Confirmed no static modal exists in `index.blade.php` (uses `#load-modal`).
+  - `role/create.blade.php` & `role/edit.blade.php`:
+    - Audited modal `#addtag` and preserved all element IDs required by `assets/js/role/role-validation.js` (`#roleForm`, `#slug`, `#description`, `#cl`, `#form-errors`, `#token-value`, `#common_check_exist`).
+    - Styled with `lp-form-group`, `form-control lp-input`, `btn btn-danger lp-btn lp-btn-danger`, and `btn btn-success lp-btn lp-btn-primary shadow`.
+- **Vendor Module (`resources/views/admin/vendor/vendor.blade.php`)**:
+  - Confirmed `Vendordatatable` has `data-url` on `<table>`, exactly 5 columns (`id`, `first_name`, `mobile`, `is_active`, `action`) per `assets/js/vendor/vendor-datatable.js`.
+  - Confirmed no static modal exists in `vendor.blade.php`.
+  - Applied `.x_panel.lp-card` and `class="table lp-table"`.
+- **Structural Audit of `permission.blade.php` & `permition.js`**:
+  - Confirmed typo in JS filename: `assets/js/role/permition.js` (with a single `t`).
+  - Confirmed `permission.blade.php` is a 373-line full page (not a modal), rendering a static permissions matrix (not an AJAX DataTable) with 6 columns (`Menu`, `Sub Menu`, `View`, `Add`, `Edit`, `Delete`).
+  - Mapped critical JS dependencies in `permition.js`: `.permition_view`, `.permition_add`, `.permition_edit`, `.permition_delete`, `.all_view`, `.all_add`, `.all_edit`, `.all_delete`, and `tr.tr_permition`.
+  - Kept `permission.blade.php` untouched as requested for review before modification.
+  - **Commit**: `95ee02a` — `style: apply custom lp- classes to UI components, tables, and form elements across admin views`.
+
+---
+
+### 4. Prompt 3 — Recent Activity Redesign
+- **File**: `resources/views/admin/recent-activity/recent_activity.blade.php`.
+- **Design Overhaul**:
+  - Title updated to `@section('title', 'Activity Logs')`.
+  - Wrapped inside `.x_panel.lp-card` and `.table.lp-table` with column icons (`fa-user`, `fa-bolt`, `fa-calendar`, `fa-clock-o`, `fa-cog`).
+  - Replaced plain activity text with status badges:
+    - Login: `<span class="badge-lp badge-active">Login</span>` (soft green pill with status dot).
+    - Logged out: `<span class="badge-lp badge-inactive">Logged out</span>` (soft red pill with status dot).
+  - Modernized the action trigger into a Bootstrap dropdown triggered by `.lp-btn.lp-btn-secondary` (`<i class="fa fa-ellipsis-h"></i>`).
+  - Enhanced `lawpro-theme.scss` with `.lp-table .dropdown-menu` styling (`--shadow-hover`, `--radius-sm`, theme hover colors) and ensured `overflow: visible` on `.x_panel.lp-card` to eliminate clipping.
+  - **Commit**: `1e728af` — `style: redesign recent-activity table and card with lp-table and badge components`.
+
+---
+
+### 5. Prompt 4 — Verification, Git Sync & Next Batches Roadmap
+- **Asset Compilation**: Executed `npm run dev` with zero errors (36.6 KiB compiled CSS).
+- **Git Push Verification**: Pushed to `origin/main`; verified head commit `1e728af`.
+- **Container Cleanup**: Reset permissions with `www-data:www-data` and cleared compiled Blade views (`php artisan view:clear`).
+- **Roadmap for Upcoming Batches**:
+  1. **Batch 2**: **Client Module** (`client.blade.php`, client details, client account).
+  2. **Batch 3**: **Task Module** (`task.blade.php`, filters, task status badges).
+  3. **Batch 4**: **Settings Sub-pages** (7 modules sharing `tagDataTable`: `case-type`, `court-type`, `court`, `judge`, `case-status`, `tax`, `expense-type`).
+  4. **Final Batch**: **High-Complexity Modules** (`case-running`, `case-archived`, `case-important`, `invoice`, `appointment`, `team-members`).
+
 
 
 
