@@ -10,9 +10,9 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel lp-card">
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                    <ul id="myTab" class="nav nav-tabs lp-tabs" role="tablist">
                         <li role="presentation" class="{{ request()->is('admin/clients/*') ? 'active' : '' }}"><a
                                 href="{{ route('clients.show', [$client->id]) }}">{{ __('frontend.client.client_detail') }} </a>
                         </li>
@@ -37,7 +37,7 @@
 
                 <div class="x_content">
 
-                    <table id="clientAccountlistDatatable" class="table" data-url="{{ route('invoice-list-client') }}"
+                    <table id="clientAccountlistDatatable" class="table lp-table" data-url="{{ route('invoice-list-client') }}"
                            >
                         <thead>
                         <tr>
