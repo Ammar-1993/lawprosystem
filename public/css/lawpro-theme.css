@@ -1457,10 +1457,7 @@ body.rtl .daterangepicker {
    LAW PRO - SHARED TABLE STYLING (.lp-table) & CARD WRAPPERS
    ============================================================ */
 /* Content card wrapper styling for tables/panels */
-.x_panel.lp-card,
-div.lp-card:not(.tile-stats):not(a) {
-  cursor: default;
-  height: auto;
+.lp-panel {
   background: var(--lp-white, #ffffff);
   border-radius: var(--radius-md, 12px);
   box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
@@ -1468,12 +1465,6 @@ div.lp-card:not(.tile-stats):not(a) {
   padding: var(--space-lg, 24px);
   margin-bottom: var(--space-lg, 24px);
   overflow: visible;
-  transition: box-shadow var(--transition-base, all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1));
-}
-.x_panel.lp-card:hover,
-div.lp-card:not(.tile-stats):not(a):hover {
-  transform: none; /* Keep content panels stationary */
-  box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
 }
 
 .table.lp-table,

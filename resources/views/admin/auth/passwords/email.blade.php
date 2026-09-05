@@ -43,7 +43,7 @@
 <body>
     <div class="lp-auth-wrapper">
         <div class="lp-auth-container">
-            <div class="lp-card">
+            <div class="lp-panel">
                 
                 {{-- Language Switcher --}}
                 <div style="text-align: {{ $dir == 'rtl' ? 'left' : 'right' }}; margin-bottom: 15px;">

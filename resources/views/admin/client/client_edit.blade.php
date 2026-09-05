@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             @include('component.error')
-            <div class="x_panel lp-card">
+            <div class="x_panel lp-panel">
                 <form id="edit_client_form" name="edit_client_form" role="form" method="POST"
                     action="{{ route('clients.update', $client->id) }}">
                     <input type="hidden" id="id" value="{{ $client->id }}" name="id">

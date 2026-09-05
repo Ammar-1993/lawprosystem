@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel lp-card">
+            <div class="x_panel lp-panel">
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class="nav nav-tabs lp-tabs" role="tablist">
                         <li role="presentation" class="{{ request()->is('admin/clients/*') ? 'active' : '' }}"><a
@@ -108,7 +108,7 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12">
             @if(count($single)>0 && !empty($single))
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
 
                     <div class="x_content">
                         <div class="dashboard-widget-content">
