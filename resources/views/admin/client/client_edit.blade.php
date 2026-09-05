@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             @include('component.error')
-            <div class="x_panel">
+            <div class="x_panel lp-card">
                 <form id="edit_client_form" name="edit_client_form" role="form" method="POST"
                     action="{{ route('clients.update', $client->id) }}">
                     <input type="hidden" id="id" value="{{ $client->id }}" name="id">
@@ -20,26 +20,26 @@
 
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="f_name">{{ __('frontend.client.first_name') }} <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="f_name" name="f_name"
+                                <input type="text" class="form-control lp-input" id="f_name" name="f_name"
                                     value="{{ $client->first_name ?? '' }}">
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="m_name">{{ __('frontend.client.middle_name') }} <span class="text-danger">*</span></label>
-                                <input type="text" placeholder="" class="form-control" id="m_name" name="m_name"
+                                <input type="text" placeholder="" class="form-control lp-input" id="m_name" name="m_name"
                                     value="{{ $client->middle_name ?? '' }}">
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.last_name') }}  <span class="text-danger">*</span></label>
-                                <input type="text" placeholder="" class="form-control" id="l_name" name="l_name"
+                                <input type="text" placeholder="" class="form-control lp-input" id="l_name" name="l_name"
                                     value="{{ $client->last_name ?? '' }}">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.gender') }} <span class="text-danger">*</span></label><br>
 
                                 <input type="radio" name="gender" id="genderM" value="Male"
@@ -49,34 +49,34 @@
                                     {{ !empty($client->gender) && $client->gender == 'Female' ? 'checked' : '' }} />&nbsp;&nbsp; {{ __('frontend.client.female') }}
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.email') }}</label>
-                                <input type="text" value="{{ $client->email ?? '' }}" placeholder="" class="form-control"
+                                <input type="text" value="{{ $client->email ?? '' }}" placeholder="" class="form-control lp-input"
                                     id="email" name="email">
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.mobile_no') }}  <span class="text-danger">*</span></label>
-                                <input type="text" placeholder="" class="form-control" id="mobile" name="mobile"
+                                <input type="text" placeholder="" class="form-control lp-input" id="mobile" name="mobile"
                                     value="{{ $client->mobile ?? '' }}" maxlength="10">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-3 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.alternate_no') }}</label>
                                 <input type="text" value="{{ $client->alternate_no ?? '' }}" placeholder=""
-                                    class="form-control" id="alternate_no" name="alternate_no" maxlength="10">
+                                    class="form-control lp-input" id="alternate_no" name="alternate_no" maxlength="10">
                             </div>
-                            <div class="col-md-9 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-9 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.address') }} <span class="text-danger">*</span></label>
                                 <input type="text" placeholder="" value="{{ $client->address ?? '' }}"
-                                    class="form-control" id="address" name="address">
+                                    class="form-control lp-input" id="address" name="address">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.country') }} <span class="text-danger">*</span></label>
-                                <select class="form-control select-change country-select2 selct2-width-100 " name="country"
+                                <select class="form-control lp-input select-change country-select2 selct2-width-100 " name="country"
                                     id="country" data-url="{{ route('get.country') }}" data-clear="#city_id,#state">
                                     <option value=""> {{ __('frontend.client.select_country') }}</option>
                                     @if ($client->country)
@@ -86,11 +86,11 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.state') }} <span class="text-danger">*</span></label>
                                 <select id="state" name="state" data-url="{{ route('get.state') }}"
                                     data-target="#country" data-clear="#city_id"
-                                    class="form-control state-select2 select-change">
+                                    class="form-control lp-input state-select2 select-change">
                                     <option value=""> {{ __('frontend.client.select_state') }}</option>
                                     @if ($client->state)
                                         <option value="{{ $client->state->id }}" selected>{{ $client->state->name }}
@@ -100,10 +100,10 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.city') }} <span class="text-danger">*</span></label>
                                 <select id="city_id" name="city_id" data-url="{{ route('get.city') }}"
-                                    data-target="#state" class="form-control city-select2">
+                                    data-target="#state" class="form-control lp-input city-select2">
                                     <option value=""> {{ __('frontend.client.select_city') }}</option>
                                     @if ($client->city)
                                         <option value="{{ $client->city->id }}" selected>{{ $client->city->name }}
@@ -114,22 +114,22 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.reference_name') }} </label>
-                                <input type="text" placeholder="" class="form-control" id="reference_name"
+                                <input type="text" placeholder="" class="form-control lp-input" id="reference_name"
                                     name="reference_name" value="{{ $client->reference_name ?? '' }}">
                             </div>
 
-                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.client.reference_mobile') }}</label>
-                                <input type="text" placeholder="" class="form-control" id="reference_mobile"
+                                <input type="text" placeholder="" class="form-control lp-input" id="reference_mobile"
                                     name="reference_mobile" value="{{ $client->reference_mobile ?? '' }}">
                             </div>
 
 
                         </div>
 
-                        {{-- <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        {{-- <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <br>
                             <input type="checkbox" value="Yes" name="change_court_chk" id="change_court_chk"> Add
                             more
@@ -140,7 +140,7 @@
                         <div id="change_court_div" class="hidden">
 
                             <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                     <label for="fullname">{{__('frontend.clientf')}}<span class="text-danger">*</span></label><br>
                                     <br>
                                     <input type="radio" name="type" id="test6" value="single"
@@ -157,33 +157,33 @@
                                         @foreach ($client_parties_invoive as $key => $value)
                                             <div data-repeater-item>
                                                 <div class="row border-addmore">
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.first_name')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="firstname" name="firstname"
                                                             data-rule-required="true"
                                                             data-msg-required="Please enter first name.999"
-                                                            class="form-control" value="{{ $value->party_firstname }}">
+                                                            class="form-control lp-input" value="{{ $value->party_firstname }}">
                                                     </div>
 
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.middle_name')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="middlename" name="middlename"
                                                             data-rule-required="true"
                                                             data-msg-required="Please enter middle name."
-                                                            class="form-control" value="{{ $value->party_middlename }}">
+                                                            class="form-control lp-input" value="{{ $value->party_middlename }}">
                                                     </div>
 
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.last_name')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="lastname" name="lastname"
                                                             data-rule-required="true"
                                                             data-msg-required="Please enter last name."
-                                                            class="form-control" value="{{ $value->party_lastname }}">
+                                                            class="form-control lp-input" value="{{ $value->party_lastname }}">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.mobile_no')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="mobile_client" name="mobile_client"
@@ -195,21 +195,21 @@
                                                             data-msg-minlength="mobile must be 10 digit."
                                                             data-rule-maxlength="10"
                                                             data-msg-maxlength="mobile must be 10 digit."
-                                                            class="form-control" value="{{ $value->party_mobile }}"
+                                                            class="form-control lp-input" value="{{ $value->party_mobile }}"
                                                             maxlength="10">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">Address <span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="address_client" name="address_client"
                                                             data-rule-required="true"
-                                                            data-msg-required="Please enter address." class="form-control"
+                                                            data-msg-required="Please enter address." class="form-control lp-input"
                                                             value="{{ $value->party_address }}">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <br>
                                                         <button type="button" data-repeater-delete type="button"
-                                                            class="btn btn-danger"><i class="fa fa-trash-o"
+                                                            class="btn btn-danger lp-btn"><i class="fa fa-trash-o"
                                                                 aria-hidden="true"></i>
                                                         </button>
                                                     </div>
@@ -219,32 +219,32 @@
                                     @else
                                         <div data-repeater-item>
                                             <div class="row border-addmore">
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.first_name')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="firstname" name="firstname"
                                                         data-rule-required="true"
                                                         data-msg-required="Please enter first name.101010"
-                                                        class="form-control">
+                                                        class="form-control lp-input">
                                                 </div>
 
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.middle_name')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="middlename" name="middlename"
                                                         data-rule-required="true"
                                                         data-msg-required="Please enter middle name."
-                                                        class="form-control">
+                                                        class="form-control lp-input">
                                                 </div>
 
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.last_name')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="lastname" name="lastname"
                                                         data-rule-required="true"
-                                                        data-msg-required="Please enter last name." class="form-control">
+                                                        data-msg-required="Please enter last name." class="form-control lp-input">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.mobile_no')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="mobile_client" name="mobile_client"
@@ -254,20 +254,20 @@
                                                         data-rule-minlength="10"
                                                         data-msg-minlength="mobile must be 10 digit."
                                                         data-rule-maxlength="10"
-                                                        data-msg-maxlength="mobile must be 10 digit." class="form-control"
+                                                        data-msg-maxlength="mobile must be 10 digit." class="form-control lp-input"
                                                         maxlength="10">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">Address <span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="address_client" name="address_client"
                                                         data-rule-required="true"
-                                                        data-msg-required="Please enter address." class="form-control">
+                                                        data-msg-required="Please enter address." class="form-control lp-input">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <br>
                                                     <button type="button" data-repeater-delete type="button"
-                                                        class="btn btn-danger"><i class="fa fa-trash-o"
+                                                        class="btn btn-danger lp-btn"><i class="fa fa-trash-o"
                                                             aria-hidden="true"></i></button>
                                                 </div>
                                             </div>
@@ -275,10 +275,10 @@
 
                                     @endif
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                     <br>
                                     <button data-repeater-create type="button" value="Add New"
-                                        class="btn btn-success waves-effect waves-light btn btn-success-edit"
+                                        class="btn btn-success lp-btn lp-btn-primary waves-effect waves-light btn btn-success-edit"
                                         type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
                                 </div>
                             </div>
@@ -288,33 +288,33 @@
                                         @foreach ($client_parties_invoive as $key => $value)
                                             <div data-repeater-item>
                                                 <div class="row border-addmore">
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.first_name')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="firstname" name="firstname"
                                                             data-rule-required="true"
-                                                            data-msg-required="Please enter name." class="form-control"
+                                                            data-msg-required="Please enter name." class="form-control lp-input"
                                                             value="{{ $value->party_firstname }}">
                                                     </div>
 
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.middle_name')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="middlename" name="middlename"
                                                             data-rule-required="true"
-                                                            data-msg-required="Please enter name." class="form-control"
+                                                            data-msg-required="Please enter name." class="form-control lp-input"
                                                             value="{{ $value->party_middlename }}">
                                                     </div>
 
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.last_name')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="lastname" name="lastname"
                                                             data-rule-required="true"
-                                                            data-msg-required="Please enter name." class="form-control"
+                                                            data-msg-required="Please enter name." class="form-control lp-input"
                                                             value="{{ $value->party_lastname }}">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.mobile_no')}}<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="mobile_client" name="mobile_client"
@@ -326,29 +326,29 @@
                                                             data-msg-minlength="mobile must be 10 digit."
                                                             data-rule-maxlength="10"
                                                             data-msg-maxlength="mobile must be 10 digit."
-                                                            class="form-control" value="{{ $value->party_mobile }}"
+                                                            class="form-control lp-input" value="{{ $value->party_mobile }}"
                                                             maxlength="10">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.address')}} <span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="address_client" name="address_client"
                                                             data-rule-required="true"
-                                                            data-msg-required="Please enter address." class="form-control"
+                                                            data-msg-required="Please enter address." class="form-control lp-input"
                                                             value="{{ $value->party_address }}">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <label for="fullname">{{__('frontend.advocate_name')}} <span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" id="advocate_name" name="advocate_name"
                                                             data-rule-required="true"
                                                             data-msg-required={{__('frontend.party_advocate')}}
-                                                            class="form-control" value="{{ $value->party_advocate }}">
+                                                            class="form-control lp-input" value="{{ $value->party_advocate }}">
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                         <br>
                                                         <button type="button" data-repeater-delete type="button"
-                                                            class="btn btn-danger waves-effect waves-light"><i
+                                                            class="btn btn-danger lp-btn waves-effect waves-light"><i
                                                                 class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </button>
                                                     </div>
@@ -360,30 +360,30 @@
                                     @else
                                         <div data-repeater-item>
                                             <div class="row border-addmore">
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.first_name')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="firstname" name="firstname"
                                                         data-rule-required="true" data-msg-required="Please enter name."
-                                                        class="form-control">
+                                                        class="form-control lp-input">
                                                 </div>
 
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.middle_name')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="middlename" name="middlename"
                                                         data-rule-required="true" data-msg-required="Please enter name."
-                                                        class="form-control">
+                                                        class="form-control lp-input">
                                                 </div>
 
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.last_name')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="lastname" name="lastname"
                                                         data-rule-required="true" data-msg-required="Please enter name."
-                                                        class="form-control">
+                                                        class="form-control lp-input">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.mobile_no')}}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="mobile_client" name="mobile_client"
@@ -393,28 +393,28 @@
                                                         data-rule-minlength="10"
                                                         data-msg-minlength="mobile must be 10 digit."
                                                         data-rule-maxlength="10"
-                                                        data-msg-maxlength="mobile must be 10 digit." class="form-control"
+                                                        data-msg-maxlength="mobile must be 10 digit." class="form-control lp-input"
                                                         maxlength="10">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.address')}} <span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="address_client" name="address_client"
                                                         data-rule-required="true"
-                                                        data-msg-required="Please enter address." class="form-control">
+                                                        data-msg-required="Please enter address." class="form-control lp-input">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <label for="fullname">{{__('frontend.advocate_name')}} <span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" id="advocate_name" name="advocate_name"
                                                         data-rule-required="true"
                                                         data-msg-required={{__('frontend.party_advocate')}}
-                                                        class="form-control">
+                                                        class="form-control lp-input">
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                                     <br>
                                                     <button type="button" data-repeater-delete type="button"
-                                                        class="btn btn-danger waves-effect waves-light"><i
+                                                        class="btn btn-danger lp-btn waves-effect waves-light"><i
                                                             class="fa fa-trash-o" aria-hidden="true"></i></button>
                                                 </div>
 
@@ -424,19 +424,19 @@
 
                                     @endif
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                     <br>
                                     <button data-repeater-create type="button" value="{{ __('frontend.client.add_new') }}"
-                                        class="btn btn-success waves-effect waves-light btn btn-success-edit"
+                                        class="btn btn-success lp-btn lp-btn-primary waves-effect waves-light btn btn-success-edit"
                                         type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group pull-right">
+                        <div class="form-group lp-form-group pull-right">
                             <div class="col-md-12 col-sm-6 col-xs-12">
                                 <a href="{{ route('clients.index') }}"
-                                    class="btn btn-danger">{{ __('frontend.cancel') }}</a>
-                                <button type="submit" class="btn btn-success"><i class="fa fa-save"
+                                    class="btn btn-danger lp-btn">{{ __('frontend.cancel') }}</a>
+                                <button type="submit" class="btn btn-success lp-btn lp-btn-primary"><i class="fa fa-save"
                                         id="show_loader"></i>&nbsp;{{ __('frontend.save') }}
                                 </button>
                             </div>
