@@ -883,3 +883,12 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   - Strengthened `.lp-tabs` styling to fully override Bootstrap's default active tab borders.
   - Ran `npm run dev` to compile `public/css/lawpro-theme.css`.
 - **Commit Reversion**: The refinement commit (`fe30a6b`) was later reverted by the user locally using `git reset --hard HEAD^`, returning the local state to Prompt 4's commit (`4267c56`), and the remote repository was synced using `git push -f origin main`. Thus, the finalized and accepted codebase state remains at the conclusion of Prompt 4.
+
+### 7. Architectural Fix: Separation of `.lp-card` and `.lp-panel`
+- **Context**: The `.lp-card` class was originally designed strictly for Dashboard stat tiles (with entrance animations, hover transform effects, and pointer cursors). It was mistakenly applied as a generic wrapper across Phase 2 redesigns.
+- **Action**:
+  - Created a new class `.lp-panel` in `resources/sass/lawpro-theme.scss` inheriting only the cosmetic properties of `.lp-card` (border-radius, padding, background, box-shadow) while explicitly excluding animations, hover effects, and pointer cursors.
+  - Replaced the hacky `.x_panel.lp-card` override block in the SCSS file with the clean `.lp-panel` class.
+  - Used a Python script to surgically replace `lp-card` with `lp-panel` across 13 affected views in `resources/views/admin/` (excluding `index.blade.php` which rightly uses the dashboard tiles).
+- **Result**: Generic containers now use `.lp-panel` to stay stationary and semantic, while Dashboard stat tiles retain `.lp-card` with its intended interactive effects.
+- **Commit**: `3a37bab` — `style: introduce lp-panel class and replace misapplied lp-card generic wrappers`
