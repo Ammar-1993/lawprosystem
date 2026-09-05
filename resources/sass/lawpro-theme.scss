@@ -978,3 +978,35 @@ body.rtl .lp-table {
 }
 
 
+
+/* ============================================================
+   LAW PRO - TABS (Consistent with lp-card & page-title)
+   ============================================================ */
+.lp-tabs {
+    border-bottom: 2px solid var(--lp-gray-light) !important;
+    margin-bottom: var(--space-md);
+    padding-bottom: 0;
+}
+.lp-tabs > li > a {
+    color: var(--lp-gray-dark) !important;
+    font-weight: 600 !important;
+    font-size: 14px;
+    padding: 12px 20px !important;
+    border: none !important;
+    border-bottom: 3px solid transparent !important;
+    background: transparent !important;
+    transition: var(--transition-fast);
+    border-radius: 0 !important;
+}
+.lp-tabs > li > a:hover {
+    color: var(--lp-primary) !important;
+    background: rgba(26, 60, 94, 0.03) !important;
+    border-bottom-color: var(--lp-gray) !important;
+}
+.lp-tabs > li.active > a,
+.lp-tabs > li.active > a:hover,
+.lp-tabs > li.active > a:focus {
+    color: var(--lp-primary) !important;
+    border-bottom-color: var(--lp-accent) !important;
+    background: transparent !important;
+}
