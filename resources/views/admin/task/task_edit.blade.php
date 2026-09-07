@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             @include('component.error')
-            <div class="x_panel">
+            <div class="x_panel lp-panel">
                 <form id="add_client" name="add_client" role="form" method="POST" autocomplete="nope"
                     action="{{ route('tasks.update', $task->id) }}">
                     {{ csrf_field() }}
@@ -19,25 +19,25 @@
 
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.subject') }} <span
                                         class="text-danger">*</span></label>
-                                <input type="text" placeholder="" class="form-control" id="task_subject"
+                                <input type="text" placeholder="" class="form-control lp-input" id="task_subject"
                                     name="task_subject" value="{{ $task->task_subject ?? '' }}">
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.start_date') }} <span
                                         class="text-danger">*</span></label>
-                                <input type="text" placeholder="" readonly="" class="form-control dateFrom"
+                                <input type="text" placeholder="" readonly="" class="form-control lp-input dateFrom"
                                     id="start_date" name="start_date"
                                     value="{{ date(LogActivity::commonDateFromatType(), strtotime($task->start_date)) }}">
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.deadline') }}<span
                                         class="text-danger">*</span></label>
-                                <input type="text" placeholder="" readonly="" class="form-control dateTo"
+                                <input type="text" placeholder="" readonly="" class="form-control lp-input dateTo"
                                     id="end_date" name="end_date"
                                     value="{{ date(LogActivity::commonDateFromatType(), strtotime($task->end_date)) }}">
                             </div>
@@ -45,10 +45,10 @@
 
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.status') }} <span
                                         class="text-danger">*</span></label>
-                                <select class="form-control" id="project_status_id" name="project_status_id">
+                                <select class="form-control lp-input" id="project_status_id" name="project_status_id">
                                     <option value="">{{ __('frontend.task.select_status') }}</option>
                                     @foreach (LogActivity::getTaskStatusList() as $key => $val)
                                         <option value="{{ $key }}"
@@ -58,10 +58,10 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.priority') }}<span
                                         class="text-danger">*</span></label>
-                                <select class="form-control" id="priority" name="priority">
+                                <select class="form-control lp-input" id="priority" name="priority">
                                     <option value="">{{ __('frontend.task.select_priority') }}</option>
                                     @foreach (LogActivity::getTaskPriorityList() as $key => $val)
                                         <option value="{{ $key }}"
@@ -71,11 +71,11 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.assign_to') }}<span
                                         class="text-danger">*</span></label>
 
-                                <select multiple class="form-control" id="assigned_to" name="assigned_to[]">
+                                <select multiple class="form-control lp-input" id="assigned_to" name="assigned_to[]">
                                     <option value="">{{ __('frontend.task.select_user') }}</option>
                                     @foreach ($users as $key => $val)
                                         <option value="{{ $val->id }}"
@@ -89,9 +89,9 @@
 
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.related_to') }}</label>
-                                <select class="form-control selct2-width-100" id="related" name="related">
+                                <select class="form-control lp-input selct2-width-100" id="related" name="related">
                                     <option value="">{{ __('frontend.task.nothing_selected') }}</option>
                                     <option value="case" @if (isset($task) && $task->rel_type == 'case') selected="" @endif>
                                         {{ __('frontend.task.case') }}
@@ -110,9 +110,9 @@
                             @endphp
 
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group task_selection {{ $style }}">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group task_selection {{ $style }}">
                                 <label for="fullname">{{ __('frontend.task.case') }}</label>
-                                <select class="form-control selct2-width-100" id="related_id" name="related_id">
+                                <select class="form-control lp-input selct2-width-100" id="related_id" name="related_id">
                                     <option value="">{{ __('frontend.task.select_user') }}</option>
                                     @foreach ($cases as $key => $val)
                                         <option value="{{ $val->id }}"
@@ -128,17 +128,17 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{ __('frontend.task.description') }}</label>
-                                <textarea class="form-control" id="task_description" name="task_description">{{ $task->description ?? '' }}</textarea>
+                                <textarea class="form-control lp-input" id="task_description" name="task_description">{{ $task->description ?? '' }}</textarea>
                             </div>
                         </div>
 
-                        <div class="form-group pull-right">
+                        <div class="form-group lp-form-group pull-right">
                             <div class="col-md-12 col-sm-6 col-xs-12">
-                                <a class="btn btn-danger"
+                                <a class="btn btn-danger lp-btn lp-btn-danger"
                                     href="{{ route('tasks.index') }}">{{ __('frontend.cancel') }}</a>
-                                <button type="submit" class="btn btn-success"><i class="fa fa-save"
+                                <button type="submit" class="btn btn-success lp-btn lp-btn-primary"><i class="fa fa-save"
                                         id="show_loader"></i>&nbsp;{{ __('frontend.save') }}
                                 </button>
                             </div>
