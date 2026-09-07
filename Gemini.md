@@ -892,3 +892,42 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   - Used a Python script to surgically replace `lp-card` with `lp-panel` across 13 affected views in `resources/views/admin/` (excluding `index.blade.php` which rightly uses the dashboard tiles).
 - **Result**: Generic containers now use `.lp-panel` to stay stationary and semantic, while Dashboard stat tiles retain `.lp-card` with its intended interactive effects.
 - **Commit**: `3a37bab` — `style: introduce lp-panel class and replace misapplied lp-card generic wrappers`
+
+---
+
+# Phase 2 — Batch 3: Task Module (Safe Direction)
+
+### 1. Overview & Architectural Directives
+- **Scope**: Redesigning the main task list and the task creation/edit forms.
+- **Constraints**: 
+  - Strictly no Tailwind CSS or Alpine.js.
+  - Used `.lp-panel` (not `.lp-card`) for generic content wrappers as established by the recent architectural fix.
+  - Used `.lp-table` for the list table, and `.lp-form-group` / `.lp-input` / `.lp-btn` for form elements.
+  - No modifications to Javascript files; strictly preserved existing DOM identifiers.
+
+### 2. Prompt 1 — Task List
+- **File**: `resources/views/admin/task/task.blade.php`.
+- **Action**:
+  - Replaced the `.x_panel` class with `.x_panel .lp-panel`.
+  - Upgraded the main table with `.table .lp-table`.
+- **Preserved**: 
+  - The `id="clientDataTable"` attribute and `data-url="{{ route('task.list') }}"` on the `<table>` element were kept exactly as-is.
+  - The 9-column structure remained completely untouched.
+- **Commit**: `2b88827` — `Phase 2 Batch 3 Prompt 1: Refactor task list UI`
+
+### 3. Prompt 2 — Create/Edit Forms
+- **Files**: `resources/views/admin/task/task_create.blade.php` and `resources/views/admin/task/task_edit.blade.php`.
+- **Action**:
+  - Safely injected `.lp-panel` to replace the basic `.x_panel`.
+  - Converted `.form-group` to `.form-group .lp-form-group` and `.form-control` to `.form-control .lp-input` using a surgical Python replacement script.
+  - Standardized buttons with `.lp-btn .lp-btn-primary` and `.lp-btn .lp-btn-danger`.
+- **Preserved**:
+  - The unusual form `id="add_client"` and `name="add_client"` were kept exactly as-is to ensure validation logic in `task-validation.js` continued functioning correctly.
+  - Field names, including the `assigned_to[]` multi-select array notation, were strictly maintained.
+  - All hidden fields (`select2Case`, `date_format_datepiker`, `_method`) were left untouched.
+- **Commit**: `f79249d` — `Phase 2 Batch 3 Prompt 2: Refactor task create and edit forms UI`
+
+### 4. Prompt 3 — Verification
+- **Action**: 
+  - Executed `npm run dev` to successfully recompile frontend assets without any Webpack errors.
+  - Outlined a manual test checklist verifying list loading, non-sortable columns (case, members, status, priority, action), Select2 dynamic cases loading, and accurate form state persistence across both task creation and editing workflows.
