@@ -7,10 +7,10 @@
         </div>
 
         <div class="title_right">
-            <div class="form-group pull-right top_search">
+            <div class="form-group lp-form-group pull-right top_search">
 
                 @if($adminHasPermition->can(['expense_add']))
-                    <a href="{{ url('admin/expense-create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> {{__('frontend.add_expense')}}</a>
+                    <a href="{{ url('admin/expense-create') }}" class="btn btn-primary lp-btn lp-btn-primary"><i class="fa fa-plus"></i> {{__('frontend.add_expense')}}</a>
                 @endif
 
 
@@ -19,11 +19,11 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel lp-card">
 
                 <div class="x_content">
 
-                    <table id="ExpenseDatatable" class="table" >
+                    <table id="ExpenseDatatable" class="table lp-table" >
                         <thead>
                         <tr>
 

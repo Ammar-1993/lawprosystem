@@ -6,7 +6,7 @@
 @endpush
 @section('content')
     <!-- /page content start -->
-    <div class="x_panel">
+    <div class="x_panel lp-card">
         <div id="content">
             <form id="add_invoice" name="add_invoice" role="form" method="POST" action="{{url('admin/add_invoice')}}"
                   autocomplete="off">
@@ -86,7 +86,7 @@
 
                                                 <div class="panel-body">
                                                     <div class="table-responsive">
-                                                        <table class="table table-condensed">
+                                                        <table class="table lp-table table-condensed">
                                                             <thead>
 
                                                             <tr>
@@ -138,7 +138,7 @@
                                         @php if($invoice->remarks!=''){ @endphp
                                         <div class="col-sm-7 col-md-7">
                                             <div class="contct-info">
-                                                <div class="form-group">
+                                                <div class="form-group lp-form-group">
                                                     <label class="discount_text">{{__('frontend.note')}}
                                                     </label>
                                                     <p>{{$invoice->remarks ?? ''}}</p>
@@ -147,7 +147,7 @@
                                         </div>
                                         @php }  @endphp
                                         <div class="pull-right col-md-5 margin-right-32">
-                                            <table class="table row-border dataTable no-footer" id="tab_logic_total">
+                                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
                                                 <tr>
                                                     <td width="75%" align="right"><b
                                                             class="font-size-expense-17">{{__('frontend.subtotal')}}</b></td>

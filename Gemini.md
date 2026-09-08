@@ -1006,3 +1006,38 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   * Redesigned `invoice_create.blade.php` and `invoice_edit.blade.php`, strictly preserving the repeater (`data-repeater-list="invoice_items"`), all input names/IDs inside `data-repeater-item`, and calculation fields (`readonly`).
   * Redesigned `invoice_view.blade.php` preserving `<div id="content">`, the form, and `#tab_logic_total`.
   * Redesigned payment modals (`modal_invoice_paid.blade.php`, `payment-history.blade.php`) strictly preserving all jQuery selector IDs identified in `assets/js/invoice/invoice-payment.js` (like `#method`, `#amount`, `#cheque_date`, etc.).
+
+## Phase 2: Batch 5d (Case Module)
+* **Case List Pages**:
+  * Redesigned `running.blade.php`, `archived.blade.php`, `important_cases.blade.php`, `nb-cases.blade.php`, and `client_case_list.blade.php` with `.lp-card`, `.lp-table`, and `.lp-form-group` styles for filters.
+  * Preserved modal targets (`#show_modal`, `#show_modal_transfer`, `#show_modal_next_date`) on the host page to prevent UI freezes.
+* **Case Create/Edit Forms**:
+  * Redesigned `add_case.blade.php` and `edit_case.blade.php`.
+  * Safely retained repeater logic (`data-repeater-list="parties_detail"`) and IDs for dynamic chained dropdowns (`getCourt`, `getCaseSubType`).
+* **Case Modals**:
+  * Upgraded `modal_next_date.blade.php`, `modal_change_court.blade.php`, and `modal_change_priority.blade.php` with `.lp-form-group`, `.lp-input`, and `.lp-btn`.
+  * Strictly preserved IDs used by jQuery validation and inline JavaScript logic.
+* **Case View/Details**:
+  * Uniformly styled all display panels and history modals in the `view/` directory (`view_case_details.blade.php`, `view_case_history.blade.php`, etc.).
+
+## Phase 2: Batch 5c (Appointment Module)
+* **Appointment List & Forms**:
+  * Redesigned `appointment.blade.php`, `appointment_create.blade.php`, and `appointment_edit.blade.php`.
+  * Applied `.lp-card`, `.lp-table`, `.lp-form-group`, `.lp-input`, and `.lp-btn` securely.
+  * Preserved radio buttons logic (`type=new` vs `type=exists`) and JavaScript validation variables.
+
+## Phase 2: Batch 5e (Vendor Module)
+* **Vendor Management**:
+  * Redesigned all files in `resources/views/admin/vendor/` including `vendor.blade.php`, `vendor_create.blade.php`, and `vendor_edit.blade.php`.
+  * Applied `.lp-card`, `.lp-table`, `.lp-form-group`, `.lp-input`, and `.lp-btn`.
+  * Preserved IDs required for chained dropdowns (`country`, `state`, `city_id`).
+* **Vendor Accounts/Payments**:
+  * Upgraded `vendor_account.blade.php`, `payment_made.blade.php`, `payment_made_history.blade.php`, `vendor_view.blade.php`, and `expense_edit.blade.php`.
+
+## Phase 2: Batch 5f (Expense Module)
+* **Expense Management**:
+  * Redesigned all files in `resources/views/admin/expence/` including `expense.blade.php`, `expense_create.blade.php`, and `expense_edit.blade.php`.
+  * Applied `.lp-card`, `.lp-table`, `.lp-form-group`, `.lp-input`, and `.lp-btn`.
+  * Preserved IDs required for JavaScript calculations (`qty`, `rate`, `amount`, `subTotal`, `tax`, `taxVal`, `grandTotal`).
+* **Expense Action Modals**:
+  * Upgraded `modal_expense_paid.blade.php`, `payment-made-history.blade.php`, `payment_histroy_modal.blade.php`, and `payment_receive_modal.blade.php`.
