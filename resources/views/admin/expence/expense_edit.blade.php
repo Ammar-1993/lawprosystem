@@ -173,6 +173,7 @@
                                                                     @if(isset($item) && $item->category_id == $cat->id ) selected @endif>{{ $cat->name }}</option>
                                                         @endforeach
                                                     </select>
+                                                </th>
                                                 <th width="" class="text-center">
                                                     <input type="text" class="form-control lp-input" id="description"
                                                            name="description" value="{{ $item->description  }}"
@@ -259,7 +260,7 @@
                                     <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
                                         <tr>
                                             <th class="text-center">
-                                                <select id="tax" class="tax" name="tax" class="form-control lp-input">
+                                                <select id="tax" class="tax form-control lp-input" name="tax">
                                                     <option MyTax="" value="">Select Tax</option>
                                                     @foreach($tax as $t)
                                                         <option MyTax="{{ $t->per }}" value="{{ $t->id }}"
@@ -295,7 +296,7 @@
                                 <div class="col-md-3 text-center">
                                     <a href="{{ url('admin/expense') }}" class="btn btn-danger lp-btn lp-btn-danger">{{__('frontend.cancel')}}</a>
 
-                                    <button type="submit" name="btn_add_offer" class="btn_add_offer btn btn-success"><i
+                                    <button type="submit" name="btn_add_offer" class="btn_add_offer btn btn-success lp-btn lp-btn-primary"><i
                                                 class="fa fa-save" id="show_loader"></i>&nbsp;{{__('frontend.save')}}
                                     </button>
 
