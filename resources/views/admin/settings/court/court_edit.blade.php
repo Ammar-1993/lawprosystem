@@ -19,10 +19,10 @@
                 <div class="modal-body">
                     <div id="form-errors"></div>
                     <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <label for="case_type">{{__('frontend.case_type')}}<span class="text-danger">*</span></label>
 
-                            <select class="form-control case_type selct2-width-100" id="court_type" name="court_type"
+                            <select class="form-control lp-input case_type selct2-width-100" id="court_type" name="court_type"
                             >
                                 <option value="">{{__('frontend.select_case_type')}}</option>
                                 @foreach($court_types as $type)
@@ -35,10 +35,10 @@
                             </select>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <label for="case_subtype">{{__('frontend.court')}} <span class="text-danger">*</span></label>
                             <input type="text" placeholder="" value="{{ $court->court_name ?? '' }}"
-                                   class="form-control" id="court_name" name="court_name">
+                                   class="form-control lp-input" id="court_name" name="court_name">
                         </div>
                     </div>
 
@@ -46,10 +46,10 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+                    <button type="button" class="btn btn-danger lp-btn lp-btn-danger" data-dismiss="modal"><i
                             class="ik ik-x"></i>{{__('frontend.close')}}
                     </button>
-                    <button type="submit" class="btn btn-success shadow"><i class=" fa fa-save  ik ik-check-circle"
+                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary shadow"><i class=" fa fa-save  ik ik-check-circle"
                                                                             id="cl">
                         </i> {{__('frontend.save')}}
                     </button>
