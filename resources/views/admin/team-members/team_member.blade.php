@@ -10,7 +10,7 @@
 
             <div class="title_right">
                 <div class="form-group pull-right top_search">
-                    <a href="{{ url('admin/client_user/create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                    <a href="{{ url('admin/client_user/create') }}" class="btn btn-primary lp-btn lp-btn-primary"><i class="fa fa-plus"></i>
                         {{__('frontend.add_member')}}</a>
                 </div>
             </div>
@@ -20,11 +20,11 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-panel">
 
                     <div class="x_content">
 
-                        <table id="user_table" class="table">
+                        <table id="user_table" class="table lp-table">
                             <thead>
                                 <tr>
                                     <th width="5%">{{__('frontend.no')}}</th>
