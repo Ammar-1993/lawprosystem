@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 @include('component.error')
-                <div class="x_panel">
+                <div class="x_panel lp-card">
                     <div class="x_title">
                         <h2>{{ __('frontend.update_password') }}</h2>
                         <div class="clearfix"></div>
@@ -44,35 +44,35 @@
                                         <form id="change_password" name="change_password" role="form" method="POST"
                                             action="{{ url('admin/changed-password') }}">
                                             @csrf
-                                            <div class="row form-group">
+                                            <div class="row form-group lp-form-group">
                                                 <div class="col-md-12">
                                                     <label for="current_password">{{ __('frontend.current_password') }}
                                                         <span class="text-danger">*</span></label>
                                                     <input type="password" id="old" name="old"
-                                                        class="form-control" autocomplete="off">
+                                                        class="form-control lp-input" autocomplete="off">
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
+                                            <div class="row form-group lp-form-group">
                                                 <div class="col-md-12">
                                                     <label for="new_password">{{ __('frontend.new_password') }} <span
                                                             class="text-danger">*</span></label>
                                                     <input type="password" id="new" name="new"
-                                                        class="form-control" autocomplete="off">
+                                                        class="form-control lp-input" autocomplete="off">
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
+                                            <div class="row form-group lp-form-group">
                                                 <div class="col-md-12">
                                                     <label for="confirm_password">{{ __('frontend.confirm_password') }}<span
                                                             class="text-danger">*</span></label>
                                                     <input type="password" id="confirm" name="confirm"
-                                                        class="form-control" autocomplete="off">
+                                                        class="form-control lp-input" autocomplete="off">
                                                 </div>
                                             </div>
-                                            <div class="form-group pull-right">
+                                            <div class="form-group lp-form-group pull-right">
                                                 <div class="col-md-12 col-sm-6 col-xs-12">
                                                     <br>
 
-                                                    <button type="submit" name="btn_add_change" class="btn btn-success">
+                                                    <button type="submit" name="btn_add_change" class="btn btn-success lp-btn lp-btn-primary">
                                                         <i class="fa fa-save"
                                                             id="show_loader"></i>&nbsp;{{ __('frontend.update') }}
                                                     </button>

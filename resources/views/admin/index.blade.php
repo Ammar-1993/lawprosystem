@@ -66,7 +66,7 @@
             <br />
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
+                    <div class="x_panel lp-card">
                         <div class="x_title">
                             <h2>{{ __('frontend.dashboard.case_board') }} </h2>
                             &nbsp;&nbsp;
@@ -81,7 +81,7 @@
                             <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" name="client_case" id="client_case" class="form-control  datecase"
+                                    <input type="text" name="client_case" id="client_case" class="form-control lp-input  datecase"
                                         readonly=""
                                         value="{{ $date != '' ? date($date_format_laravel, strtotime($date)) : date($date_format_laravel) }}">
                                 </div>
@@ -93,7 +93,7 @@
                                 @if (count($case_dashbord) > 0 && !empty($case_dashbord))
                                     @foreach ($case_dashbord as $court)
                                         <h4 class="title text-primary"> {!! $court['judge_name'] !!}</h4>
-                                        <table id="case_list" class="table row-border" style="width:100%">
+                                        <table id="case_list" class="table lp-table row-border" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th width="3%">{{ __('frontend.dashboard.tc_no') }}</th>
@@ -228,13 +228,13 @@
             <br>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
+                    <div class="x_panel lp-card">
                         <div class="x_title">
                             <h2>{{ __('frontend.dashboard.appointment') }}</h2>
                             <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" name="appoint_range" id="appoint_range" class="form-control"
+                                    <input type="text" name="appoint_range" id="appoint_range" class="form-control lp-input"
                                         value="{{ date($date_format_laravel) }}" readonly="">
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                         </div>
                         <div class="x_content">
                             @if (count($appoint_calander) > 0)
-                                <table id="appointment_list" class="table row-border" style="width:100%">
+                                <table id="appointment_list" class="table lp-table row-border" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>{{ __('frontend.dashboard.ta_no') }}</th>
@@ -302,7 +302,7 @@
 
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
+                    <div class="x_panel lp-card">
                         <div class="x_title">
                             <h2>{{ __('frontend.dashboard.Calendar') }}</h2>
                             <div class="col-md-3 col-sm-12 col-xs-12 pull-right">

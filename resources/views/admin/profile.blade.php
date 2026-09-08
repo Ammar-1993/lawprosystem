@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
 
-                <div class="x_panel">
+                <div class="x_panel lp-card">
                     <div class="x_title">
                         <h2>{{ __('frontend.update_profile') }} </h2>
                         <div class="clearfix"></div>
@@ -117,42 +117,42 @@
                                                     </div>
 
                                                     <div class="col-md-8 col-sm-12 col-xs-12">
-                                                        <div class="row form-group">
+                                                        <div class="row form-group lp-form-group">
                                                             <div class="col-md-6">
                                                                 <label for="f_name">{{ __('frontend.first_name') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="f_name" name="f_name"
-                                                                    placeholder="" class="form-control"
+                                                                    placeholder="" class="form-control lp-input"
                                                                     value="{{ $users->first_name }}">
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label for="last_name">{{ __('frontend.last_name') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="l_name" name="l_name"
-                                                                    class="form-control" value="{{ $users->last_name }}">
+                                                                    class="form-control lp-input" value="{{ $users->last_name }}">
                                                             </div>
                                                         </div>
 
 
-                                                        <div class="row form-group">
+                                                        <div class="row form-group lp-form-group">
                                                             <div class="col-md-6">
                                                                 <label for="email">{{ __('frontend.email_id') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="email" name="email"
-                                                                    class="form-control" value="{{ $users->email }}">
+                                                                    class="form-control lp-input" value="{{ $users->email }}">
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label for="mobile">{{ __('frontend.mobile_no') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="mobile" name="mobile"
-                                                                    class="form-control" maxlength="10"
+                                                                    class="form-control lp-input" maxlength="10"
                                                                     value="{{ $users->mobile }}">
                                                             </div>
                                                         </div>
 
 
                                                         @if (Auth::guard('admin')->user()->user_type == 'Admin')
-                                                            <div class="row form-group">
+                                                            <div class="row form-group lp-form-group">
                                                                 <div class="col-md-6">
                                                                     <label
                                                                         for="email">{{ __('frontend.registration_no') }}<span
@@ -160,43 +160,43 @@
                                                                     <input type="text" id="registration_no"
                                                                         name="registration_no"
                                                                         value="{{ $users->registration_no }}"
-                                                                        class="form-control" autocomplete="off">
+                                                                        class="form-control lp-input" autocomplete="off">
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <label
                                                                         for="mobile">{{ __('frontend.associated_name') }}<span
                                                                             class="text-danger">*</span></label>
                                                                     <input type="text" id="associated_name"
-                                                                        name="associated_name" class="form-control"
+                                                                        name="associated_name" class="form-control lp-input"
                                                                         autocomplete="off"
                                                                         value="{{ $users->associated_name }}">
                                                                 </div>
                                                             </div>
                                                         @endif
 
-                                                        <div class="row form-group">
+                                                        <div class="row form-group lp-form-group">
                                                             <div class="col-md-9">
                                                                 <label for="address">{{ __('frontend.address') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="address" name="address"
-                                                                    class="form-control" value="{{ $users->address }}">
+                                                                    class="form-control lp-input" value="{{ $users->address }}">
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <label for="zipcode">{{ __('frontend.zip_code') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="zip_code" name="zip_code"
-                                                                    class="form-control" maxlength=""
+                                                                    class="form-control lp-input" maxlength=""
                                                                     value="{{ $users->zipcode }}">
                                                             </div>
                                                         </div>
 
 
-                                                        <div class="row form-group">
+                                                        <div class="row form-group lp-form-group">
                                                             <div class="col-md-4">
                                                                 <label for="country">{{ __('frontend.country') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <select
-                                                                    class="form-control select-change country-select2 select2-profile-country"
+                                                                    class="form-control lp-input select-change country-select2 select2-profile-country"
                                                                     name="country" id="country"
                                                                     data-url="{{ route('get.country') }}"
                                                                     data-clear="#city_id,#state">
@@ -215,7 +215,7 @@
                                                                 <select id="state" name="state"
                                                                     data-url="{{ route('get.state') }}"
                                                                     data-target="#country" data-clear="#city_id"
-                                                                    class="form-control state-select2 select-change select2-profile-state">
+                                                                    class="form-control lp-input state-select2 select-change select2-profile-state">
                                                                     <option value="">
                                                                         {{ __('frontend.select_state') }}</option>
                                                                     @if ($users->state)
@@ -232,7 +232,7 @@
                                                                 <select id="city_id" name="city_id"
                                                                     data-url="{{ route('get.city') }}"
                                                                     data-target="#state"
-                                                                    class="form-control city-select2">
+                                                                    class="form-control lp-input city-select2">
                                                                     <option value="">
                                                                         {{ __('frontend.select_city') }}</option>
                                                                     @if ($users->city)
@@ -246,7 +246,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group pull-right">
+                                                    <div class="form-group lp-form-group pull-right">
                                                         <div class="col-md-12 col-sm-6 col-xs-12">
                                                             <br>
                                                             <input type="hidden" name="route-exist-check"
@@ -255,7 +255,7 @@
                                                             <input type="hidden" name="token-value" id="token-value"
                                                                 value="{{ csrf_token() }}">
 
-                                                            <button type="submit" class="btn btn-success"
+                                                            <button type="submit" class="btn btn-success lp-btn lp-btn-primary"
                                                                 id="upload-result"><i class="fa fa-save"
                                                                     id="show_loader"></i>&nbsp;{{ __('frontend.update') }}
                                                             </button>

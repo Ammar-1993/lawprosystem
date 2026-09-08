@@ -1041,3 +1041,12 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   * Preserved IDs required for JavaScript calculations (`qty`, `rate`, `amount`, `subTotal`, `tax`, `taxVal`, `grandTotal`).
 * **Expense Action Modals**:
   * Upgraded `modal_expense_paid.blade.php`, `payment-made-history.blade.php`, `payment_histroy_modal.blade.php`, and `payment_receive_modal.blade.php`.
+
+## Phase 2: Batch 5g (Admin Root Files)
+* **Dashboard** (`index.blade.php`):
+  * Applied `.lp-card` and `.lp-table`.
+  * Safely ignored outer modal wrappers to prevent UI freezes.
+* **My Account** (`profile.blade.php`):
+  * Upgraded inputs while preserving Croppie image crop IDs and logic.
+* **Change Password** (`change_password.blade.php`):
+  * Standardized input styling using `.lp-form-group` and `.lp-input`.
