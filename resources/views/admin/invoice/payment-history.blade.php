@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <table class="table">
+                        <table class="table lp-table">
                             <thead>
                             <tr>
                                 <th>{{__('frontend.invoice_no')}}</th>
