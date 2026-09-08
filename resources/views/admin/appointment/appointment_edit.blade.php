@@ -9,8 +9,8 @@
         </div>
 
         <div class="title_right">
-            <div class="form-group pull-right top_search">
-                <a href="{{ route('appointment.index') }}" class="btn btn-primary">{{ __('frontend.back') }}</a>
+            <div class="form-group lp-form-group pull-right top_search">
+                <a href="{{ route('appointment.index') }}" class="btn btn-primary lp-btn lp-btn-primary">{{ __('frontend.back') }}</a>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             @include('component.error')
-            <div class="x_panel">
+            <div class="x_panel lp-card">
                 <div class="x_content">
                     <form id="add_appointment" name="add_appointment" role="form" method="POST"
                         action="{{ route('appointment.update', $appointment->id) }}">
@@ -40,7 +40,7 @@
 
 
                                 <div class="row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group lp-form-group col-md-6">
 
                                         <input type="radio" id="test5" value="new" name="type"
                                             @if ($appointment->type == 'new') checked @endif>
@@ -51,7 +51,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group lp-form-group col-md-6">
 
                                         <input type="radio" id="test4" value="exists" name="type"
                                             @if ($appointment->type == 'exists') checked @endif>
@@ -66,12 +66,12 @@
                                 <div class="row exists">
                                     <div class="col-md-12">
 
-                                        <div class="form-group">
+                                        <div class="form-group lp-form-group">
                                             @if (count($client_list) > 0)
                                                 <label class="discount_text">{{ __('frontend.select_client') }}
                                                     <er class="rest">*</er>
                                                 </label>
-                                                <select class="form-control selct2-width-100" name="exists_client"
+                                                <select class="form-control lp-input selct2-width-100" name="exists_client"
                                                     id="exists_client" onchange="getMobileno(this.value);">
                                                     <option value="">{{ __('frontend.select_client') }}</option>
                                                     @foreach ($client_list as $list)
@@ -90,57 +90,57 @@
 
 
                                 <div class="row new">
-                                    <div class="col-md-12 form-group">
+                                    <div class="col-md-12 form-group lp-form-group">
                                         <label for="newclint_name">{{ __('frontend.new_client_name') }} <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" placeholder="" class="form-control" id="new_client"
+                                        <input type="text" placeholder="" class="form-control lp-input" id="new_client"
                                             name="new_client" autocomplete="off" value="{{ $appointment->name ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group lp-form-group">
                                         <label for="mobile">{{ __('frontend.mobile_no') }}<span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" placeholder="" class="form-control" id="mobile"
+                                        <input type="text" placeholder="" class="form-control lp-input" id="mobile"
                                             name="mobile" autocomplete="off" maxlength="10"
                                             value="{{ $appointment->mobile }}">
                                     </div>
 
-                                    <div class="col-md-3 form-group">
+                                    <div class="col-md-3 form-group lp-form-group">
                                         <label for="date">{{ __('frontend.date') }}<span
                                                 class="text-danger">*</span></label>
 
-                                        <input type="text" class="form-control" id="date" name="date"
+                                        <input type="text" class="form-control lp-input" id="date" name="date"
                                             value="{{ date($date_format_laravel, strtotime($appointment->date)) }}">
 
 
                                     </div>
 
-                                    <div class="col-md-3 form-group">
+                                    <div class="col-md-3 form-group lp-form-group">
                                         <label for="time">{{ __('frontend.time') }}<span
                                                 class="text-danger">*</span></label>
 
-                                        <input type="text" class="form-control" id="time" name="time"
+                                        <input type="text" class="form-control lp-input" id="time" name="time"
                                             value="{{ $appointment->time }}">
 
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 form-group">
+                                    <div class="col-md-12 form-group lp-form-group">
                                         <label for="note">{{ __('frontend.note') }}</label>
-                                        <textarea type="text" placeholder="" class="form-control" id="note" name="note">{{ $appointment->note ?? '' }}</textarea>
+                                        <textarea type="text" placeholder="" class="form-control lp-input" id="note" name="note">{{ $appointment->note ?? '' }}</textarea>
                                     </div>
                                 </div>
 
 
                             </div>
-                            <div class="form-group pull-right">
+                            <div class="form-group lp-form-group pull-right">
                                 <div class="col-md-12 col-sm-6 col-xs-12">
                                     <br>
                                     <a href="{{ route('appointment.index') }}"
-                                        class="btn btn-danger">{{ __('frontend.cancel') }}</a>
+                                        class="btn btn-danger lp-btn lp-btn-danger">{{ __('frontend.cancel') }}</a>
 
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-save"
+                                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary"><i class="fa fa-save"
                                             id="show_loader"></i>&nbsp;{{ __('frontend.save') }}
                                     </button>
                                 </div>

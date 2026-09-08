@@ -19,23 +19,23 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
 
-                <div class="x_panel">
+                <div class="x_panel lp-card">
 
                     <div class="x_title">
                         <div class="row">
-                            <div class="col-md-3 form-group">
+                            <div class="col-md-3 form-group lp-form-group">
                                 <label for="date_from">{{ __('frontend.appointment.from_date') }} </label>
-                                <input type="text" class="form-control dateTo" id="date_to" autocomplete="off"
+                                <input type="text" class="form-control lp-input dateTo" id="date_to" autocomplete="off"
                                 readonly="">
 
 
 
                             </div>
 
-                            <div class="col-md-3 form-group">
+                            <div class="col-md-3 form-group lp-form-group">
                                 <label for="date_to">{{ __('frontend.appointment.to_date') }} </label>
 
-                                <input type="text" class="form-control dateTo" id="date_to" autocomplete="off"
+                                <input type="text" class="form-control lp-input dateTo" id="date_to" autocomplete="off"
                                     readonly="">
 
 
@@ -45,10 +45,10 @@
 
                                 <br>
                                 &nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-danger appointment-margin" type="button" id="btn_clear"
+                                <button class="btn btn-danger lp-btn lp-btn-danger appointment-margin" type="button" id="btn_clear"
                                     name="btn_clear">{{ __('frontend.appointment.clear') }}
                                 </button>
-                                <button type="submit" id="search" class="btn btn-success appointment-margin"><i
+                                <button type="submit" id="search" class="btn btn-success lp-btn lp-btn-primary appointment-margin"><i
                                         class="fa fa-search"></i>&nbsp;{{ __('frontend.appointment.search') }}
                                 </button>
                             </ul>
@@ -59,7 +59,7 @@
 
                     <div class="x_content">
 
-                        <table id="Appointmentdatatable" class="table appointment_table"
+                        <table id="Appointmentdatatable" class="table lp-table appointment_table"
                             data-url="{{ route('appointment.list') }}">
                             <thead>
                                 <tr>
