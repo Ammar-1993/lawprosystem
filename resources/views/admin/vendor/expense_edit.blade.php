@@ -2,7 +2,7 @@
 @section('title','Vendor')
 @section('content')
 
-<div class="x_panel">
+<div class="x_panel lp-card">
    
     <div class="x_content">
 
@@ -17,9 +17,9 @@
         <div class="row invoice-info">
           <div class="col-sm-4">
             <div class="row">
-              <div class="col-md-6 form-group">
+              <div class="col-md-6 form-group lp-form-group">
                  <label for="vendor">{{__('frontend.vendor1')}} <span class="text-danger">*</span></label>
-                  <select class="form-control">
+                  <select class="form-control lp-input">
                     <option>Select Vendor</option>
                     <option>PGVCL</option>
                     <option>Fname Lname</option>
@@ -37,28 +37,28 @@
           
           <div class="col-sm-4 form-horizontal form-label-left" >
             
-                <div class="form-group">
+                <div class="form-group lp-form-group">
                   <label class="control-label col-md-5 col-sm-3 col-xs-12">{{__('frontend.bill_no')}}: <span class="text-danger">*</span></label>
                   <div class="col-md-7 col-sm-9 col-xs-12">
-                    <input type="text" placeholder="" class="form-control">
+                    <input type="text" placeholder="" class="form-control lp-input">
                   </div>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group lp-form-group">
                   <label class="control-label col-md-5 col-sm-3 col-xs-12">{{__('frontend.bill_date')}}: <span class="text-danger">*</span></label>
                   <div class="col-md-7 col-sm-9 col-xs-12">
-                    <input type="text" placeholder="" class="form-control">
+                    <input type="text" placeholder="" class="form-control lp-input">
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group lp-form-group">
                   <label class="control-label col-md-5 col-sm-3 col-xs-12">{{__('frontend.bill_due_date')}}: <span class="text-danger">*</span></label>
                   <div class="col-md-7 col-sm-9 col-xs-12">
-                    <input type="text" placeholder="" class="form-control">
+                    <input type="text" placeholder="" class="form-control lp-input">
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group lp-form-group">
                   <label class="control-label col-md-5 col-sm-3 col-xs-12">Tax Type: <span class="text-danger">*</span></label>
                   <div class="col-md-7 col-sm-9 col-xs-12">
                     <p>IGST</p>
@@ -70,7 +70,7 @@
       
         <div class="row">
           <div class="col-xs-12 table">
-              <table class="table table-bordered">
+              <table class="table lp-table table-bordered">
                 <thead>
                   <tr>
                     <th style="width: 20%;">{{__('frontend.items')}}</th>
@@ -86,22 +86,22 @@
                 <tbody>
                   <tr>
                     <td>
-                      <select class="form-control">
+                      <select class="form-control lp-input">
                         <option>Select Category</option>
                         <option>Test</option>
                       </select>
                     </td>
                     <td>
-                      <input type="text" placeholder="" value="test" class="form-control">
+                      <input type="text" placeholder="" value="test" class="form-control lp-input">
                     </td>
                     <td>
-                      <input type="text" placeholder="" value="1" class="form-control">
+                      <input type="text" placeholder="" value="1" class="form-control lp-input">
                     </td>
                     <td>
-                      <input type="text" placeholder="" value="500" class="form-control">
+                      <input type="text" placeholder="" value="500" class="form-control lp-input">
                     </td>
                     <td>
-                      <select class="form-control">
+                      <select class="form-control lp-input">
                         <option>IGST 0%</option>
                         <option>IGST 28%</option>
                         <option>IGST 18%</option>
@@ -113,30 +113,30 @@
                       <label>90</label>
                     </td>
                     <td>
-                      <input type="text" placeholder="" class="form-control" value="500" readonly>
+                      <input type="text" placeholder="" class="form-control lp-input" value="500" readonly>
                     </td>
                     <td>
-                     <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                     <button type="submit" class="btn btn-danger lp-btn lp-btn-danger"><i class="fa fa-trash"></i></button>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <select class="form-control">
+                      <select class="form-control lp-input">
                         <option>Select Category</option>
                         <option>Test</option>
                       </select>
                     </td>
                     <td>
-                      <input type="text" placeholder="" value="test" class="form-control">
+                      <input type="text" placeholder="" value="test" class="form-control lp-input">
                     </td>
                     <td>
-                      <input type="text" placeholder="" value="1" class="form-control">
+                      <input type="text" placeholder="" value="1" class="form-control lp-input">
                     </td>
                     <td>
-                      <input type="text" placeholder="" value="1000" class="form-control">
+                      <input type="text" placeholder="" value="1000" class="form-control lp-input">
                     </td>
                     <td>
-                      <select class="form-control">
+                      <select class="form-control lp-input">
                         <option>IGST 0%</option>
                         <option>IGST 28%</option>
                         <option>IGST 18%</option>
@@ -148,15 +148,15 @@
                       <label>120.00</label>
                     </td>
                     <td>
-                      <input type="text" placeholder="" class="form-control" value="1000" readonly>
+                      <input type="text" placeholder="" class="form-control lp-input" value="1000" readonly>
                     </td>
                     <td>
-                     <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                     <button type="submit" class="btn btn-danger lp-btn lp-btn-danger"><i class="fa fa-trash"></i></button>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="8">
-                    <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i>{{__('frontend.add_more')}}</button>
+                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary"><i class="fa fa-plus"></i>{{__('frontend.add_more')}}</button>
                     </td>
                   </tr>
                 </tbody>
@@ -170,13 +170,13 @@
                         
           <div class="col-xs-7">
             <label for="note">{{__('frontend.note')}}</label>
-            <textarea class="form-control" rows="3" placeholder=""></textarea>
+            <textarea class="form-control lp-input" rows="3" placeholder=""></textarea>
           </div>
        
           <div class="col-xs-5">
            
             <div class="table-responsive">
-              <table class="table" align="right" style="margin-right: 30px;"> 
+              <table class="table lp-table" align="right" style="margin-right: 30px;"> 
                 <tbody>
                   <tr style="font-size: 17px;">
                     <th style="width: 70%; text-align: right;">{{__('frontend.subtotal')}}</th>
@@ -188,7 +188,7 @@
                   </tr>
                   <tr style="font-size: 17px;">
                     <th style="text-align: right;">{{__('frontend.total')}}</th>
-                    <td align="right"><input type="text" placeholder="" class="form-control" value="1000" readonly style="text-align: right;"></td>
+                    <td align="right"><input type="text" placeholder="" class="form-control lp-input" value="1000" readonly style="text-align: right;"></td>
                   </tr>
                 </tbody>
               </table>

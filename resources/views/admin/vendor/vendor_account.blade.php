@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-card">
                     <div class="x_content">
                         <div class="" role="tabpanel" data-example-id="togglable-tabs">
                             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
@@ -34,7 +34,7 @@
                             <div id="myTabContent" class="tab-content">
 
 
-                                <table id="VendorAccountDatatable" class="table"
+                                <table id="VendorAccountDatatable" class="table lp-table"
                                     data-url="{{ url('admin/expense-filter-list') }}" data-vendor="{{ $client->id }}">
                                     <thead>
                                         <tr>

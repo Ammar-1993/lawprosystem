@@ -10,7 +10,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-xs-12 table">
-            <table id="datatable" class="table table-striped table-bordered">
+            <table id="datatable" class="table lp-table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th>{{__('frontend.invoice_no')}}</th>
@@ -32,7 +32,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">{{__('frontend.close')}}</button>
-        <button type="button" class="btn btn-primary">{{__('frontend.save')}}</button>
+        <button type="button" class="btn btn-primary lp-btn lp-btn-primary">{{__('frontend.save')}}</button>
       </div>
 
     </div>

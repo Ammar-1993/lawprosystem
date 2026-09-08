@@ -10,23 +10,23 @@
             <div class="modal-body">
              
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                   <label for="amount">{{__('frontend.amount')}}<span class="text-danger">*</span></label>
-                  <input type="text" placeholder="" class="form-control">
+                  <input type="text" placeholder="" class="form-control lp-input">
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                   <label for="receipt_date">{{__('frontend.receipt_date')}}<span class="text-danger">*</span></label>
-                  <input type="text" placeholder="" class="form-control">
+                  <input type="text" placeholder="" class="form-control lp-input">
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                   <label for="payment_method">{{__('frontend.payment_method')}} <span class="text-danger">*</span></label>
-                  <select class="form-control">
+                  <select class="form-control lp-input">
                     <option>{{__('frontend.select_payment_method')}} </option>
                     <option>Cash</option>
                     <option>Cheque</option>
@@ -37,16 +37,16 @@
             </div>
 
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                   <label for="referance_number">{{__('frontend.reference_number')}}</label>
-                  <input type="text" placeholder="" class="form-control">
+                  <input type="text" placeholder="" class="form-control lp-input">
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                   <label for="note">{{__('frontend.note')}}</label>
-                  <textarea type="text" placeholder="" class="form-control"></textarea>
+                  <textarea type="text" placeholder="" class="form-control lp-input"></textarea>
               </div>
             </div>
 
@@ -54,7 +54,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">{{__('frontend.close')}}</button>
-              <button type="button" class="btn btn-primary">{{__('frontend.save')}}</button>
+              <button type="button" class="btn btn-primary lp-btn lp-btn-primary">{{__('frontend.save')}}</button>
             </div>
 
           </div>
