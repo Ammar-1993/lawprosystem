@@ -25,7 +25,7 @@
         <input type="hidden" name="_method" value="PATCH">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-panel">
                     <div class="x_content">
                         @include('admin.settings.setting-header')
 
@@ -41,10 +41,10 @@
 
 
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_prefex">{{__('frontend.company_name')}}<span class="text-danger">*</span></label>
                                 <input type="text" required data-msg-required="Please enter company name" placeholder=""
-                                       class="form-control" id="cmp_name" name="cmp_name"
+                                       class="form-control lp-input" id="cmp_name" name="cmp_name"
                                        value="{{ $GeneralSettings->company_name }}">
                             </div>
 
@@ -53,10 +53,10 @@
 
                         <div class="row">
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_number">{{__('frontend.address')}} <span class="text-danger">*</span></label>
                                 <input type="text" data-msg-required="Please enter address" placeholder=""
-                                       class="form-control" id="address" name="address" required
+                                       class="form-control lp-input" id="address" name="address" required
                                        value="{{ $GeneralSettings->address }}">
                             </div>
 
@@ -65,10 +65,10 @@
 
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_number">{{__('frontend.country')}}<span class="text-danger">*</span></label>
                                 <select data-msg-required="Please select country" required=""
-                                        class="form-control select-change country-select2 selct2-width-100"
+                                        class="form-control lp-input select-change country-select2 selct2-width-100"
                                         name="country" id="country"
                                         data-url="{{ route('get.country') }}"
                                         data-clear="#city_id,#state"
@@ -84,14 +84,14 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_number">{{__('frontend.state')}}<span class="text-danger">*</span></label>
                                 <select data-msg-required="Please select state" required="" id="state" name="state"
 
                                         data-url="{{ route('get.state') }}"
                                         data-target="#country"
                                         data-clear="#city_id"
-                                        class="form-control state-select2 select-change">
+                                        class="form-control lp-input state-select2 select-change">
                                     <option value="">{{__('frontend.select_state')}}</option>
                                     @foreach ($states as $state)
                                         <option
@@ -104,13 +104,13 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_number">{{__('frontend.city')}}<span class="text-danger">*</span></label>
                                 <select data-msg-required="Please select city" required="" id="city_id" name="city_id"
                                         data-url="{{ route('get.city') }}"
                                         data-target="#state"
 
-                                        class="form-control city-select2">
+                                        class="form-control lp-input city-select2">
                                     <option value="">{{__('frontend.select_city')}}</option>
                                     @foreach ($citys as $city)
                                         <option
@@ -127,17 +127,17 @@
                         </div>
                         <div class="row">
 
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_number">{{__('frontend.pincode')}} <span class="text-danger">*</span></label>
                                 <input type="text" placeholder="" data-msg-required="Please enter pincode"
-                                       class="form-control" id="pincode" name="pincode" required
+                                       class="form-control lp-input" id="pincode" name="pincode" required
                                        value="{{ $GeneralSettings->pincode }}">
                             </div>
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <div class="valfavicon">
                                     <label for="invoice_number">{{__('frontend.favicon')}} </label>
 
-                                    <input type="file" name="favicon" id="favicon" class="form-control"
+                                    <input type="file" name="favicon" id="favicon" class="form-control lp-input"
                                            data-min-width="16" data-min-height="16" data-max-width="16"
                                            data-max-height="16">
                                     <span class="text-danger"></span>
@@ -152,11 +152,11 @@
 
 
                             </div>
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <div class="vallogo">
 
                                     <label for="invoice_number">{{__('frontend.logo')}} </label>
-                                    <input type="file" placeholder="" class="form-control" id="logo" name="logo"
+                                    <input type="file" placeholder="" class="form-control lp-input" id="logo" name="logo"
                                            data-min-width="230" data-min-height="46" data-max-width="230"
                                            data-max-height="46">
                                     <span class="text-danger"> </span>
@@ -172,7 +172,7 @@
 
                             <div class="form-group pull-right">
                                 <div class="col-md-12 col-sm-6 col-xs-12">
-                                    <button type="submit" class="btn btn-success" name="btn_add_smtp"><i
+                                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary" name="btn_add_smtp"><i
                                             class="fa fa-save"
                                             id="show_loader"></i>&nbsp;{{__('frontend.save')}}
                                     </button>

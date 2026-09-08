@@ -26,7 +26,7 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-panel">
                     <div class="x_content">
                         @include('admin.settings.setting-header')
 
@@ -46,7 +46,7 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{__('frontend.date_format')}}</label><br>
 
                                 <input type="radio" id="test3" name="forment"
@@ -64,9 +64,9 @@
 
                         <div class="row">
                             <br>
-                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="timezone">{{__('frontend.timezone')}}<span class="text-danger">*</span></label>
-                                <select name="timezone" id="timezone" class="form-control">
+                                <select name="timezone" id="timezone" class="form-control lp-input">
 
                                     @foreach($timezone as $t)
                                         <option value="{{ $t->zone_id }}"
@@ -79,7 +79,7 @@
                         <div class="form-group pull-right">
                             <div class="col-md-12 col-sm-6 col-xs-12">
 
-                                <button type="submit" class="btn btn-success" name="btn_add_smtp"><i class="fa fa-save"
+                                <button type="submit" class="btn btn-success lp-btn lp-btn-primary" name="btn_add_smtp"><i class="fa fa-save"
                                                                                                      id="show_loader"></i>&nbsp;{{__('frontend.save')}}
                                 </button>
                             </div>
