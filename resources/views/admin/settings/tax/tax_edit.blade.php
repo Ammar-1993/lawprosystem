@@ -19,23 +19,23 @@
                 <div class="modal-body">
                     <div id="form-errors"></div>
                     <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <label for="case_type">{{__('frontend.name')}}<span class="text-danger">*</span> </label>
 
 
-                            <input type="text" placeholder="" class="form-control" id="name" name="name"
+                            <input type="text" placeholder="" class="form-control lp-input" id="name" name="name"
                                 value="{{ $tax->name ?? '' }}">
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <label for="case_subtype">{{__('frontend.tax_rate')}}(%) <span class="text-danger">*</span></label>
-                            <input type="text" placeholder="" class="form-control" id="per" name="per"
+                            <input type="text" placeholder="" class="form-control lp-input" id="per" name="per"
                                 value="{{ $tax->per ?? '' }}">
                         </div>
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <label for="case_subtype">{{__('frontend.note')}}</label>
-                            <textarea class="form-control" name="note" id="note">{{ $tax->note ?? '' }}</textarea>
+                            <textarea class="form-control lp-input" name="note" id="note">{{ $tax->note ?? '' }}</textarea>
 
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+                    <button type="button" class="btn btn-danger lp-btn lp-btn-danger" data-dismiss="modal"><i
                             class="ik ik-x"></i>{{__('frontend.close')}}</button>
-                    <button type="submit" class="btn btn-success shadow"><i class="fa fa-save   ik ik-check-circle"
+                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary shadow"><i class="fa fa-save   ik ik-check-circle"
                             id="cl">
                         </i> {{__('frontend.save')}}</button>
                 </div>
