@@ -826,6 +826,70 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   3. **Batch 4**: **Settings Sub-pages** (7 modules sharing `tagDataTable`: `case-type`, `court-type`, `court`, `judge`, `case-status`, `tax`, `expense-type`).
   4. **Final Batch**: **High-Complexity Modules** (`case-running`, `case-archived`, `case-important`, `invoice`, `appointment`, `team-members`).
 
+---
+
+# Phase 2 — Batch 4: Settings Sub-pages (Safe Direction)
+
+### 1. Overview & Architectural Directives
+- **Scope**: Redesigning the 7 sub-modules of the settings page: `case-type`, `case-status`, `court`, `court-type`, `judge`, `tax`, and `database-backup`. Also redesigning non-modal standalone pages such as `general_setting`, `mail_setup`, and `invoice_edit`.
+- **Constraints**: 
+  - Strictly no Tailwind CSS or Alpine.js.
+  - Rely on `lawpro-theme.scss` classes (`.lp-panel`, `.lp-table`, `.lp-btn`, `.lp-input`, `.lp-form-group`).
+  - Keep IDs and form targets identical to existing. The modal logic uses a shared `modal_heading` component and injects into `#load-modal`.
+
+### 2. Prompt 1 — Shared Modal Component Re-Styling
+- **File**: `resources/views/component/modal_heading.blade.php`.
+- **Action**: Modified the "Add New" button within the settings sub-page headers to use `.lp-btn.lp-btn-primary`.
+
+### 3. Prompt 2 — List Tables for the 6 Shared-Pattern Modules
+- **Action**: Applied `.lp-table` to the list tables in `casetype.blade.php`, `case_status.blade.php`, `court.blade.php`, `court_type.blade.php`, `judge.blade.php`, and `tax.blade.php`.
+- **Preserved**: Kept `id="tagDataTable"` and the `data-url` attribute on each `<table>`. Preserved each file's exact column count and order.
+
+### 4. Prompt 3 — The 6 Modal Forms & Standalone Settings Pages
+- **Modal Forms Action**: Upgraded the modals (create/edit) for the 6 settings modules (`case-type`, `case-status`, `court`, `court-type`, `judge`, `tax`) using `.lp-form-group`, `.lp-input`, and `.lp-btn`. 
+- **Preserved**: `id="addtag"` on the outer modal div, `id="tagForm"` on the `<form>`, exact routes and CSRF tokens.
+- **Standalone Pages Action**: Identified and redesigned non-modal settings pages (`general_setting.blade.php`, `general_setting_date.blade.php`, `mail_setup.blade.php`, and `invoice-setting/invoice_edit.blade.php`) using `.lp-panel`, `.lp-form-group`, `.lp-input`, and `.lp-btn`.
+
+### 5. Prompt 4 — Database Backup Page (Non-Modal Pattern)
+- **File**: `resources/views/admin/settings/database-backup/database_backup.blade.php`.
+- **Action**: 
+  - Redesigned using `.lp-panel` and `.lp-table`.
+  - Fixed a copy-paste leftover in the page title `@section('title', 'Tax')` -> `@section('title', 'Database Backup')`.
+  - Re-styled the Backup button with `.lp-btn.lp-btn-primary`.
+- **Preserved**: `id="tagDataTable"`, `data-url`, and the Backup button's exact `href` navigation behavior without converting it into a modal.
+
+---
+
+# Phase 2 — Batch 5a: Team Members (Safe Direction)
+
+### 1. Overview & Architectural Directives
+- **Scope**: Redesigning the team members list (`team_member.blade.php`) and create/edit forms (`team_member_create.blade.php`, `team_member_edit.blade.php`).
+- **Constraints**: 
+  - Strictly no Tailwind CSS or Alpine.js.
+  - Rely on `lawpro-theme.scss` classes (`.lp-panel`, `.lp-table`, `.lp-btn`, `.lp-input`, `.lp-form-group`).
+  - Extreme caution around the image upload/crop chain powered by Croppie.
+
+### 2. Prompt 1 — Team Members List
+- **File**: `resources/views/admin/team-members/team_member.blade.php`.
+- **Action**: Applied `.lp-panel` to the wrapper and `.lp-table` to the table. Upgraded the "Add Member" button with `.lp-btn.lp-btn-primary`.
+- **Preserved**: Kept `id="user_table"`, the hidden input `id="list"`, and the exact 7-column order matching `member-datatable.js`.
+- **Commit**: `6ac3469` — `Phase 2 Batch 5a Prompt 1: Refactor team members list UI`.
+
+### 3. Prompt 2 — Create/Edit Forms (Image Cropper Handled Safely)
+- **Files**: `team_member_create.blade.php` and `team_member_edit.blade.php`.
+- **Action**: Applied `.lp-form-group`, `.lp-input`, and `.lp-btn` to restructure the forms for a modern look.
+- **Preserved**: 
+  - Form attributes `id="add_user"` and `name="add_user"`.
+  - All field names and their `data-url` attributes.
+  - Every ID related to the fragile Croppie upload chain: `imagebase64`, `demo_profile`, `upload-demo`, `upload`, `cancel_img`.
+  - The critical save button `id="upload-result"` and `type="submit"`, keeping its nested `<i id="show_loader">`.
+  - The `id="check_user_email_exits"` hidden input.
+  - The `id="chk_pass"` checkbox and its `.chk` toggle targets in the edit view.
+- **Commit**: `4a8c829` — `Phase 2 Batch 5a Prompt 2: Refactor team members create/edit UI`.
+
+### 4. Prompt 3 — Verification
+- **Action**: Executed `npm run dev` to compile frontend assets without errors. Provided a manual checklist to ensure the team members list loads/searches/sorts correctly, the profile photo (upload → crop → save) works end-to-end, editing a member loads data, toggling password fields works, and remote email validation fires accurately.
+
 
 
 
