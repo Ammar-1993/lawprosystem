@@ -21,9 +21,9 @@
                     <div class="row">
 
 
-                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                             <label for="case_subtype">{{__('frontend.judge')}} <span class="text-danger">*</span></label>
-                            <input type="text" placeholder="" class="form-control" id="judge_name" name="judge_name"
+                            <input type="text" placeholder="" class="form-control lp-input" id="judge_name" name="judge_name"
                                 value="{{ $judge->judge_name ?? '' }}">
                         </div>
                     </div>
@@ -32,9 +32,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="ik ik-x"></i>{{__('frontend.close')}}
+                    <button type="button" class="btn btn-danger lp-btn lp-btn-danger" data-dismiss="modal"><i class="ik ik-x"></i>{{__('frontend.close')}}
                     </button>
-                    <button type="submit" class="btn btn-success shadow"><i class="fa fa-save   ik ik-check-circle"
+                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary shadow"><i class="fa fa-save   ik ik-check-circle"
                             id="cl">
                         </i> {{__('frontend.save')}}
                     </button>
