@@ -18,24 +18,24 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-panel">
                     <div class="x_content">
                         @include('admin.settings.setting-header')
                         <div class="row">
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_prefex">{{__('frontend.invoice_prefix')}}</label>
-                                <input type="text" placeholder="" class="form-control" id="invoice_prefex"
+                                <input type="text" placeholder="" class="form-control lp-input" id="invoice_prefex"
                                     name="invoice_prefex" value="{{ !empty($setting->prefix) ? $setting->prefix : '' }}">
                             </div>
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="invoice_number">{{__('frontend.next_invoice_number')}} </label>
-                                <input type="text" placeholder="" class="form-control" id="last_number" readonly=""
+                                <input type="text" placeholder="" class="form-control lp-input" id="last_number" readonly=""
                                     name="last_number" value="{{ $setting->invoice_no + 1 }}">
                             </div>
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="fullname">{{__('frontend.invoice_format')}}</label><br>
 
                                 <input type="radio" id="test3" name="forment" value="1"
@@ -50,21 +50,21 @@
                                     {{ !empty($setting) && $setting->invoice_formet == '4' ? 'checked' : '' }}>&nbsp;&nbsp;00001/MM/YY
                             </div>
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="predefine_clientnote">{{__('frontend.predefine_client_note')}}</label>
-                                <textarea rows="7" placeholder="" class="form-control" name="predefine_client" id="predefine_client">{{ $setting->client_note ?? '' }}</textarea>
+                                <textarea rows="7" placeholder="" class="form-control lp-input" name="predefine_client" id="predefine_client">{{ $setting->client_note ?? '' }}</textarea>
                             </div>
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="term_condition">{{__('frontend.predefine_terms_condition')}}</label>
-                                <textarea rows="7" placeholder="" class="form-control" id="predefine_term_note" name="predefine_term_note">{{ $setting->term_condition ?? '' }}</textarea>
+                                <textarea rows="7" placeholder="" class="form-control lp-input" id="predefine_term_note" name="predefine_term_note">{{ $setting->term_condition ?? '' }}</textarea>
                                 {{-- <p class="text-danger">{{__('frontend.note_separate_help')}}</p> --}}
                             </div>
 
 
                             <div class="form-group pull-right">
                                 <div class="col-md-12 col-sm-6 col-xs-12">
-                                    <button type="submit" class="btn btn-success"><i class="fa fa-save"
+                                    <button type="submit" class="btn btn-success lp-btn lp-btn-primary"><i class="fa fa-save"
                                             id="show_loader"></i> {{__('frontend.save')}}
                                     </button>
                                 </div>
