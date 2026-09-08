@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-md-3 form-group lp-form-group">
                                 <label for="date_from">{{ __('frontend.appointment.from_date') }} </label>
-                                <input type="text" class="form-control lp-input dateTo" id="date_to" autocomplete="off"
+                                <input type="text" class="form-control lp-input dateFrom" id="date_from" autocomplete="off"
                                 readonly="">
 
 
