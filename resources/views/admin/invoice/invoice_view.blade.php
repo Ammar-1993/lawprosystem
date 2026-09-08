@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- /page content start -->
-    <div class="x_panel">
+    <div class="x_panel lp-panel">
         <div id="content">
             <form id="add_invoice" name="add_invoice" role="form" method="POST" action="{{url('admin/add_invoice')}}"
                   autocomplete="off">
@@ -85,7 +85,7 @@
 
                                                 <div class="panel-body">
                                                     <div class="table-responsive">
-                                                        <table class="table table-condensed">
+                                                        <table class="table lp-table table-condensed">
                                                             <thead>
                                                             <tr>
                                                                 <td class="text-center"><strong>{{__('frontend.no')}}</strong></td>
@@ -146,7 +146,7 @@
                                         @php }  @endphp
                                         <div class="pull-right col-md-4 invoice-margin-right-32">
 
-                                            <table class="table row-border dataTable no-footer" id="tab_logic_total">
+                                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
 
                                                 <tr>
                                                     <td width="75%" align="right"><b
