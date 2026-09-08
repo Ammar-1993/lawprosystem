@@ -13,11 +13,11 @@
     <div class="row">
 
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel lp-card">
 
                 <div class="x_content">
 
-                    <table id="client_case_listDatatable" class="table"
+                    <table id="client_case_listDatatable" class="table lp-table"
                            data-url="{{ route('client.case_view.list') }}">
                         <thead>
                         <tr>

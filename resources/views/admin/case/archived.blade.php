@@ -11,7 +11,7 @@
             <div class="title_right">
                 <div class="form-group pull-right top_search">
                     @if($adminHasPermition->can(['case_add']))
-                        <a href="{{ route('case-running.create') }}" class="btn btn-primary">{{__('frontend.add_case')}}</a>
+                        <a href="{{ route('case-running.create') }}" class="btn btn-primary lp-btn lp-btn-primary">{{__('frontend.add_case')}}</a>
                     @endif
 
                 </div>
@@ -22,7 +22,7 @@
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-card">
 
                     <div class="x_content">
 
@@ -31,18 +31,18 @@
 
                             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                 <label for="fullname">{{__('frontend.from_next_date')}} <span class="text-danger"></span></label>
-                                <input type="text" class="form-control dateFrom" id="date_from" readonly="">
+                                <input type="text" class="form-control lp-input dateFrom" id="date_from" readonly="">
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                                 <label for="fullname">{{__('frontend.to_next_date')}}<span class="text-danger"></span></label>
-                                <input type="text" class="form-control dateTo" id="date_to" readonly="">
+                                <input type="text" class="form-control lp-input dateTo" id="date_to" readonly="">
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
 
 
                                 <div class="case-margin-top-23"></div>
-                                <a href="#" class="btn btn-danger" id="clear">{{__('frontend.clear')}}</a>
-                                <button type="submit" id="search" disabled="disabled" class="btn btn-success"><i
+                                <a href="#" class="btn btn-danger lp-btn lp-btn-danger" id="clear">{{__('frontend.clear')}}</a>
+                                <button type="submit" id="search" disabled="disabled" class="btn btn-success lp-btn lp-btn-primary"><i
                                         class="fa fa-search"></i>{{__('frontend.search')}}
                                 </button>
                             </div>
@@ -57,7 +57,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel lp-card">
 
                     <div class="x_content">
 
