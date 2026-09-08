@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="discount_text">{{__('frontend.court_number')}}<span class="text-danger">*</span></label>
-                        <input type="text" id="court_number" name="court_number" class="form-control">
+                        <input type="text" id="court_number" name="court_number" class="form-control lp-input">
                     </div>
                 </div>
             </div>
@@ -21,9 +21,9 @@
         <div class="row change-m-bottom">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="discount_text">{{__('frontend.judge_type')}}<span class="text-danger">*</span></label>
-                        <select class="form-control select2 selct2-width-100" id="judge_type" name="judge_type">
+                        <select class="form-control lp-input select2 selct2-width-100" id="judge_type" name="judge_type">
                             <option value="">Select judge</option>
                             @foreach($judges as $judge)
                                 <option
@@ -37,9 +37,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="discount_text">{{__('frontend.judge_name')}}</label>
-                        <input type="text" id="judge_name" name="judge_name" class="form-control">
+                        <input type="text" id="judge_name" name="judge_name" class="form-control lp-input">
                     </div>
                 </div>
             </div>
@@ -47,9 +47,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="discount_text">{{__('frontend.transfer_date')}}<span class="text-danger">*</span></label>
-                        <input type="text" id="transfer_date" name="transfer_date" class="form-control transfer_date"
+                        <input type="text" id="transfer_date" name="transfer_date" class="form-control lp-input transfer_date"
                                readonly value="{{date($date_format_laravel)}}">
                     </div>
                 </div>
@@ -57,10 +57,10 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+        <button type="button" class="btn btn-danger lp-btn lp-btn-danger" data-dismiss="modal"><i
                     class="ik ik-x"></i>{{__('frontend.close')}}
         </button>
-        <button type="submit" name="case_transfer_btn" class="btn btn-success waves-effect waves-light">{{__('frontend.save')}} <i
+        <button type="submit" name="case_transfer_btn" class="btn btn-success lp-btn lp-btn-primary waves-effect waves-light">{{__('frontend.save')}} <i
                     class="fa fa-spinner fa-spin hide" id="btn_loader"></i></button>
 
     </div>

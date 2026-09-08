@@ -11,9 +11,9 @@
 
             <div class="col-md-12">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="discount_text">Case Priority <span class="text-danger">*</span></label>
-                        <select class="form-control" id="priority" name="priority">
+                        <select class="form-control lp-input" id="priority" name="priority">
                             <option value="High" {{(!empty($case) && $case->priority=='High')?'selected':''}}>{{__('frontend.high')}}
                             </option>
                             <option value="Medium"{{(!empty($case) && $case->priority=='Medium')?'selected':''}}>
@@ -31,11 +31,11 @@
     </div>
     <div class="modal-footer">
 
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+        <button type="button" class="btn btn-danger lp-btn lp-btn-danger" data-dismiss="modal"><i
                 class="ik ik-x"></i>{{__('frontend.close')}}
         </button>
 
-        <button type="submit" name="case_status_btn" class="btn btn-success waves-effect waves-light">{{__('frontend.save')}} <i
+        <button type="submit" name="case_status_btn" class="btn btn-success lp-btn lp-btn-primary waves-effect waves-light">{{__('frontend.save')}} <i
                 class="fa fa-spinner fa-spin hide" id="btn_loader"></i></button>
 
     </div>

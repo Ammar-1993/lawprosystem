@@ -14,7 +14,7 @@
         <div class="row" id="hide_nb">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="notiseting">{{__('frontend.declare_board_case')}}
                             <input type="checkbox" value="Yes" name="is_nb" id="is_nb" onchange="nbCheck();">
                             <span class="checkmark"></span>
@@ -27,9 +27,9 @@
         <div class="row" style="margin-bottom:15px;">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label class="discount_text">{{__('frontend.case_status')}}<span class="text-danger">*</span></label>
-                        <select class="form-control select2" id="case_status" name="case_status" style="width:100%;">
+                        <select class="form-control lp-input select2" id="case_status" name="case_status" style="width:100%;">
                             <option value="">{{__('frontend.select_case_status')}}</option>
                             @foreach($caseStatuses as $caseStatus)
                                 @php if($case->is_active=='No' && ($caseStatus->case_status_name=='Disposed' || $caseStatus->case_status_name=='Closed' )){ continue;} @endphp
@@ -43,9 +43,9 @@
         <div class="row" id="show_nextDate_div">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label  class="discount_text">{{__('frontend.next_date')}}<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control case_next_date" id="next_date" name="next_date" readonly="">
+                        <input type="text" class="form-control lp-input case_next_date" id="next_date" name="next_date" readonly="">
                     </div>
                 </div>
             </div>
@@ -54,9 +54,9 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="contct-info">
-                        <div class="form-group">
+                        <div class="form-group lp-form-group">
                             <label  class="discount_text"> Decision date <span class="text-danger">*</span></label>
-                            <input type="text" id="decision_date" name="decision_date" class="form-control datetimepickerdecisiondate" readonly="" value="">
+                            <input type="text" id="decision_date" name="decision_date" class="form-control lp-input datetimepickerdecisiondate" readonly="" value="">
                         </div>
                     </div>
                 </div>
@@ -64,9 +64,9 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="contct-info">
-                        <div class="form-group">
+                        <div class="form-group lp-form-group">
                             <label  class="discount_text">Nature of Disposal <span class="text-danger">*</span></label>
-                            <input type="text" id="nature_disposal" name="nature_disposal" class="form-control"  value="">
+                            <input type="text" id="nature_disposal" name="nature_disposal" class="form-control lp-input"  value="">
                         </div>
                     </div>
                 </div>
@@ -76,18 +76,18 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="contct-info">
-                    <div class="form-group">
+                    <div class="form-group lp-form-group">
                         <label  class="discount_text">{{__('frontend.remarks')}}</label>
-                        <textarea  class="form-control" id="remarks" name="remarks"></textarea>
+                        <textarea  class="form-control lp-input" id="remarks" name="remarks"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+        <button type="button" class="btn btn-danger lp-btn lp-btn-danger" data-dismiss="modal"><i
                     class="ik ik-x"></i>{{__('frontend.close')}}</button>
-        <button type="submit" name="case_next_date_btn" class="btn btn-success waves-effect waves-light">{{__('frontend.save')}} <i class="fa fa-spinner fa-spin hide" id="btn_loader"></i></button>
+        <button type="submit" name="case_next_date_btn" class="btn btn-success lp-btn lp-btn-primary waves-effect waves-light">{{__('frontend.save')}} <i class="fa fa-spinner fa-spin hide" id="btn_loader"></i></button>
 
     </div>
 </form>
