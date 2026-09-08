@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel lp-card">
 
                 <div class="x_content">
                     <div class="x_title">
@@ -46,7 +46,7 @@
 
                     </div>
 
-                    <table id="case_transfer_list" class="table row-border">
+                    <table id="case_transfer_list" class="table lp-table row-border">
                         <thead>
                         <tr>
                             <th width="5%">{{__('frontend.no')}}</th>

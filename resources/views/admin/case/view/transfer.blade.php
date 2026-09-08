@@ -4,11 +4,11 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel lp-card">
 
                 <div class="x_content">
                     @include('admin.case.view.card_header')
-                    <table id="datatable" class="table table-striped table-bordered">
+                    <table id="datatable" class="table lp-table table-striped table-bordered">
                         <thead>
                         <tr>
                             <th>{{__('frontend.no')}}</th>

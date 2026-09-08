@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                         <label for="fullname">{{__('frontend.case_status')}} <span class="text-danger">*</span></label>
-                        <select class="form-control">
+                        <select class="form-control lp-input">
 
                             <option>{{__('frontend.hearing')}}</option>
                             <option>{{__('frontend.fruther_statement')}}</option>
@@ -31,16 +31,16 @@
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                         <label for="fullname">{{__('frontend.next_date')}} <span class="text-danger">*</span></label>
-                        <input type="text" placeholder="" class="form-control">
+                        <input type="text" placeholder="" class="form-control lp-input">
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                         <label for="fullname">{{__('frontend.remarks')}} <span class="text-danger"></span></label>
-                        <input type="text" placeholder="" class="form-control">
+                        <input type="text" placeholder="" class="form-control lp-input">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{{__('frontend.close')}}</button>
-                    <button type="button" class="btn btn-primary">{{__('frontend.save')}}</button>
+                    <button type="button" class="btn btn-primary lp-btn lp-btn-primary">{{__('frontend.save')}}</button>
                 </div>
 
             </div>
