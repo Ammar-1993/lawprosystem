@@ -9,7 +9,7 @@
         <div class="title_right">
             <div class="form-group pull-right top_search">
                 @if($adminHasPermition->can(['invoice_add']))
-                    <a href="{{url('admin/create-Invoice-view')}}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                    <a href="{{url('admin/create-Invoice-view')}}" class="btn btn-primary lp-btn lp-btn-primary"><i class="fa fa-plus"></i>
                         {{__('frontend.add_invoice')}}  </a>
                 @endif
 
@@ -19,10 +19,10 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel lp-panel">
 
                 <div class="x_content">
-                    <table id="client_list" class="table" >
+                    <table id="client_list" class="table lp-table" >
                         <thead>
                         <tr>
                             <th width="3%;">{{__('frontend.no')}}</th>
@@ -48,7 +48,7 @@
     <!-- /page content end  -->
     <div class="modal fade" id="modal-common" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" id="show_modal">
+            <div class="modal-content lp-modal" id="show_modal">
 
             </div>
         </div>
