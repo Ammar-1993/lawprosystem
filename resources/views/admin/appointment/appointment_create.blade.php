@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             @include('component.error')
-            <div class="x_panel lp-card">
+            <div class="x_panel lp-panel">
                 <div class="x_content">
                     <form id="add_appointment" name="add_appointment" role="form" method="POST"
                         action="{{ route('appointment.store') }}" enctype="multipart/form-data" autocomplete="off">

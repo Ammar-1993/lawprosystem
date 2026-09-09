@@ -23,7 +23,7 @@
         @csrf()
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
                     <div class="x_title">
                         <h2>{{ __('frontend.client_detail') }}</h2>
 
@@ -133,7 +133,7 @@
         <!------------------------------------------------------- End ROw --------------------------------------------->
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
                     <div class="x_title">
                         <h2>{{ __('frontend.case_detail') }}</h2>
 
@@ -255,7 +255,7 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
                     <div class="x_title">
                         <h2>{{ __('frontend.fir_details') }}</h2>
 
@@ -300,7 +300,7 @@
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
                     <div class="x_title">
                         <h2>{{ __('frontend.court_detail') }}</h2>
 
@@ -364,7 +364,7 @@
             </div>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
                     <div class="x_title">
                         <h2>{{ __('frontend.task_assign') }}</h2>
 

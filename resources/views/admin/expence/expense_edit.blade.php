@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="x_panel lp-card">
+        <div class="x_panel lp-panel">
 
             <div class="x_content">
 

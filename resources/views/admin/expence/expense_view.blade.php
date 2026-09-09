@@ -6,7 +6,7 @@
 @endpush
 @section('content')
     <!-- /page content start -->
-    <div class="x_panel lp-card">
+    <div class="x_panel lp-panel">
         <div id="content">
             <form id="add_invoice" name="add_invoice" role="form" method="POST" action="{{url('admin/add_invoice')}}"
                   autocomplete="off">

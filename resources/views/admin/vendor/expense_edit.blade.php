@@ -2,7 +2,7 @@
 @section('title','Vendor')
 @section('content')
 
-<div class="x_panel lp-card">
+<div class="x_panel lp-panel">
    
     <div class="x_content">
 

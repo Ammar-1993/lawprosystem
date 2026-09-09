@@ -22,7 +22,7 @@
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
 
                     <div class="x_content">
 
@@ -57,7 +57,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel lp-card">
+                <div class="x_panel lp-panel">
 
                     <div class="x_content">
 
@@ -83,7 +83,7 @@
 
                         </div>
 
-                        <table id="case_list" class="table row-border">
+                        <table id="case_list" class="table lp-table row-border">
                             <thead>
                             <tr>
                                 <th width="3%">{{__('frontend.no')}}</th>
