@@ -53,8 +53,12 @@
             @if (isset($action) )
 
                 <a href="{{ $action }}"
-                   class="btn btn-primary lp-btn lp-btn-primary {{ isset($permission) &&  $permission=="1" ? '':'hidden' }}"><i
-                        class="fa fa-plus"></i> {{ $text }}</a>
+                   class="btn btn-primary lp-btn lp-btn-primary {{ isset($permission) &&  $permission=="1" ? '':'hidden' }}">
+                    @if($text !== __('frontend.back'))
+                        <i class="fa fa-plus"></i>
+                    @endif
+                    {{ $text }}
+                </a>
             @endif
 
 

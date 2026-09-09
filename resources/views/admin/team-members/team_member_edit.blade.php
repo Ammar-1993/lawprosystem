@@ -13,7 +13,7 @@
 
         <div class="title_right">
             <div class="form-group pull-right top_search">
-                <a href="{{ url('admin/client_user') }}" class="btn btn-primary">{{__('frontend.back')}}</a>
+                <a href="{{ url('admin/client_user') }}" class="btn btn-primary lp-btn lp-btn-primary">{{__('frontend.back')}}</a>
             </div>
         </div>
     </div>
