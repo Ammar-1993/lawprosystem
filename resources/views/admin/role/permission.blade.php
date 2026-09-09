@@ -19,10 +19,10 @@
                   <form action="{{ route('permission.update',$role_id) }}"  method="post" name="product_type_attribute_form" id="product_type_attribute_form" enctype="multipart/form-data" class="m-form m-form--fit m-form--label-align-right">
 
                                       @csrf @method('PUT')
-                <div class="x_panel">
+                <div class="x_panel lp-panel">
                   <div class="x_content">
 
-                    <table class="table">
+                    <table class="table lp-table">
                         <thead>
                           <tr>
                             <th width="30%">{{__('frontend.menu')}}</th>
@@ -350,9 +350,9 @@
                 </div>
                    <div class="form-group pull-right">
                         <div class="col-md-12 col-sm-6 col-xs-12">
-                          <a href="{{ route('role.index')  }}" class="btn btn-danger">{{__('frontend.cancel')}}</a>
+                          <a href="{{ route('role.index')  }}" class="btn btn-danger lp-btn lp-btn-danger">{{__('frontend.cancel')}}</a>
 
-                          <button type="submit" class="btn btn-success"><i class="fa fa-save" id="show_loader"></i>&nbsp;{{__('frontend.save')}}</button>
+                          <button type="submit" class="btn btn-success lp-btn lp-btn-primary"><i class="fa fa-save" id="show_loader"></i>&nbsp;{{__('frontend.save')}}</button>
                         </div>
                   </div>
                 </form>
