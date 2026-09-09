@@ -1050,3 +1050,32 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
   * Upgraded inputs while preserving Croppie image crop IDs and logic.
 * **Change Password** (`change_password.blade.php`):
   * Standardized input styling using `.lp-form-group` and `.lp-input`.
+
+## Phase 2: Bug Fixes and Design Unification (Post-Batch 5g)
+
+* **Expense Module Fixes (`expense_create.blade.php`, `expense_edit.blade.php`)**:
+  * Added missing `</th>` closing tags inside the repeater fields.
+  * Corrected the cancel button link to point to `admin/expense` instead of `admin/invoice`.
+  * Applied `.lp-btn` and `.lp-btn-primary` to the submit buttons (`btn_add_offer`).
+  * Fixed duplicate `class=` attributes on the Tax select input.
+
+* **Appointment Search Bug Fix (`appointment/appointment.blade.php`)**:
+  * Discovered and fixed a bug where the "From Date" search input had the wrong ID and class (`id="date_to"` and `class="dateTo"`). This was corrected to `id="date_from"` and `class="dateFrom"` so that the JavaScript DataTables filter could function correctly.
+
+* **Panel Consistency Fix (`lp-card` vs `lp-panel`)**:
+  * Replaced `x_panel lp-card` with `x_panel lp-panel` across 27 different list and view files in the Case, Expense, Vendor, Appointment, and Admin root modules to ensure adherence to the design system (panels for content, cards for stats).
+  * Safely preserved `lp-card` on the four stat tiles in `index.blade.php`.
+  * Added missing `.lp-table` class to the datatable in `admin/case/archived.blade.php`.
+
+* **Role Permissions Refactor (`admin/role/permission.blade.php`)**:
+  * Applied `.lp-panel` to the main container.
+  * Applied `.lp-table` to the permissions grid table.
+  * Applied `.lp-btn-primary` and `.lp-btn-danger` to the Save and Cancel buttons.
+
+* **System-wide "Back" Button Standardization**:
+  * Fixed a visual bug in `component/heading.blade.php` where "Back" buttons were incorrectly displaying a plus (`fa-plus`) icon. Added logic to hide the plus icon when the button text translates to "Back".
+  * Added missing `.lp-btn .lp-btn-primary` classes to the "Back" buttons in `team_member_create.blade.php` and `team_member_edit.blade.php`.
+
+* **Service Module Refactor (`admin/service/*`)**:
+  * **`create.blade.php` & `edit.blade.php`**: Applied `.lp-form-group` and `.lp-input` to the modal inputs, and applied `.lp-btn` classes to the modal action buttons.
+  * **`service.blade.php`**: Verified it correctly uses `.lp-panel` and `.lp-table`.
