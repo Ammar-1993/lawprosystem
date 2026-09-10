@@ -39,7 +39,7 @@
                             <div class="x_content">
 
                                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <ul id="myTab" class="nav nav-tabs lp-tabs" role="tablist">
                                         <li role="presentation"
                                             class="@if (request()->segment(2) == 'admin-profile') active @else @endif"><a
                                                 href="{{ url('admin/admin-profile') }}">{{ __('frontend.profile') }}</a>
