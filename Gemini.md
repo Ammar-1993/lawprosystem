@@ -1079,3 +1079,11 @@ All changes for Phase 0 and Phase 1 have been actively verified and pushed to th
 * **Service Module Refactor (`admin/service/*`)**:
   * **`create.blade.php` & `edit.blade.php`**: Applied `.lp-form-group` and `.lp-input` to the modal inputs, and applied `.lp-btn` classes to the modal action buttons.
   * **`service.blade.php`**: Verified it correctly uses `.lp-panel` and `.lp-table`.
+
+* **Shared Partials and Tab Bars Standardization (Phase 2 Finalization)**:
+  * **Case Shared Header (`card_header.blade.php`)**: Replaced `bar_tabs` with `lp-tabs` for consistent tab navigation (Details, History, Transfer). Upgraded the "Download" and "Print" action links to use the `.lp-btn .lp-btn-primary` standard with padding tweaks, and styled the "Update Next Date" inline link as a button.
+  * **Settings Shared Header (`setting-header.blade.php`)**: Replaced the `bar_tabs` class with `lp-tabs` for uniform tab design across Company Details, Date Timezone, Mail Setup, and Invoice Settings views.
+  * **Case List Tab Bars**: Updated all four case lists (`running.blade.php`, `important_cases.blade.php`, `nb-cases.blade.php`, `archived.blade.php`) to use `lp-tabs` instead of `bar_tabs`.
+  * **Profile & Password Tab Bars**: Updated `profile.blade.php` and `change_password.blade.php` to use the standardized `lp-tabs` for tab navigation.
+
+**Phase 2 is now fully complete.** All active administrative views under `resources/views/admin/` have been systematically audited and refactored to conform to the new design system (`.lp-panel`, `.lp-table`, `.lp-btn`, `.lp-form-group`, `.lp-input`, `.lp-tabs`).
