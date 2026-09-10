@@ -1,6 +1,6 @@
 <br>
 <div class="" role="tabpanel" data-example-id="togglable-tabs">
-    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+    <ul id="myTab" class="nav nav-tabs lp-tabs" role="tablist">
         <li class="{{ Request::segment(2)=='general-setting' ? 'active' :'' }}" role="presentation"><a
                 href="{{ url('admin/general-setting') }}">{{__('frontend.company_details')}}</a>
         </li>
