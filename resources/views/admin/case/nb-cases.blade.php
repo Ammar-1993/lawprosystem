@@ -67,7 +67,7 @@
                         {{-- @include('admin.case.header') --}}
 
                         <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            <ul id="myTab" class="nav nav-tabs lp-tabs" role="tablist">
 
                                 <li role="presentation" class="{{(Request::is('admin/case-running'))?'active':''}} ">
                                     <a href="{{url('admin/case-running')}}">{{__('frontend.running_cases')}}</a>
