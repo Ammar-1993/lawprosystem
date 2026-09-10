@@ -37,7 +37,7 @@
                 <div class="x_content">
 
                     <div class="dashboard-widget-content">
-                        <div class="col-md-6 hidden-small">
+                        <div class="col-md-6">
                             <table class="countries_list">
                                 <tbody>
                                 <tr>
@@ -68,7 +68,7 @@
                             </table>
                         </div>
 
-                        <div class="col-md-6 hidden-small">
+                        <div class="col-md-6">
 
                             <table class="countries_list">
                                 <tbody>
@@ -117,7 +117,7 @@
                             @endphp
                             @if(isset($single) && !empty($single))
                                 @foreach($single as $s)
-                                    <div class="col-md-6 hidden-small">
+                                    <div class="col-md-6">
                                         <h4 class="line_30">{{ __('frontend.client.advocate_name') }} </h4>
 
 
