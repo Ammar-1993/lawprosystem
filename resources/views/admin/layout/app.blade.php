@@ -145,7 +145,7 @@
     <script src="{{ asset('assets/admin/vendors/moment/min/moment.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/sweetalert2.all.min.js') }}"></script>
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset('assets/admin/build/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/admin/build/js/custom.js?v=' . filemtime(public_path('assets/admin/build/js/custom.js'))) }}"></script>
     <script src="{{ asset('assets/admin/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/admin/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}">
