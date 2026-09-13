@@ -1,4 +1,3 @@
-
 # ⚖️ Law Pro – Law Firm Management System
 
 > A Web-Based Solution for Organizing and Managing Legal Practices
@@ -10,7 +9,7 @@
 
 ## 📘 Overview
 
-**Law Pro** is a web-based legal management system tailored for law firms and independent lawyers. Designed to modernize traditional legal workflows, the platform provides an integrated solution for managing cases, clients, appointments, financial transactions, and administrative roles — all in one centralized dashboard.
+**Law Pro** is a web-based legal management system tailored for law firms and independent lawyers. Designed to modernize traditional legal workflows, the platform provides an integrated solution for managing cases, clients, appointments, financial transactions (vendor management), and administrative roles — all in one centralized dashboard.
 
 This system enhances productivity, reduces errors, improves client service, and ensures secure and efficient handling of legal operations.
 
@@ -19,39 +18,46 @@ This system enhances productivity, reduces errors, improves client service, and 
 ## 🎯 Key Features
 
 ### ✅ Case & Client Management
-- Add, update, and track legal cases
-- Secure client information storage and management
-- Case filtering, searching, and status updates
+- Add, update, and track legal cases.
+- Secure client information storage and management.
+- Case filtering, searching, and status updates.
 
 ### 🌐 Multilingual Support
-- Full support for **Arabic 🇸🇦** and **English 🇺🇸**
-- Dynamic language switching and RTL layout for Arabic
+- Full support for **Arabic 🇸🇦** and **English 🇺🇸**.
+- Dynamic language switching and RTL layout for Arabic.
 
 ### 📅 Appointments & Scheduling
-- Book and manage meetings, hearings, and consultations
-- Calendar view with upcoming appointments
+- Book and manage meetings, hearings, and consultations.
+- Calendar view with upcoming appointments.
 
 ### 💼 Task & Workflow Automation
-- Assign and monitor legal tasks
-- Receive alerts for pending and urgent actions
+- Assign and monitor legal tasks.
+- Receive alerts for pending and urgent actions.
 
-### 💳 Financial Management
-- Invoice generation and payment tracking
-- Expense categorization and tax management
-- Financial reporting module
+### 💳 Vendor & Financial Management
+- Invoice generation and payment tracking.
+- Expense categorization and tax management.
+- Complete Vendor Management module (add/edit vendors and track their details).
+- Financial reporting module.
 
 ### 🔐 Role-Based Access Control (RBAC)
-- Distinct roles: Admin, Lawyer, Employee
-- Custom permissions per role
-- Secure login, session, and password management
+- Distinct roles: Admin, Lawyer, Employee.
+- Custom permissions per role via a robust matrix interface.
+- Secure login, session, and password management.
+
+### 🎨 UI/UX Standardization & Responsive Design
+- Custom, unified design system (`lp-panel`, `lp-btn`) integrated seamlessly with Bootstrap.
+- Optimized performance by removing conflicting modern frameworks (like TailwindCSS/Alpine.js) to preserve legacy theme integrity.
+- Flawless responsive behavior, including DataTables dynamic auto-adjustment when the sidebar toggles.
+- Polished, tab-based navigation across modules for an intuitive workflow.
 
 ### 📊 Reporting & Notifications
-- Real-time dashboard with KPIs
-- Alerts for upcoming hearings, deadlines, and urgent cases
+- Real-time dashboard with KPIs.
+- Alerts for upcoming hearings, deadlines, and urgent cases.
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 > *🔐 Login Interface:
 The login interface provides users with secure access to the system through a clean and intuitive Arabic user interface. It includes fields for entering an email address and password, a password visibility toggle, and a “Forgot Password?” option for easy recovery. The interface supports multilingual access (Arabic and English) and aligns with modern UI principles to ensure usability across devices.*
@@ -117,6 +123,7 @@ This interface is bilingual and designed with usability in mind, supporting acce
 ### Frontend
 - HTML5, CSS3 (Bootstrap & Custom RTL Support)
 - JavaScript, jQuery, AJAX
+- Laravel Mix for seamless asset compilation & cache-busting.
 
 ### DevOps & Infrastructure
 - **Containerization:** Docker & Docker Compose (Multi-container architecture: App, Web, DB, Redis, Queue Worker, phpMyAdmin)
@@ -141,8 +148,9 @@ This interface is bilingual and designed with usability in mind, supporting acce
 
 app/            → Application logic (Controllers, Models, Helpers, Traits)
 resources/views/→ Blade templates (UI & Bilingual Layouts)
+resources/sass/ → Custom styling integrated with Laravel Mix
 routes/web.php  → Application routing
-public/         → Public assets (CSS, JS, Uploads symlink)
+public/         → Public assets (Compiled CSS/JS via Mix, Uploads symlink)
 database/       → Migrations, seeders
 docker/         → Custom Docker configurations (PHP-FPM & Nginx)
 config/         → Configuration files
@@ -178,14 +186,14 @@ The system includes four predefined user types for testing:
 
 ### Prerequisites
 - **For Docker (Recommended):** Docker & Docker Compose installed on Linux / WSL2.
-- **For Traditional Setup:** PHP (7.1 - 7.3), Composer v1, MySQL 5.7, and XAMPP (or any Apache server).
+- **For Traditional Setup:** PHP (7.1 - 7.3), Composer v1, MySQL 5.7, Node.js (for asset compilation), and XAMPP (or any Apache server).
 
 ### Option A: Modern Deployment via Docker (Recommended)
 This repository is fully dockerized with an isolated environment to prevent port conflicts.
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/Ammar-1993/lawprosystem.git](https://github.com/Ammar-1993/lawprosystem.git)
+git clone https://github.com/Ammar-1993/lawprosystem.git
 cd lawprosystem
 
 # 2. Build and start containers in detached mode
@@ -195,21 +203,27 @@ docker compose up -d --build
 docker exec -it lawpro_app composer self-update --1
 docker exec -it lawpro_app composer install
 
-# 4. Setup environment and generate application key
+# 4. Install Node dependencies and compile frontend assets
+docker exec -it lawpro_app npm install
+docker exec -it lawpro_app npm run dev
+
+# 5. Setup environment and generate application key
 cp .env.example .env
 docker exec -it lawpro_app php artisan key:generate
 
-# 5. Link storage and assets for Nginx rendering
+# 6. Link storage and assets for Nginx rendering
 docker exec -it lawpro_app php artisan storage:link
 docker exec -it lawpro_app ln -sf /var/www/html/assets /var/www/html/public/assets
 
-# 6. Set correct permissions for Linux environment
+# 7. Set correct permissions for Linux environment
 docker exec -it lawpro_app chown -R www-data:www-data storage bootstrap/cache public
 docker exec -it lawpro_app chmod -R 775 storage bootstrap/cache
 
-# 7. Import database (Assuming your SQL file is named backup.sql in the project root)
+# 8. Import database (Assuming your SQL file is named backup.sql in the project root)
 docker exec -i lawpro_db mysql -u root -proot lawpro_db < backup.sql
 
+# 9. Clear cache (optional but recommended after setup)
+docker exec -it lawpro_app php artisan optimize:clear
 ```
 
 Access the application at: **http://localhost:8090**
@@ -221,14 +235,14 @@ Access database management (phpMyAdmin) at: **http://localhost:8091**
 ### Option B: Traditional Setup (XAMPP / Windows)
 
 ```bash
-git clone [https://github.com/Ammar-1993/lawprosystem.git](https://github.com/Ammar-1993/lawprosystem.git)
+git clone https://github.com/Ammar-1993/lawprosystem.git
 cd lawprosystem
 composer install
+npm install && npm run dev
 cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 php artisan serve
-
 ```
 
 Access the system at: **http://127.0.0.1/lawprosystem** or **http://localhost:8000**
