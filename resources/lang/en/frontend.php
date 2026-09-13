@@ -222,13 +222,13 @@ return [
     'medium_priority' => 'Medium Priority',
     'low_priority' => 'Low Priority',
 
-    'vendor_management' => 'Financial Management',
-    'add_vendor' => 'Add Financial',
-    'edit_vendor' => 'Edit Financial',
+    'vendor_management' => 'Vendor Management',
+    'add_vendor' => 'Add Vendor',
+    'edit_vendor' => 'Edit Vendor',
     'company_name' => 'Company Name',
-    'vendor_name' => 'Financial Name',
-    'vendor' => 'Financial',
-    'vendor_detail' => 'Financial Detail',
+    'vendor_name' => 'Vendor Name',
+    'vendor' => 'Vendor',
+    'vendor_detail' => 'Vendor Detail',
     'accounts' => 'Accounts',
 
 
@@ -391,7 +391,7 @@ return [
         'manage_cases' => 'Manage Cases',
         'manage_tasks' => 'Manage Tasks',
         'manage_appoint' => 'Manage Appointment',
-        'manage_vendors' => 'Manage Financial',
+        'manage_vendors' => 'Manage Vendors',
         'manage_members' => 'Manage Members',
         'role' => 'Role',
         'member' => 'Member',

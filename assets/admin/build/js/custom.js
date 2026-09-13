@@ -115,7 +115,9 @@ $MENU_TOGGLE.on('click', function() {
 
 	setContentHeight();
 
-	$('.dataTable').each ( function () { $(this).DataTable().columns.adjust().draw(false); });
+	setTimeout(function () {
+		$('.dataTable').each ( function () { $(this).DataTable().columns.adjust().draw(false); });
+	}, 50);
 });
 
 	// check active menu
