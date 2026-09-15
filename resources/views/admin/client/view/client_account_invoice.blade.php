@@ -5,7 +5,7 @@
         <!-- Section Right Part Start -->
         <!-- Col-md-6 Start -->
         <div class="col-md-12">
-            <div class="x_panel">
+            <div class="x_panel lp-panel">
                 <div class="right-part-bg-all">
                     <div class="ctzn-usrs">
                         <div class="row">
@@ -76,7 +76,7 @@
 
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-condensed">
+                                        <table class="table lp-table table-condensed">
                                             <thead>
                                             <tr>
                                                 <td class="text-center"><strong>{{__('frontend.no')}}</strong></td>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="pull-right col-md-4">
 
-                            <table class="table row-border dataTable no-footer" id="tab_logic_total">
+                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
 
                                 <tbody>
                                 <tr>
