@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pull-right col-md-4">
+                        <div class="pull-right col-md-4 col-sm-12 col-xs-12">
 
                             <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
 

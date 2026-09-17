@@ -17,7 +17,7 @@
         <div class="row invoice-info">
           <div class="col-sm-4">
             <div class="row">
-              <div class="col-md-6 form-group lp-form-group">
+              <div class="col-md-6 col-sm-12 col-xs-12 form-group lp-form-group">
                  <label for="vendor">{{__('frontend.vendor1')}} <span class="text-danger">*</span></label>
                   <select class="form-control lp-input">
                     <option>Select Vendor</option>

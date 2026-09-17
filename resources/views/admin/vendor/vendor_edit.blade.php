@@ -69,7 +69,7 @@
                                     value="{{ $client->address ?? '' }}">
                             </div>
 
-                            <div class="col-md-4 form-group lp-form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="country">{{ __('frontend.country') }} <span class="text-danger">*</span></label>
                                 <select class="form-control lp-input select-change country-select2" data-rule-required="true"
                                     data-msg-required=" Please select country selct2-width-100" name="country"
@@ -82,7 +82,7 @@
 
                                 </select>
                             </div>
-                            <div class="col-md-4 form-group lp-form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="state">{{ __('frontend.state') }} <span class="text-danger">*</span></label>
                                 <select id="state" name="state" data-url="{{ route('get.state') }}"
                                     data-target="#country" data-clear="#city_id"
@@ -97,7 +97,7 @@
 
                                 </select>
                             </div>
-                            <div class="col-md-4 form-group lp-form-group">
+                            <div class="col-md-4 col-sm-12 col-xs-12 form-group lp-form-group">
                                 <label for="city">{{ __('frontend.city') }} <span class="text-danger">*</span></label>
                                 <select id="city_id" name="city_id" data-url="{{ route('get.city') }}"
                                     data-target="#state" class="form-control lp-input city-select2" data-rule-required="true"

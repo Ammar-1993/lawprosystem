@@ -118,14 +118,14 @@
 
                                                     <div class="col-md-8 col-sm-12 col-xs-12">
                                                         <div class="row form-group lp-form-group">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
                                                                 <label for="f_name">{{ __('frontend.first_name') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="f_name" name="f_name"
                                                                     placeholder="" class="form-control lp-input"
                                                                     value="{{ $users->first_name }}">
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
                                                                 <label for="last_name">{{ __('frontend.last_name') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="l_name" name="l_name"
@@ -135,13 +135,13 @@
 
 
                                                         <div class="row form-group lp-form-group">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
                                                                 <label for="email">{{ __('frontend.email_id') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="email" name="email"
                                                                     class="form-control lp-input" value="{{ $users->email }}">
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
                                                                 <label for="mobile">{{ __('frontend.mobile_no') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <input type="text" id="mobile" name="mobile"
@@ -153,7 +153,7 @@
 
                                                         @if (Auth::guard('admin')->user()->user_type == 'Admin')
                                                             <div class="row form-group lp-form-group">
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
                                                                     <label
                                                                         for="email">{{ __('frontend.registration_no') }}<span
                                                                             class="text-danger">*</span></label>
@@ -162,7 +162,7 @@
                                                                         value="{{ $users->registration_no }}"
                                                                         class="form-control lp-input" autocomplete="off">
                                                                 </div>
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
                                                                     <label
                                                                         for="mobile">{{ __('frontend.associated_name') }}<span
                                                                             class="text-danger">*</span></label>
@@ -192,7 +192,7 @@
 
 
                                                         <div class="row form-group lp-form-group">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                                                 <label for="country">{{ __('frontend.country') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <select
@@ -209,7 +209,7 @@
 
                                                                 </select>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                                                 <label for="state">{{ __('frontend.state') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <select id="state" name="state"
@@ -226,7 +226,7 @@
 
                                                                 </select>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
                                                                 <label for="city">{{ __('frontend.city') }}<span
                                                                         class="text-danger">*</span></label>
                                                                 <select id="city_id" name="city_id"

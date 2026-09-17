@@ -140,7 +140,7 @@
 
                                     <tr data-repeater-item>
 
-                                        <th width="30%" class="text-center">
+                                        <th width="30%" class="text-center" data-label="{{__('frontend.service')}}">
                                             <select class="form-control lp-input sel services" name="services" id="services"
                                                     data-rule-required="true">
                                                 <option MyServiceAmount="0.00" value="">Select Services</option>
@@ -151,26 +151,26 @@
                                             </select>
                                         </th>
 
-                                        <th width="" class="text-center">
+                                        <th width="" class="text-center" data-label="{{__('frontend.description')}}">
                                             <input type="text" class="form-control lp-input" id="description" name="description">
 
                                         </th>
 
-                                        <th width="10%" class="text-center">
+                                        <th width="10%" class="text-center" data-label="{{__('frontend.qty')}}">
                                             <input type="text" class="form-control lp-input qty" id="qty" name="qty"
                                                    data-rule-required="true" maxlength="8"
                                                    onkeypress='return isNumber(event)'>
                                         </th>
-                                        <th width="10%" class="text-center">
+                                        <th width="10%" class="text-center" data-label="{{__('frontend.rate')}}">
                                             <input readonly="" type="text" class="form-control lp-input rate"
                                                    onkeypress='return isFloatsNumberKey(event)' id="rate" name="rate"
                                                    data-rule-required="true" maxlength="10">
                                         </th>
 
-                                        <th width="10%" class="text-center">
+                                        <th width="10%" class="text-center" data-label="{{__('frontend.amount')}}">
                                             <input type="text" class="form-control lp-input amount" id="amount" name="amount"
                                                    data-rule-required="true" readonly=""></th>
-                                        <th width="5%" class="text-center">
+                                        <th width="5%" class="text-center" data-label="{{__('frontend.action')}}">
 
                                             <button type="button" data-repeater-delete type="button"
                                                     class="btn btn-danger lp-btn lp-btn-danger waves-effect waves-light"><i

@@ -76,12 +76,12 @@
 
                             <div class="col-md-8 col-sm-12 col-xs-12">
                                 <div class="row form-group">
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="f_name">{{__('frontend.first_name')}}<span class="text-danger">*</span></label>
                                         <input type="text" id="f_name" name="f_name" placeholder="" class="form-control lp-input"
                                                value="{{ $users->first_name}}">
                                     </div>
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="last_name">{{__('frontend.last_name')}}<span class="text-danger">*</span></label>
                                         <input type="text" id="l_name" name="l_name" class="form-control lp-input"
                                                value="{{ $users->last_name}}">
@@ -89,12 +89,12 @@
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="email">{{__('frontend.email_id')}}<span class="text-danger">*</span></label>
                                         <input type="text" id="email" name="email" class="form-control lp-input"
                                                value="{{ $users->email}}" readonly="">
                                     </div>
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="mobile">{{__('frontend.mobile_no')}}<span class="text-danger">*</span></label>
                                         <input type="text" id="mobile" name="mobile" class="form-control lp-input" maxlength="10"
                                                value="{{ $users->mobile}}" readonly="">
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-md-4 lp-form-group">
+                                    <div class="col-md-4 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="country">{{__('frontend.country')}}<span class="text-danger">*</span></label>
                                         <select class="form-control lp-input select-change country-select2 selct2-width-100"
                                                 name="country" id="country"
@@ -129,7 +129,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-4 lp-form-group">
+                                    <div class="col-md-4 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="state">{{__('frontend.state')}}<span class="text-danger">*</span></label>
                                         <select id="state" name="state"
 
@@ -146,7 +146,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-4 lp-form-group">
+                                    <div class="col-md-4 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="city">{{__('frontend.city')}}<span class="text-danger">*</span></label>
                                         <select id="city_id" name="city_id"
                                                 data-url="{{ route('get.city') }}"
@@ -166,7 +166,7 @@
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col-md-4 lp-form-group">
+                                    <div class="col-md-4 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="Role">{{__('frontend.role')}}<span class="text-danger">*</span></label>
                                         <select id="role" name="role" required class="form-control lp-input select2">
                                             <option value="">{{__('frontend.select_role')}}</option>
@@ -183,18 +183,18 @@
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <input type="checkbox" id="chk_pass" name="chk_pass" value="yes">{{__('frontend.change_password')}} 
                                     </div>
                                 </div>
                                 <div class="row form-group chk">
 
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="password">{{__('frontend.password')}}  <span class="text-danger">*</span></label>
                                         <input type="password" id="password" name="password" class="form-control lp-input"
                                                autocomplete="off">
                                     </div>
-                                    <div class="col-md-6 lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 lp-form-group">
                                         <label for="cnm_password">{{__('frontend.confirm_password')}}<span
                                                 class="text-danger">*</span></label>
                                         <input type="password" id="cnm_password" name="cnm_password"

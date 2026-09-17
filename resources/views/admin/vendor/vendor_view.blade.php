@@ -30,7 +30,7 @@
               </ul><br><br>
               <div id="myTabContent" class="tab-content">
                 <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-md-5">
                             <p><b>{{__('frontend.name')}}</b></p>
@@ -86,7 +86,7 @@
                     </div>
                     <li class="divider"></li>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-md-5">
                             <p><b>{{ __('frontend.company_name') }}</b></p>

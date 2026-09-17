@@ -1730,3 +1730,58 @@ body.rtl .lp-table tbody tr:last-child td:last-child {
   border-bottom-color: var(--lp-accent) !important;
   background: transparent !important;
 }
+
+/* ============================================================
+   LAW PRO - INVOICE REPEATER: CARD-PER-ROW ON MOBILE (< 768px)
+   الجدول #purchaseInvoice (Invoice items repeater, 8 أعمدة) يُصبح
+   عرض "بطاقة لكل صف" على الشاشات الصغيرة عبر CSS فقط — لا تعديل
+   على data-repeater-item/data-repeater-list أو أي منطق JS.
+   خلايا البيانات هنا هي <th> (لا <td>) بحسب البنية الأصلية للنموذج،
+   لذا تُستهدف <th> مباشرة، وتُقرأ التسمية من data-label المُضافة
+   في invoice_create.blade.php و invoice_edit.blade.php.
+   ============================================================ */
+@media (max-width: 767px) {
+  #purchaseInvoice,
+  #purchaseInvoice tbody,
+  #purchaseInvoice tr,
+  #purchaseInvoice th {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #purchaseInvoice thead {
+    display: none;
+  }
+  #purchaseInvoice tbody tr[data-repeater-item] {
+    margin-bottom: var(--space-md, 16px);
+    padding: var(--space-sm, 8px) var(--space-md, 16px);
+    border: 1px solid var(--lp-gray-light, #ecf0f1);
+    border-radius: var(--radius-md, 12px);
+    background: var(--lp-white, #ffffff);
+    box-shadow: var(--shadow-card, 0 2px 15px rgba(0, 0, 0, 0.08));
+  }
+  #purchaseInvoice th {
+    text-align: right !important;
+    padding: 8px 0 !important;
+    border: none !important;
+    border-bottom: 1px solid var(--lp-gray-light, #ecf0f1) !important;
+  }
+  html[dir=ltr] #purchaseInvoice th,
+  html:not([dir=rtl]):not(.rtl) #purchaseInvoice th {
+    text-align: left !important;
+  }
+  #purchaseInvoice tbody tr[data-repeater-item] th:last-child {
+    border-bottom: none !important;
+  }
+  #purchaseInvoice th[data-label]::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--lp-primary, #1a3c5e);
+    display: block;
+    margin-bottom: 4px;
+  }
+  /* عمود الإجراء (زر الحذف) لا يحتاج تسمية فوقه، فقط محاذاة الزر */
+  #purchaseInvoice th[data-label] .btn {
+    width: 100%;
+  }
+}

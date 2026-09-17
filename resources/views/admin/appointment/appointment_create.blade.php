@@ -25,7 +25,7 @@
                             <div class="x_content">
 
                                 <div class="row">
-                                    <div class="form-group lp-form-group col-md-6">
+                                    <div class="form-group lp-form-group col-md-6 col-sm-12 col-xs-12">
 
                                         <input type="radio" id="test5" value="new" name="type" checked>
 
@@ -35,7 +35,7 @@
                                     </div>
 
 
-                                    <div class="form-group lp-form-group col-md-6">
+                                    <div class="form-group lp-form-group col-md-6 col-sm-12 col-xs-12">
 
                                         <input type="radio" id="test4" value="exists" name="type">
 
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 form-group lp-form-group">
+                                    <div class="col-md-6 col-sm-12 col-xs-12 form-group lp-form-group">
                                         <label for="mobile">{{ __('frontend.mobile_no') }}<span
                                                 class="text-danger">*</span></label>
                                         <input type="text" placeholder="" class="form-control lp-input" id="mobile"

@@ -198,7 +198,7 @@
                             @else
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="customers-space">
                                                 <h4 class="customers-heading">
                                                     {{ __('frontend.dashboard.manage_your_case') }}</h4>
@@ -213,7 +213,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="customers-img">
 
                                             </div>
@@ -269,7 +269,7 @@
                             @else
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="customers-space">
                                                 <h4 class="customers-heading">
                                                     {{ __('frontend.dashboard.manage_your_appointment') }}</h4>
@@ -284,7 +284,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="customers-img">
 
                                             </div>

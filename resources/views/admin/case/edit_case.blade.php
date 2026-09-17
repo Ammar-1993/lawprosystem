@@ -72,7 +72,7 @@
                                 @foreach($parties as $party)
                                     <div data-repeater-item>
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="contct-info">
                                                     <div class="form-group lp-form-group">
                                                         <label class="discount_text position_name"></label>

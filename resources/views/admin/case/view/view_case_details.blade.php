@@ -10,7 +10,7 @@
                     @include('admin.case.view.card_header')
                     <div class="dashboard-widget-content">
                         <h2 class="line_30 case_detail-m-f-10">{{__('frontend.case_detail')}}</h2>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
 
 
                             <div class="table-responsive">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
 
                             <div class="table-responsive">
                             <table class="countries_list">
@@ -112,7 +112,7 @@
 
                 <div class="x_content">
                     <div class="dashboard-widget-content">
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
                             <h4 class="line_30">{{__('frontend.petitioner_advocate')}}</h4>
 
 
@@ -132,7 +132,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
                             <h4 class="line_30">{{__('frontend.respondent_and_advocate')}}</h4>
 
                             <div class="table-responsive">
