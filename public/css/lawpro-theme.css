@@ -1,5 +1,15 @@
 @charset "UTF-8";
 /* LAW PRO - DESIGN SYSTEM v1.0.0 */
+/* ============================================================
+   LAW PRO - BREAKPOINT MAP (single source of truth)
+   يجب استخدام هذه القيم فقط في أي @media جديد يُضاف للمشروع
+   ------------------------------------------------------------
+   $bp-xs : 480px  → هاتف صغير جداً
+   $bp-sm : 640px  → هاتف
+   $bp-md : 768px  → تابلت عمودي
+   $bp-lg : 991px  → نقطة طيّ الشريط الجانبي (متوافقة مع Gentelella/Bootstrap 3 الأصلي)
+   $bp-xl : 1200px → شاشة مكتبية كبيرة
+   ============================================================ */
 :root {
   --lp-primary:#1A3C5E;
   --lp-primary-dark:#122A42;
@@ -23,8 +33,8 @@
   --card-cases:#E8F8F5;
   --card-urgent:#FEF9E7;
   --card-archived:#EAFAF1;
-  --font-arabic:"Cairo","Tajawal",sans-serif;
-  --font-english:"Inter","Roboto",sans-serif;
+  --font-arabic:'Cairo','Tajawal',sans-serif;
+  --font-english:'Inter','Roboto',sans-serif;
   --space-xs:4px;
   --space-sm:8px;
   --space-md:16px;
@@ -650,10 +660,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .page-title h3 {
     font-size: 16px;
   }
-  body.rtl .main_container .left_col {
-    margin-right: 0;
-    margin-left: auto;
-  }
 }
 /* ============================================================
    LAW PRO - HEADER / TOP NAV  (RTL + LTR)
@@ -978,85 +984,87 @@ body.rtl .flt-mesege {
   flex-shrink: 0;
 }
 
-/* ── Sidebar Layout & Offset System (nav-md vs nav-sm / LTR + RTL) ── */
-/* 1. LTR Layout (English) */
-.nav-md .top_nav {
-  margin-left: 230px !important;
-  margin-right: 0 !important;
-  width: calc(100% - 230px) !important;
-}
-
-.nav-sm .top_nav {
-  margin-left: 70px !important;
-  margin-right: 0 !important;
-  width: calc(100% - 70px) !important;
-}
-
-.nav-md .container.body .right_col,
-.nav-md .right_col {
-  margin-left: 230px !important;
-  margin-right: 0 !important;
-}
-
-.nav-sm .container.body .right_col,
-.nav-sm .right_col {
-  margin-left: 70px !important;
-  margin-right: 0 !important;
-}
-
-.nav-md .lp-footer {
-  margin-left: 230px !important;
-  margin-right: 0 !important;
-}
-
-.nav-sm .lp-footer {
-  margin-left: 70px !important;
-  margin-right: 0 !important;
-}
-
-/* 2. RTL Layout (Arabic) */
-html[dir=rtl] .nav-md .top_nav,
-body.rtl .nav-md .top_nav {
-  margin-left: 0 !important;
-  margin-right: 230px !important;
-  width: calc(100% - 230px) !important;
-}
-
-html[dir=rtl] .nav-sm .top_nav,
-body.rtl .nav-sm .top_nav {
-  margin-left: 0 !important;
-  margin-right: 70px !important;
-  width: calc(100% - 70px) !important;
-}
-
-html[dir=rtl] .nav-md .container.body .right_col,
-html[dir=rtl] .nav-md .right_col,
-body.rtl .nav-md .container.body .right_col,
-body.rtl .nav-md .right_col {
-  margin-left: 0 !important;
-  margin-right: 230px !important;
-}
-
-html[dir=rtl] .nav-sm .container.body .right_col,
-html[dir=rtl] .nav-sm .right_col,
-body.rtl .nav-sm .container.body .right_col,
-body.rtl .nav-sm .right_col {
-  margin-left: 0 !important;
-  margin-right: 70px !important;
-}
-
-html[dir=rtl] .nav-md .lp-footer,
-body.rtl .nav-md .lp-footer {
-  margin-left: 0 !important;
-  margin-right: 230px !important;
-}
-
-html[dir=rtl] .nav-sm .lp-footer,
-body.rtl .nav-sm .lp-footer {
-  margin-left: 0 !important;
-  margin-right: 70px !important;
-}
-
+/* ── Sidebar Layout & Offset System (nav-md vs nav-sm / LTR + RTL) ──
+   PHASE 0 FIX: هذا القسم كامل مُقيَّد الآن بـ min-width:992px ($bp-lg+1)
+   لأنه كان يفرض إزاحة 230px/70px بلا أي @media، فيُبطل قاعدة
+   Gentelella الأصلية (custom.min.css: @media max-width:991px)
+   التي تُخفي الشريط الجانبي على الشاشات الصغيرة — وهذا هو سبب
+   انكسار كل الصفحات على الموبايل (الصفحة تُزاح 230px وتُقصّ). */
+@media (min-width: 992px) {
+  /* 1. LTR Layout (English) */
+  .nav-md .top_nav {
+    margin-left: 230px !important;
+    margin-right: 0 !important;
+    width: calc(100% - 230px) !important;
+  }
+  .nav-sm .top_nav {
+    margin-left: 70px !important;
+    margin-right: 0 !important;
+    width: calc(100% - 70px) !important;
+  }
+  .nav-md .container.body .right_col,
+  .nav-md .right_col {
+    margin-left: 230px !important;
+    margin-right: 0 !important;
+  }
+  .nav-sm .container.body .right_col,
+  .nav-sm .right_col {
+    margin-left: 70px !important;
+    margin-right: 0 !important;
+  }
+  .nav-md .lp-footer {
+    margin-left: 230px !important;
+    margin-right: 0 !important;
+  }
+  .nav-sm .lp-footer {
+    margin-left: 70px !important;
+    margin-right: 0 !important;
+  }
+  /* 2. RTL Layout (Arabic) */
+  html[dir=rtl] .nav-md .top_nav,
+  body.rtl .nav-md .top_nav {
+    margin-left: 0 !important;
+    margin-right: 230px !important;
+    width: calc(100% - 230px) !important;
+  }
+  html[dir=rtl] .nav-sm .top_nav,
+  body.rtl .nav-sm .top_nav {
+    margin-left: 0 !important;
+    margin-right: 70px !important;
+    width: calc(100% - 70px) !important;
+  }
+  html[dir=rtl] .nav-md .container.body .right_col,
+  html[dir=rtl] .nav-md .right_col,
+  body.rtl .nav-md .container.body .right_col,
+  body.rtl .nav-md .right_col {
+    margin-left: 0 !important;
+    margin-right: 230px !important;
+  }
+  html[dir=rtl] .nav-sm .container.body .right_col,
+  html[dir=rtl] .nav-sm .right_col,
+  body.rtl .nav-sm .container.body .right_col,
+  body.rtl .nav-sm .right_col {
+    margin-left: 0 !important;
+    margin-right: 70px !important;
+  }
+  html[dir=rtl] .nav-md .lp-footer,
+  body.rtl .nav-md .lp-footer {
+    margin-left: 0 !important;
+    margin-right: 230px !important;
+  }
+  html[dir=rtl] .nav-sm .lp-footer,
+  body.rtl .nav-sm .lp-footer {
+    margin-left: 0 !important;
+    margin-right: 70px !important;
+  }
+} /* end @media (min-width: 992px) */
+/* ============================================================
+   LAW PRO - MOBILE OFF-CANVAS SIDEBAR (max-width: 991px)
+   الشريط الجانبي مخفي بالكامل خارج الشاشة افتراضياً على الموبايل/
+   التابلت، ويظهر كـ Drawer عائم فوق المحتوى فقط عند فتحه من زر
+   الهامبرغر (#menu_toggle)، مع طبقة تعتيم تُغلقه عند الضغط خارجه.
+   لا يعتمد على أي مكتبة جديدة — فقط transform + jQuery الموجود.
+   ============================================================ */
 @media (max-width: 991px) {
   .nav-md .lp-footer,
   .nav-sm .lp-footer,
@@ -1066,6 +1074,90 @@ body.rtl .nav-sm .lp-footer {
   body.rtl .nav-sm .lp-footer {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+  /* المحتوى يشغل العرض الكامل دائماً على الموبايل، بصرف النظر عن nav-md/nav-sm */
+  .container.body .top_nav,
+  .top_nav {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .container.body .right_col,
+  .right_col {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 10px !important;
+  }
+  /* الشريط الجانبي: مخفي خارج الشاشة بالكامل افتراضياً */
+  .container.body .col-md-3.left_col {
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    width: 260px !important;
+    max-width: 82vw;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    z-index: 10000 !important;
+    display: flex !important;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  html[dir=ltr] .container.body .col-md-3.left_col,
+  html:not([dir=rtl]):not(.rtl) .container.body .col-md-3.left_col {
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);
+  }
+  html[dir=rtl] .container.body .col-md-3.left_col,
+  body.rtl .container.body .col-md-3.left_col {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+  /* حالة الفتح: تُضاف عبر JS على <body class="mobile-sidebar-open"> */
+  body.mobile-sidebar-open .container.body .col-md-3.left_col {
+    transform: translateX(0) !important;
+  }
+  /* طبقة التعتيم خلف الـ Drawer */
+  .lp-sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  body.mobile-sidebar-open .lp-sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+  /* عند فتح الـ Drawer، منع تمرير الصفحة الخلفية */
+  body.mobile-sidebar-open {
+    overflow: hidden;
+  }
+  /* على الموبايل نعرض الشريط الجانبي دائماً بشكله الموسّع (نص + أيقونة)
+     بصرف النظر عن حالة nav-sm/nav-md، لأن التبديل بينهما غير مفيد
+     داخل Drawer عائم بعرض ثابت */
+  .nav-sm .container.body .col-md-3.left_col,
+  .nav-md .container.body .col-md-3.left_col {
+    width: 260px !important;
+    max-width: 82vw;
+  }
+  .nav-sm .nav.side-menu > li > a .menu-text,
+  .nav-sm .nav.side-menu > li > a > span.fa-chevron-down {
+    display: inline-block !important;
+  }
+  .nav-sm .nav.side-menu > li > a {
+    width: auto !important;
+    justify-content: flex-start !important;
+    font-size: 14px !important;
+    padding: 10px 15px !important;
+  }
+  .nav-sm .nav.side-menu > li > a > i.fa {
+    font-size: 16px !important;
+    width: 26px !important;
   }
 }
 .lp-footer__inner {

@@ -4,7 +4,7 @@
         <nav style="display:flex;align-items:stretch;width:100%;">
             {{-- Hamburger toggle --}}
             <div class="nav toggle">
-                <a id="menu_toggle" aria-label="Toggle sidebar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a id="menu_toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i></a>
             </div>
             {{-- Breadcrumb Navigation --}}
             @if(isset($breadcrumbs) && count($breadcrumbs) > 0)
