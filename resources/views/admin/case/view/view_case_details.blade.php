@@ -13,6 +13,7 @@
                         <div class="col-md-6">
 
 
+                            <div class="table-responsive">
                             <table class="countries_list">
                                 <tbody>
                                 <tr>
@@ -41,10 +42,12 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
                         <div class="col-md-6">
 
+                            <div class="table-responsive">
                             <table class="countries_list">
                                 <tbody>
 
@@ -91,6 +94,7 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
 
@@ -112,6 +116,7 @@
                             <h4 class="line_30">{{__('frontend.petitioner_advocate')}}</h4>
 
 
+                            <div class="table-responsive">
                             <table class="countries_list">
                                 <tbody>
                                 <tr>
@@ -124,11 +129,13 @@
 
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <h4 class="line_30">{{__('frontend.respondent_and_advocate')}}</h4>
 
+                            <div class="table-responsive">
                             <table class="countries_list">
                                 <tbody>
 
@@ -144,6 +151,7 @@
 
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
 

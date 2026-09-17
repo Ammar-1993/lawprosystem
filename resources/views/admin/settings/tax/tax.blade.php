@@ -23,6 +23,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="tagDataTable" class="table lp-table" data-url="{{ route('tax.list') }}">
                             <thead>
                                 <tr>
@@ -35,6 +36,7 @@
                                 </tr>
                             </thead>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -39,6 +39,7 @@
 
                     </div>
 
+                    <div class="table-responsive">
                     <table id="case_transfer_list" class="table row-border">
                         <thead>
                         <tr>
@@ -52,6 +53,7 @@
                         </thead>
 
                     </table>
+                    </div>
 
                 </div>
             </div>

@@ -22,6 +22,7 @@
             <div class="x_panel lp-panel">
 
                 <div class="x_content">
+                    <div class="table-responsive">
                     <table id="client_list" class="table lp-table" >
                         <thead>
                         <tr>
@@ -37,6 +38,7 @@
                         </thead>
 
                     </table>
+                    </div>
 
                 </div>
             </div>

@@ -85,6 +85,7 @@
 
   </div>
 
+                     <div class="table-responsive">
                      <table id="case_list" class="table lp-table" >
                         <thead>
                             <tr>
@@ -99,6 +100,7 @@
                         </thead>
 
                     </table>
+                     </div>
                   </div>
                 </div>
               </div>

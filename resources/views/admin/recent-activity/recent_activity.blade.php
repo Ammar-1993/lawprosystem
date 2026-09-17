@@ -17,6 +17,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="datatable" class="table lp-table">
                             <thead>
                                 <tr>
@@ -143,6 +144,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -24,6 +24,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="user_table" class="table lp-table">
                             <thead>
                                 <tr>
@@ -39,6 +40,7 @@
 
 
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

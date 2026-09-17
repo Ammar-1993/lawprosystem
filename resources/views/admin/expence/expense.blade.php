@@ -23,6 +23,7 @@
 
                 <div class="x_content">
 
+                    <div class="table-responsive">
                     <table id="ExpenseDatatable" class="table lp-table" >
                         <thead>
                         <tr>
@@ -41,6 +42,7 @@
 
 
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

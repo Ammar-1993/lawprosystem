@@ -38,6 +38,7 @@
 
                     <div class="dashboard-widget-content">
                         <div class="col-md-6">
+                            <div class="table-responsive">
                             <table class="countries_list">
                                 <tbody>
                                 <tr>
@@ -66,10 +67,12 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
                         <div class="col-md-6">
 
+                            <div class="table-responsive">
                             <table class="countries_list">
                                 <tbody>
 
@@ -94,6 +97,7 @@
 
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
 
@@ -121,6 +125,7 @@
                                         <h4 class="line_30">{{ __('frontend.client.advocate_name') }} </h4>
 
 
+                                        <div class="table-responsive">
                                         <table class="countries_list">
                                             <tbody>
 
@@ -147,6 +152,7 @@
 
                                             </tbody>
                                         </table>
+                                        </div>
                                     </div>
                                     @php
                                         $i++;

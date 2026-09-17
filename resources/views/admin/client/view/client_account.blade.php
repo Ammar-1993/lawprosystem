@@ -37,6 +37,7 @@
 
                 <div class="x_content">
 
+                    <div class="table-responsive">
                     <table id="clientAccountlistDatatable" class="table lp-table" data-url="{{ route('invoice-list-client') }}"
                            >
                         <thead>
@@ -53,6 +54,7 @@
                         </thead>
 
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

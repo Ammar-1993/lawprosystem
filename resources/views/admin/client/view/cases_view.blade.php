@@ -40,6 +40,7 @@
 
                 <div class="x_content">
 
+                    <div class="table-responsive">
                     <table id="clientCaselistDatatable1" class="table lp-table"
                            data-url="{{ route('client.case_view.list') }}">
                         <thead>
@@ -54,6 +55,7 @@
                         </tr>
                         </thead>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

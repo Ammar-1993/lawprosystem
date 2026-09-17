@@ -33,8 +33,8 @@
   --card-cases:#E8F8F5;
   --card-urgent:#FEF9E7;
   --card-archived:#EAFAF1;
-  --font-arabic:'Cairo','Tajawal',sans-serif;
-  --font-english:'Inter','Roboto',sans-serif;
+  --font-arabic:"Cairo","Tajawal",sans-serif;
+  --font-english:"Inter","Roboto",sans-serif;
   --space-xs:4px;
   --space-sm:8px;
   --space-md:16px;
@@ -690,14 +690,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   flex-shrink: 0;
 }
 
+/* هدف لمس 44x44px كحد أدنى (WCAG 2.5.5 Target Size) — كان الرابط
+   30x15px فقط، أصغر بكثير من الحد الآمن للمس على شاشات الهواتف */
 .nav_menu .nav.toggle a {
   color: var(--lp-dark);
   font-size: 18px;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.nav_menu .nav.toggle a:hover {
+.nav_menu .nav.toggle a:hover,
+.nav_menu .nav.toggle a:focus {
   color: var(--lp-accent);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav_menu .nav.toggle a:focus-visible {
+  outline: 2px solid var(--lp-accent);
+  outline-offset: 2px;
 }
 
 /* ── Breadcrumb bar — fills remaining space ── */
@@ -1065,6 +1084,12 @@ body.rtl .flt-mesege {
    الهامبرغر (#menu_toggle)، مع طبقة تعتيم تُغلقه عند الضغط خارجه.
    لا يعتمد على أي مكتبة جديدة — فقط transform + jQuery الموجود.
    ============================================================ */
+/* طبقة التعتيم مخفية افتراضياً على كل الأحجام (بما فيها الديسكتوب)
+   وتُفعَّل فقط داخل نطاق الموبايل عند فتح الـ Drawer */
+.lp-sidebar-overlay {
+  display: none;
+}
+
 @media (max-width: 991px) {
   .nav-md .lp-footer,
   .nav-sm .lp-footer,

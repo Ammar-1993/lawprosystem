@@ -24,6 +24,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="serviceDataTable" class="table lp-table" data-url="{{ route('service.list') }}">
                             <thead>
                             <tr>
@@ -35,6 +36,7 @@
                             </tr>
                             </thead>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

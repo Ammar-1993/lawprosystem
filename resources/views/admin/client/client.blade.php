@@ -20,6 +20,7 @@
                 <div class="x_panel lp-panel">
 
                     <div class="x_content">
+                        <div class="table-responsive">
                         <table id="clientDataTable" class="table lp-table" data-url="{{ route('clients.list') }}">
                             <thead>
                             <tr>
@@ -32,6 +33,7 @@
                             </tr>
                             </thead>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="Vendordatatable" class="table lp-table"
                                data-url="{{ route('vendor.list') }}">
                             <thead>
@@ -33,6 +34,7 @@
                             </thead>
 
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

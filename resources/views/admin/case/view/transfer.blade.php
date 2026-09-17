@@ -8,6 +8,7 @@
 
                 <div class="x_content">
                     @include('admin.case.view.card_header')
+                    <div class="table-responsive">
                     <table id="datatable" class="table lp-table table-striped table-bordered">
                         <thead>
                         <tr>
@@ -35,6 +36,7 @@
 
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

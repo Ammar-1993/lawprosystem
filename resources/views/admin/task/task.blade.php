@@ -19,6 +19,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="clientDataTable" class="table lp-table" data-url="{{ route('task.list') }}">
                             <thead>
                                 <tr>
@@ -34,6 +35,7 @@
                                 </tr>
                             </thead>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-xs-12 table">
+            <div class="table-responsive">
             <table id="datatable" class="table lp-table table-striped table-bordered">
                 <thead>
                   <tr>
@@ -27,6 +28,7 @@
                 </tbody>
 
             </table>
+            </div>
           </div>
         </div>
       </div>

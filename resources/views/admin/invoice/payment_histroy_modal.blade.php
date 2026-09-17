@@ -11,6 +11,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
@@ -47,6 +48,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
 
 

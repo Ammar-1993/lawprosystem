@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Responsive Probe</title>
+<link rel="stylesheet" href="assets/admin/vendors/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/admin/vendors/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/admin/build/css/custom.min.css">
+<link rel="stylesheet" href="public/css/lawpro-theme.css">
+</head>
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border:0;"><a href="#" class="site_title"><span>Law Pro</span></a></div>
+          <div class="clearfix"></div>
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section"><ul class="nav side-menu">
+              <li><a href="#"><i class="fa fa-tachometer"></i> لوحة التحكم</a></li>
+              <li><a href="#"><i class="fa fa-users"></i> العملاء</a></li>
+              <li><a href="#"><i class="fa fa-gavel"></i> القضايا</a></li>
+            </ul></div>
+          </div>
+        </div>
+      </div>
+      <div class="top_nav"><div class="nav_menu">
+        <nav style="display:flex;align-items:stretch;width:100%;">
+          <div class="nav toggle"><a id="menu_toggle" aria-label="Toggle sidebar" aria-expanded="false"><i class="fa fa-bars"></i></a></div>
+          <div class="lp-breadcrumb-bar"><span>لوحة التحكم</span></div>
+        </nav>
+      </div></div>
+
+      <div class="right_col" role="main">
+        <div class="page-title"><div class="title_left"><h3><i class="fa fa-tachometer"></i>&nbsp;لوحة التحكم</h3></div></div>
+        <div class="clearfix"></div>
+
+        <!-- KPI cards: EXACT classes from admin/index.blade.php -->
+        <div class="row">
+          <a href="#"><div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <div class="tile-stats lp-card lp-card--clients"><div class="icon"><i class="fa fa-users"></i></div>
+            <div class="count lp-counter">1250</div><h3>العملاء</h3><p>إجمالي العملاء</p></div>
+          </div></a>
+          <a href="#"><div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <div class="tile-stats lp-card lp-card--cases"><div class="icon"><i class="fa fa-gavel"></i></div>
+            <div class="count lp-counter">378</div><h3>القضايا</h3><p>إجمالي القضايا</p></div>
+          </div></a>
+          <a href="#"><div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <div class="tile-stats lp-card lp-card--urgent"><div class="icon"><i class="fa fa-star"></i></div>
+            <div class="count lp-counter">42</div><h3>قضايا مهمة</h3><p>إجمالي القضايا المهمة</p></div>
+          </div></a>
+          <a href="#"><div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <div class="tile-stats lp-card lp-card--archived"><div class="icon"><i class="fa fa-file-archive-o"></i></div>
+            <div class="count lp-counter">96</div><h3>قضايا مؤرشفة</h3><p>إجمالي المؤرشفة</p></div>
+          </div></a>
+        </div>
+        <div class="clearfix"></div>
+
+        <!-- Wide table, UNWRAPPED — exactly as in admin/index.blade.php -->
+        <div class="row"><div class="col-md-12 col-sm-12">
+          <div class="x_panel"><div class="x_title"><h2>القضايا القادمة</h2><div class="clearfix"></div></div>
+            <div class="x_content">
+              <h4 class="title text-primary">القاضي محمد عبدالله الأحمد</h4>
+              <table id="case_list" class="table lp-table row-border" style="width:100%">
+                <thead><tr>
+                  <th width="3%">#</th><th width="20%">رقم القضية</th><th width="35%">القضية</th>
+                  <th width="15%">التاريخ القادم</th><th width="10%">الحالة</th><th width="17%">الإجراء</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>CASE-2026-00845</td><td>شركة الخليج للتجارة ضد مؤسسة النور العقارية</td><td>2026-10-15</td><td>جارية</td><td><button class="btn btn-sm btn-primary">عرض</button> <button class="btn btn-sm btn-warning">تعديل</button></td></tr>
+                  <tr><td>2</td><td>CASE-2026-00846</td><td>أحمد بن سالم المطيري ضد البنك الأهلي التجاري</td><td>2026-10-18</td><td>معلقة</td><td><button class="btn btn-sm btn-primary">عرض</button> <button class="btn btn-sm btn-warning">تعديل</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div></div>
+      </div>
+      <footer class="lp-footer"><div class="lp-footer__inner"><div class="pull-right">Law Pro &copy; 2026</div></div></footer>
+    </div>
+  </div>
+  <div class="lp-sidebar-overlay" aria-hidden="true"></div>
+
+  <script src="assets/admin/vendors/jquery/dist/jquery.min.js"></script>
+  <script src="assets/admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/admin/js/sweetalert2.all.min.js"></script>
+  <script src="assets/admin/build/js/custom.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

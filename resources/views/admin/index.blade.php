@@ -23,7 +23,7 @@
 
             <div class="row">
                 <a href="{{ route('clients.index') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="tile-stats lp-card lp-card--clients">
                             <div class="icon"><i class="fa fa-users" aria-hidden="true"></i></div>
                             <div class="count lp-counter">{{ $client ?? 0 }}</div>
@@ -33,7 +33,7 @@
                     </div>
                 </a>
                 <a href="{{ route('case-running.index') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="tile-stats lp-card lp-card--cases">
                             <div class="icon"><i class="fa fa-gavel" aria-hidden="true"></i></div>
                             <div class="count lp-counter">{{ $case_total ?? 0 }}</div>
@@ -43,7 +43,7 @@
                     </div>
                 </a>
                 <a href="{{ url('admin/case-important') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="tile-stats lp-card lp-card--urgent">
                             <div class="icon"><i class="fa fa-star" aria-hidden="true"></i></div>
                             <div class="count lp-counter">{{ $important_case ?? 0 }}</div>
@@ -53,7 +53,7 @@
                     </div>
                 </a>
                 <a href="{{ url('admin/case-archived') }}">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="tile-stats lp-card lp-card--archived">
                             <div class="icon"><i class="fa fa-file-archive-o" aria-hidden="true"></i></div>
                             <div class="count lp-counter">{{ $archived_total }}</div>
@@ -93,6 +93,7 @@
                                 @if (count($case_dashbord) > 0 && !empty($case_dashbord))
                                     @foreach ($case_dashbord as $court)
                                         <h4 class="title text-primary"> {!! $court['judge_name'] !!}</h4>
+                                        <div class="table-responsive">
                                         <table id="case_list" class="table lp-table row-border" style="width:100%">
                                             <thead>
                                                 <tr>
@@ -182,6 +183,7 @@
                                                 @endif
                                             </tbody>
                                         </table>
+                                        </div>
                                     @endforeach
                                 @endif
                             @elseif($case_total > 0 && count($case_dashbord) == 0)
@@ -243,6 +245,7 @@
                         </div>
                         <div class="x_content">
                             @if (count($appoint_calander) > 0)
+                                <div class="table-responsive">
                                 <table id="appointment_list" class="table lp-table row-border" style="width:100%">
                                     <thead>
                                         <tr>
@@ -253,6 +256,7 @@
                                         </tr>
                                     </thead>
                                 </table>
+                                </div>
                             @elseif($appointmentCount > 0 && count($appoint_calander) == 0)
                                 <div class="row">
                                     <div class="col-md-12">

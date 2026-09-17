@@ -59,6 +59,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="Appointmentdatatable" class="table lp-table appointment_table"
                             data-url="{{ route('appointment.list') }}">
                             <thead>
@@ -75,6 +76,7 @@
 
 
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -70,7 +70,6 @@ var setContentHeight = function () {
 };
 
   $SIDEBAR_MENU.find('a').on('click', function(ev) {
-	  console.log('clicked - sidebar_menu');
         var $li = $(this).parent();
 
         if ($li.is('.active')) {
@@ -99,11 +98,17 @@ var setContentHeight = function () {
         }
     });
 
-// toggle small or large menu 
+// toggle small or large menu
+// ملاحظة (Law Pro Responsive Fix): على الشاشات الصغيرة (<=991px) يتحول الزر
+// إلى فتح/إغلاق Drawer عائم (يُدار عبر assets/js/script.js وكلاس
+// body.mobile-sidebar-open) بدل تبديل nav-md/nav-sm الخاص بسطح المكتب،
+// لتجنّب تشغيل المنطقين معاً على نفس الضغطة.
 $MENU_TOGGLE.on('click', function() {
-		console.log('clicked - menu toggle');
-		
-		if ($BODY.hasClass('nav-md')) {
+	if ($(window).width() <= 991) {
+		return; // يُدار بالكامل عبر معالج script.js للموبايل
+	}
+
+	if ($BODY.hasClass('nav-md')) {
 			$SIDEBAR_MENU.find('li.active ul').hide();
 			$SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
 		} else {

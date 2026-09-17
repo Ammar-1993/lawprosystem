@@ -26,6 +26,7 @@
 
                     <div class="x_content">
 
+                        <div class="table-responsive">
                         <table id="tagDataTable" class="table lp-table" data-url="{{ route('database-backup.list') }}">
                             <thead>
                                 <tr>
@@ -35,6 +36,7 @@
                                 </tr>
                             </thead>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

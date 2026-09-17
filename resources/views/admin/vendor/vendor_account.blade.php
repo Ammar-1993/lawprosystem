@@ -34,6 +34,7 @@
                             <div id="myTabContent" class="tab-content">
 
 
+                                <div class="table-responsive">
                                 <table id="VendorAccountDatatable" class="table lp-table"
                                     data-url="{{ url('admin/expense-filter-list') }}" data-vendor="{{ $client->id }}">
                                     <thead>
@@ -50,6 +51,7 @@
                                     </thead>
 
                                 </table>
+                                </div>
 
 
                             </div>
