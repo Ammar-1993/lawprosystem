@@ -128,6 +128,8 @@
             <!-- /footer content -->
         </div>
     </div>
+    {{-- Mobile Off-Canvas Sidebar Overlay — يُغلق الشريط الجانبي عند الضغط خارجه على الشاشات الصغيرة --}}
+    <div class="lp-sidebar-overlay" aria-hidden="true"></div>
     <!-- jQuery -->
     <script src="{{ asset('assets/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/admin/vendors/select2/dist/js/select2.full.min.js') }}"></script>

@@ -306,3 +306,71 @@ $(document).ready(function() {
     observer.observe(counter);
   });
 });
+
+// --- Law Pro Mobile Off-Canvas Sidebar (Phase 0: Responsive Fix) ---
+// يتحكم في فتح/إغلاق الشريط الجانبي كـ Drawer عائم على الشاشات
+// الصغيرة (≤991px) دون التأثير على منطق nav-md/nav-sm الحالي على الديسكتوب.
+$(document).ready(function () {
+  var MOBILE_BREAKPOINT = 991;
+  var $body = $('body');
+
+  // إنشاء طبقة التعتيم مرة واحدة إن لم تكن موجودة أصلاً في الـ DOM
+  if ($('.lp-sidebar-overlay').length === 0) {
+    $body.append('<div class="lp-sidebar-overlay" aria-hidden="true"></div>');
+  }
+  var $overlay = $('.lp-sidebar-overlay');
+
+  function isMobile() {
+    return $(window).width() <= MOBILE_BREAKPOINT;
+  }
+
+  function openMobileSidebar() {
+    $body.addClass('mobile-sidebar-open');
+    $('#menu_toggle').attr('aria-expanded', 'true');
+  }
+
+  function closeMobileSidebar() {
+    $body.removeClass('mobile-sidebar-open');
+    $('#menu_toggle').attr('aria-expanded', 'false');
+  }
+
+  // اعتراض ضغطة الهامبرغر على الموبايل قبل منطق nav-md/nav-sm الأصلي في custom.js
+  $('#menu_toggle').on('click', function (e) {
+    if (isMobile()) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if ($body.hasClass('mobile-sidebar-open')) {
+        closeMobileSidebar();
+      } else {
+        openMobileSidebar();
+      }
+    }
+  });
+
+  // إغلاق الـ Drawer عند الضغط على طبقة التعتيم
+  $overlay.on('click', function () {
+    closeMobileSidebar();
+  });
+
+  // إغلاق الـ Drawer عند اختيار أي رابط داخل القائمة (تنقّل لصفحة جديدة)
+  $(document).on('click', '#sidebar-menu a', function () {
+    if (isMobile()) {
+      closeMobileSidebar();
+    }
+  });
+
+  // إغلاق الـ Drawer تلقائياً عند تغيير حجم النافذة إلى وضع الديسكتوب
+  // (مثلاً بعد تدوير الجهاز أو تكبير النافذة)
+  $(window).on('resize', function () {
+    if (!isMobile()) {
+      closeMobileSidebar();
+    }
+  });
+
+  // مفتاح Escape يُغلق الـ Drawer أيضاً لإتاحة الوصول (Accessibility)
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $body.hasClass('mobile-sidebar-open')) {
+      closeMobileSidebar();
+    }
+  });
+});
