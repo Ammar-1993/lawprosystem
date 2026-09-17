@@ -47,6 +47,9 @@
     <link href="{{ asset('assets/admin/build/css/custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}"
         rel="stylesheet">
+    {{-- DataTables Responsive — يطوي الأعمدة الثانوية تلقائياً على الشاشات الصغيرة بدل تجاوز عرض الجدول --}}
+    <link href="{{ asset('assets/admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}"
+        rel="stylesheet">
     <link href="{{ asset('assets/admin/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css') }}"
         rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -150,6 +153,9 @@
     <script src="{{ asset('assets/admin/build/js/custom.js?v=' . filemtime(public_path('assets/admin/build/js/custom.js'))) }}"></script>
     <script src="{{ asset('assets/admin/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    {{-- DataTables Responsive — يفعّل خيار "responsive: true" الموجود مسبقاً في ملفات إعداد الجداول --}}
+    <script src="{{ asset('assets/admin/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
     <script src="{{ asset('assets/admin/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}">
     </script>
     <script src="{{ asset('assets/admin/js/jquery.validate.min.js') }}"></script>
