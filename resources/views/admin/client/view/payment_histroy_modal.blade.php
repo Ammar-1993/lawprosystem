@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                        <table class="table">
+                        <table class="table lp-table">
                             <thead>
                             <tr>
                                 <th>{{__('frontend.invoice_no')}}</th>

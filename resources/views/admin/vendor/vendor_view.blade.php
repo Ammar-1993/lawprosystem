@@ -18,7 +18,7 @@
         <div class="x_panel lp-panel">
           <div class="x_content">
             <div class="" role="tabpanel" data-example-id="togglable-tabs">
-              <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+              <ul id="myTab" class="nav nav-tabs lp-tabs" role="tablist">
 
                 <li role="presentation" class="{{ request()->is('admin/vendor/*') ? 'active' : '' }}"><a href="{{route('vendor.show',$client->id)}}">{{__('frontend.vendor_detail')}}</a>
                 </li>
