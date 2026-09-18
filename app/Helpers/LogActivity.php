@@ -164,7 +164,7 @@ class LogActivity
         // $court_cases = CourtCase::where('next_date', '=', date('Y-m-d'))->where('advocate_id', $user_id)->where('is_nb', 'No')->count();
         $court_cases = CourtCase::where('next_date', '=', date('Y-m-d'))->where('is_nb', 'No')->count();
 		 
-        $notify = $user->unreadNotifications;
+        $notify = $user ? $user->unreadNotifications : [];
 		$countNotification = 0;
 		if (count($notify) > 0)
         {
@@ -177,7 +177,12 @@ class LogActivity
 				}
 			}
 		}
-		$noRecMsg ='';
+		$noRecMsg ='<li class="lp-empty-item">
+						<div class="lp-empty-state">
+							<i class="fa fa-bell-slash-o"></i>
+							<span>'.__('frontend.no_notifications').'</span>
+						</div>
+					</li>';
 		if($court_cases > 0 && $countNotification > 0){
 			$notifyCount = $countNotification+$court_cases;
 		}elseif($court_cases > 0 && $countNotification == 0){
@@ -186,119 +191,129 @@ class LogActivity
 			$notifyCount = $countNotification;
 		}else{
 			$notifyCount ='';
-			$noRecMsg .='<li>
-							<a href="javascript:void(0);">
-								<div class="mesge">
-									<i class="fa fa-info fa-fw"></i> You dont`t have any notification
-								</div>
-							</a>
-						</li>';
 		}
-		//if ($court_cases > 0){$caseCount = $court_cases;}else{$court_cases = '';}
-		//if (count($notify) > 0){$notifyCount = count($notify)+$caseCount;}else{$notifyCount = '';}
-        $html = '<li class="dropdown dropdown-alerts">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-bell-o"></i>
-						<span class="label label-warning">'.$notifyCount.'</span>
+        $html = '<li class="dropdown dropdown-alerts lp-nav-item">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="'.__('frontend.notifications').'">
+						<i class="fa fa-bell-o"></i>'.($notifyCount ? '<span class="label label-warning">'.$notifyCount.'</span>' : '').'
 					</a>';
 		
-		$html .='<ul id="login-dp" class="dropdown-menu flt-mesege">';
+		$html .='<ul id="login-dp" class="dropdown-menu flt-mesege lp-dropdown-menu lp-notifications-dropdown" role="menu">';
+		$html .='<li class="lp-dropdown-header">
+					<span class="lp-dropdown-title"><i class="fa fa-bell"></i> '.__('frontend.notifications').'</span>
+					'.($notifyCount ? '<span class="lp-dropdown-badge">'.$notifyCount.'</span>' : '').'
+				 </li>';
+		
+		$html .='<div class="lp-dropdown-scroll">';
 		if($court_cases>0){
 			$html .='<li>
-						<a href="'.url('admin/dashboard').'">
-							<div class="mesge">
-							<i class="fa fa-gavel"></i> You have '.$court_cases.' case(s) today							</div>
+						<a href="'.url('admin/dashboard').'" class="lp-dropdown-item">
+							<div class="lp-item-icon lp-icon-gavel">
+								<i class="fa fa-gavel"></i>
+							</div>
+							<div class="lp-item-content">
+								<div class="lp-item-title">'.__('frontend.cases_today', ['count' => $court_cases]).'</div>
+								<div class="lp-item-subtitle">'.date('Y-m-d').'</div>
+							</div>
 						</a>
 					</li>';
 		}
 		if (count($notify) > 0)
         {
-			//$html .='<li class="header">You have '.count($notify).' notification(s)</li>';
 			foreach($notify as $notification)
             {
 				if(!empty($notification->data['appointment_date'])){
 					if(date('Y-m-d',strtotime($notification->data['appointment_date']))==date('Y-m-d')){
+						$icon = !empty($notification->data['icon']) ? $notification->data['icon'] : '<i class="fa fa-calendar"></i>';
 						$html .='<li>
-									<a data-href="'.$notification->data['url'].'" data-notif-id="'.$notification->id.'">
-										<div class="mesge">
-											'.$notification->data['icon'].' You have '.$notification->data['title'].' With '.$notification->data['name'].'
+									<a data-href="'.($notification->data['url'] ?? '#').'" data-notif-id="'.$notification->id.'" class="lp-dropdown-item">
+										<div class="lp-item-icon lp-icon-calendar">
+											'.$icon.'
+										</div>
+										<div class="lp-item-content">
+											<div class="lp-item-title">'.($notification->data['title'] ?? '').'</div>
+											<div class="lp-item-subtitle">'.($notification->data['name'] ?? '').' &bull; '.date('Y-m-d', strtotime($notification->data['appointment_date'])).'</div>
 										</div>
 									</a>
 								</li>';
 					}
 				}
 			}			
-			/*$html .='<li>
-						<a href="#">
-							<div class="text-center link-block">
-								<strong>View All Notifications </strong> &nbsp; <i class="fa fa-angle-right"></i>
-							</div>
-						</a>
-
-					</li>';*/
-		}else{
+		}elseif($court_cases == 0){
 			$html .=$noRecMsg;
 		}		
-		$html .='	</ul>
-		</li>';
+		$html .='</div>'; // close lp-dropdown-scroll
+		$html .='<li class="lp-dropdown-footer">
+					<a href="'.url('admin/dashboard').'" class="lp-footer-link">
+						<span>'.__('frontend.view_all_notifications').'</span>
+						<i class="fa fa-angle-left lp-rtl-flip"></i>
+					</a>
+				 </li>';
+		$html .='</ul></li>';
         return $html;  
     }
     public static function getAdvocateClientFullName($id)
     {
         $row = AdvocateClient::where('id',$id)->first();
-        return $row->first_name.' '.$row->last_name;	
+        return $row ? ($row->first_name.' '.$row->last_name) : '';	
     }
     public static function generateTasks()
     {
-      
-    /*  if (!$security->isUserExpired())
-      {*/
-  
-        // $advocate_id = static::getLoginUserId();
-		 // $court_cases = CourtCase::where('next_date', '<', date('Y-m-d'))->where('advocate_id', $advocate_id)->where('is_nb', 'No')->get();
       	$court_cases = CourtCase::where('next_date', '<', date('Y-m-d'))->where('is_nb', 'No')->get();
          
-		 if (count($court_cases) > 0){$caseCount = count($court_cases);}else{$caseCount = '';}
+		if (count($court_cases) > 0){$caseCount = count($court_cases);}else{$caseCount = '';}
         
-		 $html = '<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-tasks"></i>
-				<span class="label label-primary">'.$caseCount.'</span>
+		$html = '<li class="dropdown lp-tasks-item lp-nav-item">
+			<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" title="'.__('frontend.pending_cases').'">
+				<i class="fa fa-tasks"></i>'.($caseCount ? '<span class="label label-primary">'.$caseCount.'</span>' : '').'
 			</a>';
 		
-		$html .='<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">';
+		$html .='<ul id="menu1" class="dropdown-menu list-unstyled msg_list lp-dropdown-menu lp-tasks-dropdown" role="menu">';
+		$html .='<li class="lp-dropdown-header">
+					<span class="lp-dropdown-title"><i class="fa fa-tasks"></i> '.__('frontend.pending_cases').'</span>
+					'.($caseCount ? '<span class="lp-dropdown-badge">'.$caseCount.'</span>' : '').'
+				 </li>';
+		
+		$html .='<div class="lp-dropdown-scroll">';
 		if (count($court_cases) > 0)
         {
 			foreach($court_cases as $court_case)
             {
-			$name = static::getAdvocateClientFullName($court_case->advo_client_id); 
-			$caseType = CaseType::select('case_type_name')->where('id',$court_case->case_types)->first();
-			 
-			$html .='<li>
-						<a href="'.url('admin/case-running/'.$court_case->id).'">
-							<div class="mesge">
-								<i class="fa fa-user"></i> '.$name.'&nbsp;'.$caseType->case_type_name.'/'.$court_case->registration_number.'
-							</div>
-						</a>
-					</li>';
+				$name = static::getAdvocateClientFullName($court_case->advo_client_id); 
+				$caseType = CaseType::select('case_type_name')->where('id',$court_case->case_types)->first();
+				$caseTypeName = $caseType ? $caseType->case_type_name : '';
+				$regNumber = $court_case->registration_number;
+				 
+				$html .='<li>
+							<a href="'.url('admin/case-running/'.$court_case->id).'" class="lp-dropdown-item">
+								<div class="lp-item-icon lp-icon-case">
+									<i class="fa fa-briefcase"></i>
+								</div>
+								<div class="lp-item-content">
+									<div class="lp-item-title">'.$name.'</div>
+									<div class="lp-item-subtitle">
+										<span class="lp-case-type">'.$caseTypeName.'</span>
+										<span class="lp-case-reg">#'.$regNumber.'</span>
+									</div>
+								</div>
+							</a>
+						</li>';
 			}	
-			$html .='<li>
-						<a href="'.url('admin/case-running/').'">
-							<div class="text-center link-block">
-								<strong>View All Task </strong> &nbsp; <i class="fa fa-angle-right"></i>
-							</div>
-						</a>
-
-					</li>';
 		}else{
-			$html .='<li>
-				<a href="javascript:void(0);">
-					<div class="mesge">
-						<i class="fa fa-info fa-fw"></i> You dont`t have pending case(s)
-					</div>
-				</a>
-			</li>';
+			$html .='<li class="lp-empty-item">
+						<div class="lp-empty-state">
+							<i class="fa fa-check-circle-o"></i>
+							<span>'.__('frontend.no_pending_cases').'</span>
+						</div>
+					</li>';
 		}		
-		$html .='	</ul>
-		</li>';
+		$html .='</div>'; // close lp-dropdown-scroll
+		$html .='<li class="lp-dropdown-footer">
+					<a href="'.url('admin/case-running/').'" class="lp-footer-link">
+						<span>'.__('frontend.view_all_tasks').'</span>
+						<i class="fa fa-angle-left lp-rtl-flip"></i>
+					</a>
+				 </li>';
+		$html .='</ul></li>';
         
         return $html;  
     }

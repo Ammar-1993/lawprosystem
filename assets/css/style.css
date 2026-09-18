@@ -76,12 +76,6 @@ input:checked + .slider:before {
   overflow-x: none;
 }
 
-.navbar-nav .open .dropdown-menu.msg_list {
-  width: 800px;
-  height: -8px;
-  overflow-y: auto;
-  max-height: 250px;
-}
 
 .swal2-popup {
   font-size: 1.3rem !important;

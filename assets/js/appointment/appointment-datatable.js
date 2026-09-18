@@ -18,13 +18,12 @@ var DatatableRemoteAjaxDemo = (function () {
       serverSide: true,
       stateSave: true,
       lengthMenu: [10, 25, 50],
+      autoWidth: false,
       responsive: true,
       oLanguage: {
         sProcessing:
           "<div class='loader-container'><div id='loader'></div></div>",
       },
-      width: 200,
-      // "iDisplayLength": 2,
       ajax: {
         url: $("#Appointmentdatatable").attr("data-url"),
         dataType: "json",
@@ -37,19 +36,19 @@ var DatatableRemoteAjaxDemo = (function () {
       },
       order: [[0, "desc"]],
       columns: [
-        {
-          data: "id",
-        },
-
-        { data: "name" },
-        { data: "mobile" },
-        { data: "date" },
-        { data: "time" },
-        { data: "is_active" },
-        { data: "action" },
+        { data: "id", className: "text-center lp-col-id" },
+        { data: "name", className: "lp-col-name" },
+        { data: "mobile", className: "lp-col-mobile" },
+        { data: "date", className: "lp-col-date" },
+        { data: "time", className: "lp-col-time" },
+        { data: "is_active", orderable: false, className: "lp-col-status" },
+        { data: "action", orderable: false, className: "text-center lp-col-action" },
       ],
       drawCallback: function () {
-        $(".appointment-select2").select2();
+        $(".appointment-select2").select2({
+          minimumResultsForSearch: Infinity,
+          width: "100%",
+        });
       },
     });
   };

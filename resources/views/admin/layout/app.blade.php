@@ -53,14 +53,15 @@
     <link href="{{ asset('assets/admin/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css') }}"
         rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    {{-- Law Pro Design System — يُحمَّل أخيراً لأخذ الأولوية على كل CSS سابق --}}
-    <link href="{{ mix('css/lawpro-theme.css') }}" rel="stylesheet">
 
     @if ($dir == 'rtl')
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
         <link href="{{ asset('assets/admin/vendors/bootstrap/dist/css/bootstrap-rtl.min.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/admin/build/css/custom-rtl.min.css') }}" rel="stylesheet">
     @endif
+
+    {{-- Law Pro Design System — يُحمَّل أخيراً لأخذ الأولوية على كل CSS سابق --}}
+    <link href="{{ mix('css/lawpro-theme.css') }}" rel="stylesheet">
 
 </head>
 

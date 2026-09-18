@@ -36,7 +36,7 @@
 
                                 <div class="table-responsive">
                                 <table id="VendorAccountDatatable" class="table lp-table"
-                                    data-url="{{ url('admin/expense-filter-list') }}" data-vendor="{{ $client- width="100%">id }}">
+                                    data-url="{{ url('admin/expense-filter-list') }}" data-vendor="{{ $client->id }}" width="100%">
                                     <thead>
                                         <tr>
                                             <th width="3%">{{ __('frontend.no') }}</th>

@@ -589,12 +589,14 @@ return [
         'description' => 'الوصف',
         'cancel' => 'إلغاء',
         'save' => 'حفظ',
-
     ],
 
-
-
-
-
+    'pending_cases' => 'المهام والقضايا المعلقة',
+    'view_all_tasks' => 'عرض جميع المهام',
+    'no_pending_cases' => 'لا توجد قضايا معلقة حالياً',
+    'notifications' => 'الإشعارات والتنبيهات',
+    'no_notifications' => 'لا توجد إشعارات جديدة',
+    'cases_today' => 'لديك :count قضية اليوم',
+    'view_all_notifications' => 'عرض جميع الإشعارات',
 
 ];

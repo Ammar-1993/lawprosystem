@@ -22,60 +22,45 @@
                 <div class="x_panel lp-panel">
 
                     <div class="x_title">
-                        <div class="row">
-                            <div class="col-md-3 form-group lp-form-group">
-                                <label for="date_from">{{ __('frontend.appointment.from_date') }} </label>
-                                <input type="text" class="form-control lp-input dateFrom" id="date_from" autocomplete="off"
-                                readonly="">
-
-
-
+                        <div class="row lp-filter-row">
+                            <div class="col-md-3 col-sm-6 col-xs-12 form-group lp-form-group">
+                                <label for="date_from">{{ __('frontend.appointment.from_date') }}</label>
+                                <input type="text" class="form-control lp-input dateFrom" id="date_from" autocomplete="off" readonly="">
                             </div>
 
-                            <div class="col-md-3 form-group lp-form-group">
-                                <label for="date_to">{{ __('frontend.appointment.to_date') }} </label>
-
-                                <input type="text" class="form-control lp-input dateTo" id="date_to" autocomplete="off"
-                                    readonly="">
-
-
+                            <div class="col-md-3 col-sm-6 col-xs-12 form-group lp-form-group">
+                                <label for="date_to">{{ __('frontend.appointment.to_date') }}</label>
+                                <input type="text" class="form-control lp-input dateTo" id="date_to" autocomplete="off" readonly="">
                             </div>
 
-                            <ul class="nav navbar-left panel_toolbox">
-
-                                <br>
-                                &nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-danger lp-btn lp-btn-danger appointment-margin" type="button" id="btn_clear"
-                                    name="btn_clear">{{ __('frontend.appointment.clear') }}
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-group lp-form-group lp-filter-actions">
+                                <button type="submit" id="search" class="btn btn-success lp-btn lp-btn-primary">
+                                    <i class="fa fa-search"></i>&nbsp;{{ __('frontend.appointment.search') }}
                                 </button>
-                                <button type="submit" id="search" class="btn btn-success lp-btn lp-btn-primary appointment-margin"><i
-                                        class="fa fa-search"></i>&nbsp;{{ __('frontend.appointment.search') }}
+                                <button class="btn btn-danger lp-btn lp-btn-danger" type="button" id="btn_clear" name="btn_clear">
+                                    {{ __('frontend.appointment.clear') }}
                                 </button>
-                            </ul>
-
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
 
                     <div class="x_content">
-
                         <div class="table-responsive">
-                        <table id="Appointmentdatatable" class="table lp-table appointment_table"
-                            data-url="{{ route('appointment.list') }}" width="100%">
-                            <thead>
-                                <tr>
-                                    <th>{{ __('frontend.appointment.no') }}</th>
-                                    <th width="40%">{{ __('frontend.appointment.client_name') }}</th>
-                                    <th width="10%">{{ __('frontend.appointment.mobile') }}</th>
-                                    <th width="10%;">{{ __('frontend.appointment.date') }}</th>
-                                    <th>{{ __('frontend.appointment.time') }}</th>
-                                    <th data-orderable="false">{{ __('frontend.appointment.status') }}</th>
-                                    <th data-orderable="false">{{ __('frontend.appointment.action') }}</th>
-                                </tr>
-                            </thead>
-
-
-                        </table>
+                            <table id="Appointmentdatatable" class="table lp-table appointment_table"
+                                data-url="{{ route('appointment.list') }}" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th width="6%" class="text-center">{{ __('frontend.appointment.no') }}</th>
+                                        <th width="26%">{{ __('frontend.appointment.client_name') }}</th>
+                                        <th width="15%">{{ __('frontend.appointment.mobile') }}</th>
+                                        <th width="13%">{{ __('frontend.appointment.date') }}</th>
+                                        <th width="12%">{{ __('frontend.appointment.time') }}</th>
+                                        <th width="16%" data-orderable="false">{{ __('frontend.appointment.status') }}</th>
+                                        <th width="12%" data-orderable="false" class="text-center">{{ __('frontend.appointment.action') }}</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -593,11 +593,17 @@ return [
         'status' => 'Status',
         'action' => 'Action',
         'back' => 'Back to List',
-        'action' => 'New Client',
-        'action' => 'Existing Client',
-        'action' => 'Note',
+        'new_client' => 'New Client',
+        'existing_client' => 'Existing Client',
+        'note' => 'Note',
     ],
 
-
+    'pending_cases' => 'Pending Cases & Tasks',
+    'view_all_tasks' => 'View All Tasks',
+    'no_pending_cases' => 'You don\'t have pending cases',
+    'notifications' => 'Notifications',
+    'no_notifications' => 'You don\'t have any notifications',
+    'cases_today' => 'You have :count case(s) today',
+    'view_all_notifications' => 'View All Notifications',
 
 ];
