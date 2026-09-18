@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="table-responsive">
-                    <table id="case_history_list" class="table lp-table row-border" >
+                    <table id="case_history_list" class="table lp-table row-border"  width="100%">
                         <thead>
                         <tr>
 

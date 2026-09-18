@@ -61,7 +61,7 @@
 
                         <div class="table-responsive">
                         <table id="Appointmentdatatable" class="table lp-table appointment_table"
-                            data-url="{{ route('appointment.list') }}">
+                            data-url="{{ route('appointment.list') }}" width="100%">
                             <thead>
                                 <tr>
                                     <th>{{ __('frontend.appointment.no') }}</th>

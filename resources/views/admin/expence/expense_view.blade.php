@@ -86,7 +86,7 @@
 
                                                 <div class="panel-body">
                                                     <div class="table-responsive">
-                                                        <table class="table lp-table table-condensed">
+                                                        <table class="table lp-table table-condensed" width="100%">
                                                             <thead>
 
                                                             <tr>
@@ -147,7 +147,7 @@
                                         </div>
                                         @php }  @endphp
                                         <div class="pull-right col-md-5 margin-right-32">
-                                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
+                                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total" width="100%">
                                                 <tr>
                                                     <td width="75%" align="right"><b
                                                             class="font-size-expense-17">{{__('frontend.subtotal')}}</b></td>

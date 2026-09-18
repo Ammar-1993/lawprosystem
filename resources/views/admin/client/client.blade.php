@@ -21,7 +21,7 @@
 
                     <div class="x_content">
                         <div class="table-responsive">
-                        <table id="clientDataTable" class="table lp-table" data-url="{{ route('clients.list') }}">
+                        <table id="clientDataTable" class="table lp-table" data-url="{{ route('clients.list') }}" width="100%">
                             <thead>
                             <tr>
                                 {{-- أوزان أعمدة واقعية بدل 5% موحدة لكل الأعمدة: كانت تمنح

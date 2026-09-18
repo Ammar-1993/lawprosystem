@@ -20,7 +20,7 @@
                     <div class="x_content">
 
                         <div class="table-responsive">
-                        <table id="clientDataTable" class="table lp-table" data-url="{{ route('task.list') }}">
+                        <table id="clientDataTable" class="table lp-table" data-url="{{ route('task.list') }}" width="100%">
                             <thead>
                                 <tr>
                                     <th>{{ __('frontend.task.no') }}</th>

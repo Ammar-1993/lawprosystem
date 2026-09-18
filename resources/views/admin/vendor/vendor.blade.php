@@ -22,7 +22,7 @@
 
                         <div class="table-responsive">
                         <table id="Vendordatatable" class="table lp-table"
-                               data-url="{{ route('vendor.list') }}">
+                               data-url="{{ route('vendor.list') }}" width="100%">
                             <thead>
                             <tr>
                                 <th>{{__('frontend.no')}}</th>

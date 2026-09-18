@@ -42,7 +42,7 @@
 
                     <div class="table-responsive">
                     <table id="clientCaselistDatatable1" class="table lp-table"
-                           data-url="{{ route('client.case_view.list') }}">
+                           data-url="{{ route('client.case_view.list') }}" width="100%">
                         <thead>
                         <tr>
                             <th>{{ __('frontend.client.no') }} </th>

@@ -113,7 +113,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="table-responsive">
-                                <table class="table lp-table tableInv" id="purchaseInvoice" data-repeater-list="invoice_items">
+                                <table class="table lp-table tableInv" id="purchaseInvoice" data-repeater-list="invoice_items" width="100%">
                                     <thead class="thead-inverse">
                                         <tr class="tbl_header_color dynamicRows">
 

@@ -23,7 +23,7 @@
                     <div class="x_content">
 
                         <div class="table-responsive">
-                        <table id="roleDataTable" class="table lp-table" data-url="{{ route('role.list') }}">
+                        <table id="roleDataTable" class="table lp-table" data-url="{{ route('role.list') }}" width="100%">
                             <thead>
                                 <tr>
                                     <th width="5%">{{ __('frontend.no') }}</th>

@@ -70,7 +70,7 @@
       
         <div class="row">
           <div class="col-xs-12 table">
-              <table class="table lp-table table-bordered">
+              <table class="table lp-table table-bordered" width="100%">
                 <thead>
                   <tr>
                     <th style="width: 20%;">{{__('frontend.items')}}</th>
@@ -176,7 +176,7 @@
           <div class="col-xs-5">
            
             <div class="table-responsive">
-              <table class="table lp-table" align="right" style="margin-right: 30px;"> 
+              <table class="table lp-table" align="right" style="margin-right: 30px;" width="100%"> 
                 <tbody>
                   <tr style="font-size: 17px;">
                     <th style="width: 70%; text-align: right;">{{__('frontend.subtotal')}}</th>

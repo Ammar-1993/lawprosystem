@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="table-responsive">
-                    <table id="case_transfer_list" class="table lp-table row-border">
+                    <table id="case_transfer_list" class="table lp-table row-border" width="100%">
                         <thead>
                         <tr>
                             <th width="5%">{{__('frontend.no')}}</th>

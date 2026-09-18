@@ -25,7 +25,7 @@
                     <div class="x_content">
 
                         <div class="table-responsive">
-                        <table id="user_table" class="table lp-table">
+                        <table id="user_table" class="table lp-table" width="100%">
                             <thead>
                                 <tr>
                                     <th width="5%">{{__('frontend.no')}}</th>

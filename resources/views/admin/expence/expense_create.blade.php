@@ -113,7 +113,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="table-responsive">
-                                <table class="table lp-table tableInv" id="purchaseInvoice" data-repeater-list="group">
+                                <table class="table lp-table tableInv" id="purchaseInvoice" data-repeater-list="group" width="100%">
                                     <thead class="thead-inverse">
                                     <tr class="tbl_header_color dynamicRows">
                                         <th width="30%" class="text-center">
@@ -215,7 +215,7 @@
                                     </div>
                                 </div>
                                 <div class="pull-right col-md-5">
-                                    <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
+                                    <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total" width="100%">
                                         <tr>
                                             <th class="text-left expence-p-top-18">{{__('frontend.subtotal')}}</th>
                                             <td class="text-center">
@@ -227,7 +227,7 @@
                                         </tr>
                                     </table>
 
-                                    <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
+                                    <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total" width="100%">
                                         <tr>
                                             <th class="text-center">
                                                 <select id="tax" class="tax form-control lp-input" name="tax">
@@ -247,7 +247,7 @@
                                         </tr>
                                     </table>
 
-                                    <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
+                                    <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total" width="100%">
 
                                         <tr>
                                             <th class="text-left expence-p-top-18">{{__('frontend.total')}}</th>

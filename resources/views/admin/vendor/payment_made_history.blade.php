@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-xs-12 table">
             <div class="table-responsive">
-            <table id="datatable" class="table lp-table table-striped table-bordered">
+            <table id="datatable" class="table lp-table table-striped table-bordered" width="100%">
                 <thead>
                   <tr>
                     <th>{{__('frontend.invoice_no')}}</th>

@@ -9,7 +9,7 @@
                 <div class="x_content">
                     @include('admin.case.view.card_header')
                     <div class="table-responsive">
-                    <table id="datatable" class="table lp-table table-striped table-bordered">
+                    <table id="datatable" class="table lp-table table-striped table-bordered" width="100%">
                         <thead>
                         <tr>
                             <th>{{__('frontend.no')}}</th>

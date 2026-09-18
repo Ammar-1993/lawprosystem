@@ -39,7 +39,7 @@
 
                     <div class="table-responsive">
                     <table id="clientAccountlistDatatable" class="table lp-table" data-url="{{ route('invoice-list-client') }}"
-                           >
+                            width="100%">
                         <thead>
                         <tr>
                             <th>{{ __('frontend.client.no') }}</th>

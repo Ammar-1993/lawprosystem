@@ -23,7 +23,7 @@
                   <div class="x_content">
 
                     <div class="table-responsive">
-                    <table class="table lp-table">
+                    <table class="table lp-table" width="100%">
                         <thead>
                           <tr>
                             <th width="30%">{{__('frontend.menu')}}</th>

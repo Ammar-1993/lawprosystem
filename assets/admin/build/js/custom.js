@@ -132,7 +132,7 @@ $MENU_TOGGLE.on('click', function() {
 				api.responsive.recalc();
 			}
 		});
-	}, 50);
+	}, 350);
 });
 
 	// check active menu

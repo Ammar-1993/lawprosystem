@@ -25,7 +25,7 @@
 
                         <div class="table-responsive">
                         <table id="tagDataTable" class="table lp-table" data-url="{{ route('case.status.list') }}"
-                              >
+                               width="100%">
                             <thead>
                             <tr>
                                 <th width="5%">{{__('frontend.no')}}</th>

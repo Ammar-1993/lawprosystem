@@ -18,7 +18,7 @@
                     <div class="x_content">
 
                         <div class="table-responsive">
-                        <table id="datatable" class="table lp-table">
+                        <table id="datatable" class="table lp-table" width="100%">
                             <thead>
                                 <tr>
                                     <th><i class="fa fa-user"></i>&nbsp;&nbsp;Login Username</th>

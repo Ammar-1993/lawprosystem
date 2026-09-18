@@ -76,7 +76,7 @@
 
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table lp-table table-condensed">
+                                        <table class="table lp-table table-condensed" width="100%">
                                             <thead>
                                             <tr>
                                                 <td class="text-center"><strong>{{__('frontend.no')}}</strong></td>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="pull-right col-md-4 col-sm-12 col-xs-12">
 
-                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total">
+                            <table class="table lp-table row-border dataTable no-footer" id="tab_logic_total" width="100%">
 
                                 <tbody>
                                 <tr>

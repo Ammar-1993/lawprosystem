@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="table-responsive">
-                        <table id="case_list" class="table lp-table">
+                        <table id="case_list" class="table lp-table" width="100%">
                             <thead>
                             <tr>
                                 <th width=" 3%">{{__('frontend.no')}}</th>
