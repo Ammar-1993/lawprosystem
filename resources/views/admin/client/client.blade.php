@@ -24,12 +24,16 @@
                         <table id="clientDataTable" class="table lp-table" data-url="{{ route('clients.list') }}">
                             <thead>
                             <tr>
-                                <th width="5%">{{__('frontend.client.no')}}</th>
+                                {{-- أوزان أعمدة واقعية بدل 5% موحدة لكل الأعمدة: كانت تمنح
+                                     عمود "اسم الموكل" الوحيد بلا width كل المساحة المتبقية،
+                                     فيتضخم بنسبة تصل 15:1 مقابل الأعمدة الأخرى على شاشات
+                                     ≥1920px ويصعب تتبع السطر بصرياً. --}}
+                                <th width="6%">{{__('frontend.client.no')}}</th>
                                 <th>{{__('frontend.client.client_name')}}</th>
-                                <th width="5%">{{__('frontend.client.mobile')}}</th>
-                                <th width="5%" data-orderable="false">{{__('frontend.client.case')}}</th>
-                                <th width="5%" data-orderable="false">{{__('frontend.client.status')}}</th>
-                                <th width="5%" data-orderable="false" class="text-center">{{__('frontend.client.action')}}</th>
+                                <th width="14%">{{__('frontend.client.mobile')}}</th>
+                                <th width="10%" data-orderable="false">{{__('frontend.client.case')}}</th>
+                                <th width="10%" data-orderable="false">{{__('frontend.client.status')}}</th>
+                                <th width="10%" data-orderable="false" class="text-center">{{__('frontend.client.action')}}</th>
                             </tr>
                             </thead>
                         </table>

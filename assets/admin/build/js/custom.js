@@ -120,8 +120,18 @@ $MENU_TOGGLE.on('click', function() {
 
 	setContentHeight();
 
+	// إعادة حساب عرض الأعمدة + Responsive بعد طيّ/فتح الشريط الجانبي.
+	// width:100% !important (lawpro-theme.scss) يحل مشكلة تجميد عرض
+	// الجدول بالبكسل؛ هذا الاستدعاء يضمن أيضاً أن DataTables Responsive
+	// يُظهر من جديد أي أعمدة كانت مخفية بزر "+" إن اتسعت الحاوية الآن.
 	setTimeout(function () {
-		$('.dataTable').each ( function () { $(this).DataTable().columns.adjust().draw(false); });
+		$('.dataTable').each(function () {
+			var api = $(this).DataTable();
+			api.columns.adjust();
+			if (api.responsive && typeof api.responsive.recalc === 'function') {
+				api.responsive.recalc();
+			}
+		});
 	}, 50);
 });
 

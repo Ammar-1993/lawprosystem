@@ -18,7 +18,6 @@ var DatatableRemoteAjaxDemo = function () {
             "lengthMenu": [10, 25, 50],
             "responsive": true,
             "oLanguage": {sProcessing: "<div class='loader-container'><div id='loader'></div></div>"},
-            "width":200,
             // "iDisplayLength": 2,
             "ajax": {
                 "url": $('#tagDataTable').attr('data-url'),

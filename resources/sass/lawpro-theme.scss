@@ -459,78 +459,62 @@ body.rtl        .flt-mesege { left: 0; right: auto; }
    لأنه كان يفرض إزاحة 230px/70px بلا أي @media، فيُبطل قاعدة
    Gentelella الأصلية (custom.min.css: @media max-width:991px)
    التي تُخفي الشريط الجانبي على الشاشات الصغيرة — وهذا هو سبب
-   انكسار كل الصفحات على الموبايل (الصفحة تُزاح 230px وتُقصّ). */
+   انكسار كل الصفحات على الموبايل (الصفحة تُزاح 230px وتُقصّ).
+
+   C-5 (توحيد الإزاحة): مُعاد كتابته باستخدام متغيرات CSS + الخاصية
+   المنطقية margin-inline-start بدل تكرار margin-left/margin-right
+   لكل من LTR و RTL على حدة (كان 12 قاعدة صريحة، أصبحت 4). النتيجة
+   الحسابية مطابقة 100% للأصل: margin-inline-start يترجمها المتصفح
+   تلقائياً إلى margin-left في LTR و margin-right في RTL بحسب
+   html[dir]، فلا حاجة لتكرار القاعدة باتجاهين. width محسوبة أيضاً
+   بمتغير واحد بدل تكرار calc(100% - 230px) لكل من nav-md/LTR/RTL. */
+:root {
+    --lp-sidebar-w: 230px;
+    --lp-sidebar-w-sm: 70px;
+}
 @media (min-width: 992px) {
 
-/* 1. LTR Layout (English) */
+.nav-md .top_nav,
+.nav-md .container.body .right_col,
+.nav-md .right_col,
+.nav-md .lp-footer {
+    margin-inline-start: var(--lp-sidebar-w) !important;
+    margin-inline-end: 0 !important;
+}
+.nav-sm .top_nav,
+.nav-sm .container.body .right_col,
+.nav-sm .right_col,
+.nav-sm .lp-footer {
+    margin-inline-start: var(--lp-sidebar-w-sm) !important;
+    margin-inline-end: 0 !important;
+}
 .nav-md .top_nav {
-    margin-left: 230px !important;
-    margin-right: 0 !important;
-    width: calc(100% - 230px) !important;
+    width: calc(100% - var(--lp-sidebar-w)) !important;
 }
 .nav-sm .top_nav {
-    margin-left: 70px !important;
-    margin-right: 0 !important;
-    width: calc(100% - 70px) !important;
-}
-.nav-md .container.body .right_col,
-.nav-md .right_col {
-    margin-left: 230px !important;
-    margin-right: 0 !important;
-}
-.nav-sm .container.body .right_col,
-.nav-sm .right_col {
-    margin-left: 70px !important;
-    margin-right: 0 !important;
-}
-.nav-md .lp-footer {
-    margin-left: 230px !important;
-    margin-right: 0 !important;
-}
-.nav-sm .lp-footer {
-    margin-left: 70px !important;
-    margin-right: 0 !important;
-}
-
-/* 2. RTL Layout (Arabic) */
-html[dir='rtl'] .nav-md .top_nav,
-body.rtl        .nav-md .top_nav {
-    margin-left: 0 !important;
-    margin-right: 230px !important;
-    width: calc(100% - 230px) !important;
-}
-html[dir='rtl'] .nav-sm .top_nav,
-body.rtl        .nav-sm .top_nav {
-    margin-left: 0 !important;
-    margin-right: 70px !important;
-    width: calc(100% - 70px) !important;
-}
-html[dir='rtl'] .nav-md .container.body .right_col,
-html[dir='rtl'] .nav-md .right_col,
-body.rtl        .nav-md .container.body .right_col,
-body.rtl        .nav-md .right_col {
-    margin-left: 0 !important;
-    margin-right: 230px !important;
-}
-html[dir='rtl'] .nav-sm .container.body .right_col,
-html[dir='rtl'] .nav-sm .right_col,
-body.rtl        .nav-sm .container.body .right_col,
-body.rtl        .nav-sm .right_col {
-    margin-left: 0 !important;
-    margin-right: 70px !important;
-}
-html[dir='rtl'] .nav-md .lp-footer,
-body.rtl        .nav-md .lp-footer {
-    margin-left: 0 !important;
-    margin-right: 230px !important;
-}
-html[dir='rtl'] .nav-sm .lp-footer,
-body.rtl        .nav-sm .lp-footer {
-    margin-left: 0 !important;
-    margin-right: 70px !important;
+    width: calc(100% - var(--lp-sidebar-w-sm)) !important;
 }
 
 } /* end @media (min-width: 992px) */
+
+/* ============================================================
+   LAW PRO - ULTRA-WIDE CONTENT CAP (min-width: 1600px)
+   .container.body { width:100% } (custom.min.css) يسمح للمحتوى
+   بالتمدد بلا حد أقصى على الشاشات العريضة جداً (≥1600px)، فتتمدد
+   أعمدة الجداول ذات النص الحر (اسم الموكل مثلاً) بشكل غير مقروء
+   (نسبة تصل 15:1 مقابل الأعمدة الثابتة العرض على شاشة 2560px).
+   الحل: سقف max-width فقط دون توسيط (margin-inline: auto) — لأن
+   .right_col يحمل بالفعل margin-left/right: 230px|70px !important
+   من نظام إزاحة الشريط الجانبي (القسم أعلاه)، وتوسيطه بهامش auto
+   سيتصادم مع هذا الهامش الثابت. سقف العرض وحده كافٍ لمنع تضخّم
+   الأعمدة، وأي مساحة متبقية تظهر كهامش فارغ آمن بصرياً، لا كتمدد
+   غير مقروء لعمود واحد. نستهدف .right_col مباشرة (لا div فرعي) لأن
+   بنية @yield('content') الداخلية تختلف بين الصفحات. */
+@media (min-width: 1600px) {
+    .right_col {
+        max-width: 1520px;
+    }
+}
 
 /* ============================================================
    LAW PRO - MOBILE OFF-CANVAS SIDEBAR (max-width: 991px)
@@ -1088,6 +1072,21 @@ body.rtl        .daterangepicker {
     }
 }
 
+/* ── منع DataTables من تجميد عرض الجدول بالبكسل عند التهيئة ──
+   جداول .lp-table لا تحمل width="100%" ولا style مباشر، فيدخل
+   محرّك DataTables (jquery.dataTables.js: _fnAdjustColumnSizing) في
+   مسار يكتب style="width:NNNpx" بقيمة مطلقة تعادل عرض الحاوية لحظة
+   التهيئة فقط، ولا يعاد حسابها عند تغيّر عرض الحاوية (طيّ/فتح الشريط
+   الجانبي، أو تغيير حجم النافذة) لأن الشرط الداخلي الذي يُفعِّل
+   مستمع resize هو (tableWidthAttr || scrollX) وكلاهما غير متوفر هنا.
+   النتيجة المرصودة: فراغ يصل حتى 160px يسار/يمين الجدول بعد طيّ
+   القائمة، أو شريط تمرير أفقي بعد إعادة فتحها/تصغير النافذة.
+   الحل: فرض width:100% بأولوية أعلى من inline style المحقون. */
+table.dataTable.lp-table,
+.table-responsive > table.dataTable {
+    width: 100% !important;
+}
+
 /* RTL support for table corners */
 html[dir='rtl'] .table.lp-table,
 html[dir='rtl'] .lp-table,
@@ -1197,5 +1196,30 @@ body.rtl .lp-table {
     /* عمود الإجراء (زر الحذف) لا يحتاج تسمية فوقه، فقط محاذاة الزر */
     #purchaseInvoice th[data-label] .btn {
         width: 100%;
+    }
+}
+
+/* ============================================================
+   LAW PRO - COUNTER GENTELELLA LEGACY RULES @1200px (C-3 / C-4)
+   custom.min.css يفرض على @media (max-width:1200px):
+     1) .graph,.tile { zoom: 85% } — خاصية zoom غير قياسية (غير
+        مدعومة في Firefox، وتتصرف بشكل مختلف عن transform: scale)،
+        تُنتج قفزة حجم حادة عند عبور 1200px بالضبط (نقطة شائعة
+        للابتوبات 1280×720 مع شريط أدوات المتصفح).
+     2) .x_title h2 { width:62% } — يقصّ عناوين اللوحات (x_panel)
+        بـ ellipsis حتى لو كانت هناك مساحة فارغة كافية بجانبها،
+        وهو ضيق خاصة للعناوين العربية الطويلة.
+   نُحمَّل lawpro-theme.css أخيراً في <head> (بعد custom.min.css)،
+   فهذه القواعد تتغلب عليه بنفس الخصوصية (Specificity) دون !important
+   إضافي على .zoom، وبتحديد أعلى قليلاً على .x_title h2 (تطابق
+   السياق نفسه) لضمان الأولوية بلا حاجة لتعديل الملف المُورَّد. */
+@media (max-width: #{$bp-xl}) {
+    .graph,
+    .tile {
+        zoom: 1;
+    }
+    .x_title h2 {
+        width: auto;
+        max-width: 100%;
     }
 }
