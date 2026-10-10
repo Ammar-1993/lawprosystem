@@ -258,17 +258,6 @@ Access the system at: **http://127.0.0.1/lawprosystem** or **http://localhost:80
 
 ---
 
-## 🤝 Author
-
-**Ammar Al-Najjar** — Full-Stack Software Engineer
-
-Sole developer of this system's architecture, backend, database, and frontend.
-
-* GitHub: https://github.com/Ammar-1993
-* Portfolio: https://ammar1993.vercel.app/
-
----
-
 ## 👤 Author
 
 <div align="center">
